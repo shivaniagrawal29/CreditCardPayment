@@ -20,5 +20,6 @@ public class IUserServiceImpl implements IUserService{
 	public User changePassword(long id, User user)
 	{
 		
+		return user;
 	}
 }
