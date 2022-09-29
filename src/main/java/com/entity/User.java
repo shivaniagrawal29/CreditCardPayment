@@ -2,8 +2,10 @@ package com.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
 
 @Entity
+//@Inheritance(strategy = InheritanceType.JOINED)
 public class User{
     
     private long userId;
