@@ -1,23 +1,19 @@
 package com.entity;
 
-
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
-
 
 @Entity
 public class User{
     
-    private String userId;
+    private long userId;
     private String password;
     
     @Id
-    public String getUserId() {
+    public long getUserId() {
         return userId;
     }
-    public void setUserId(String userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
     
