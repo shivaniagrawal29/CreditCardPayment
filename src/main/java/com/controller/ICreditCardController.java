@@ -29,7 +29,7 @@ public class ICreditCardController {
 		return c1;
 	}
 	
-	@DeleteMapping("/removecreditcard/{cid}")
+	@DeleteMapping("/removecreditcard/{cardId}")
 	public CreditCard removeCreditCard(@PathVariable long cardId) {
 		
 		CreditCard c1 = creditcardservice.removeCreditCard(cardId);
@@ -43,7 +43,7 @@ public class ICreditCardController {
 		return c1;
 	}
 	
-	@GetMapping("/getcreditcard/{cid}")
+	@GetMapping("/getcreditcard/{cardId}")
 	public CreditCard getCreditCard(@PathVariable long cardId) {
 		CreditCard c1 = creditcardservice.getCreditCard(cardId);
 		return c1;

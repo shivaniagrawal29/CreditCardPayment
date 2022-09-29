@@ -2,6 +2,7 @@ package com.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class CreditCard {
@@ -23,7 +25,7 @@ public class CreditCard {
 	private LocalDate expiryDate;
 	private String bankName;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "jid", referencedColumnName = "userId")
 	@JsonBackReference
 	Customer customer;
