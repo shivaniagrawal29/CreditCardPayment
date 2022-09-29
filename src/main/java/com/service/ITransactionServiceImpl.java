@@ -25,8 +25,7 @@ public class ITransactionServiceImpl implements ITransactionService{
 	@Override
 	public Transaction removeTransaction(long id) {
 	     
-		Optional<Transaction> obj= transrepoo.findById(id);
-        Transaction transaction =(Transaction) obj.get();
+	   Transaction transaction= transrepoo.findById(id).orElseThrow();
 		transrepoo.deleteById(id);
 		return transaction;
 	}
@@ -34,9 +33,9 @@ public class ITransactionServiceImpl implements ITransactionService{
 	@Override
 	public Transaction updateTransaction(long id, Transaction transaction) {
 	
-		Optional<Transaction> obj=transrepoo.findById(id);
-		Transaction transaction1 =(Transaction) obj.get();
+		Transaction transaction1=transrepoo.findById(id).orElseThrow() ;
 		transaction1.setStatus(transaction.getStatus());
+		transaction1.setTranDate(transaction.getTranDate());
 		transrepoo.save(transaction1);
 		
 		return transaction1;
