@@ -34,8 +34,8 @@ public class IPaymentController {
 		return p1;
 	}
 	
-	@PutMapping("/updatepayment")
-	public Payment updatePayment(@RequestBody long id, Payment payment)
+	@PutMapping("/updatepayment/{id}")
+	public Payment updatePayment(@PathVariable long id,@RequestBody Payment payment)
 	{
 		Payment p = paymentservice.updatePayment(id, payment);
 		return p;

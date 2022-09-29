@@ -37,8 +37,8 @@ public class ICreditCardController {
 		return c1;
 	}
 	
-	@PutMapping("/updatecreditcard")
-	public CreditCard updateCreditCard(@RequestBody long cardId, CreditCard creditcard) {
+	@PutMapping("/updatecreditcard/{cardId}")
+	public CreditCard updateCreditCard(@PathVariable long cardId,@RequestBody CreditCard creditcard) {
 		CreditCard c1 = creditcardservice.updateCreditCard(cardId,creditcard);
 		return c1;
 	}
