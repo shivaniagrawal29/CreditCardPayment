@@ -15,7 +15,7 @@ public class CustomerServiceImpl implements ICustomerService{
 
 	
 	@Override
-	public Customer addcustomer(Customer customer) {
+	public Customer addCustomer(Customer customer) {
 		
 		custRepo.save(customer);
 		

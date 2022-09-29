@@ -9,7 +9,7 @@ import com.entity.Customer;
 @Service
 public interface ICustomerService {
 	
-	Customer addcustomer(Customer customer);
+	Customer addCustomer(Customer customer);
 	
 	Customer removeCustomer(long custId);
 	
