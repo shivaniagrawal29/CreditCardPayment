@@ -25,13 +25,12 @@ public class UserServiceImpl implements IUserService{
 	}
 
 	@Override
-	public Long changePassword(long id, User user) {
+	public User changePassword(long id, User user) {
 		
 		User u1 = userRepo.findById(id).orElseThrow();
-		u1.setUserId(user.getUserId());
 		u1.setPassword(user.getPassword());
 		userRepo.save(u1);
-		return id;
+		return u1;
 	}
 
 }

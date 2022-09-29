@@ -42,9 +42,8 @@ public class CustomerServiceImpl implements ICustomerService{
 		updateCust.setContactNo(customer.getContactNo());
 		updateCust.setDob(customer.getDob());
 		updateCust.setEmail(customer.getEmail());
-		updateCust.setName(customer.getName()));
+		updateCust.setName(customer.getName());
 		updateCust.setPassword(customer.getPassword());
-		updateCust.setUserId(custId);
 		
 		custRepo.save(updateCust);
 		

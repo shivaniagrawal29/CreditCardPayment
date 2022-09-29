@@ -11,6 +11,6 @@ public interface IUserService {
 	
 	User signOut(User user);
 	
-	Long changePassword(long id, User user);
+	User changePassword(long id, User user);
 
 }

@@ -8,10 +8,11 @@ import javax.persistence.Inheritance;
 //@Inheritance(strategy = InheritanceType.JOINED)
 public class User{
     
+	@Id
     private long userId;
     private String password;
     
-    @Id
+    
     public long getUserId() {
         return userId;
     }

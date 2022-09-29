@@ -7,10 +7,9 @@ import javax.persistence.Id;
 @Entity
 public class Admin {
     
+	@Id
     private String userId;
-
-    @Id
-    @GeneratedValue
+    
     public String getUserId() {
         return userId;
     }
