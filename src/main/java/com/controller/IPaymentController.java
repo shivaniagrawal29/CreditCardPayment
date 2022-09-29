@@ -42,7 +42,7 @@ public class IPaymentController {
 	}
 	
 	@GetMapping("/getpayment/{id}")
-	public Payment getPayment(long id)
+	public Payment getPayment(@PathVariable long id)
 	{
 		Payment p = paymentservice.getPayment(id);
 		return p;

@@ -1,6 +1,7 @@
 package com.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -8,6 +9,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Address {
+	
+	@Id
 	private String doorNo;
 	private String street;
 	private String area;
@@ -75,6 +78,14 @@ public class Address {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+
+	@Override
+	public String toString() {
+		return "Address [doorNo=" + doorNo + ", street=" + street + ", area=" + area + ", city=" + city + ", state="
+				+ state + ", pincode=" + pincode + "]";
+	}
+
+	
 	
 	
 }
