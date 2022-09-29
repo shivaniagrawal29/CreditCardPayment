@@ -6,4 +6,5 @@ import com.entity.Transaction;
 
 public interface ITransactionRepository extends JpaRepository <Transaction,Long>{
 
+	
 }
