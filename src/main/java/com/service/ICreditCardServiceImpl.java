@@ -24,8 +24,7 @@ public class ICreditCardServiceImpl implements ICreditCardService {
 	}
 
 	@Override
-	public CreditCard removeCreditCard(long cardId) {
-		
+	public CreditCard removeCreditCard(long cardId) {	
 		CreditCard c1 = creditcardrepo.findById(cardId).orElseThrow();
 		creditcardrepo.deleteById(cardId);
 		return c1;

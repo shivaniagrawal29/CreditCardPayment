@@ -43,7 +43,6 @@ class IPaymentServiceImplTest {
 		p1.setAmountDue(20000);
 		
 		Optional<Payment> p2 = Optional.of(p1);
-		
 		Mockito.when(paymentrepo.findById((long) 1)).thenReturn(p2);
 		Mockito.when(paymentrepo.existsById(p1.getPaymentId())).thenReturn(false);
 		assertFalse(paymentrepo.existsById(p1.getPaymentId()));

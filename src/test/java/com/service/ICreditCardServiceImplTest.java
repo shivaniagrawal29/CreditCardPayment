@@ -90,7 +90,6 @@ class ICreditCardServiceImplTest {
 		c1.setExpiryDate(LocalDate.of(2016, 9, 23));
 		
 		Optional<CreditCard> c2 = Optional.of(c1);
-		
 		Mockito.when(creditcardrepo.findById((long) 1)).thenReturn(c2);
 		assertThat(creditcardservice.getCreditCard(1)).isEqualTo(c1);
 		

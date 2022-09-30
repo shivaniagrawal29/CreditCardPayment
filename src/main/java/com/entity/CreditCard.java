@@ -26,7 +26,7 @@ public class CreditCard {
 	private String bankName;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "customerid", referencedColumnName = "userId")
+	@JoinColumn(name = "customerid", referencedColumnName = "customerId")
 	@JsonBackReference
 	Customer customer;
 	

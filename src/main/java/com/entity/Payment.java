@@ -36,5 +36,4 @@ public class Payment {
 		return "Payment [paymentId=" + paymentId + ", method=" + method + ", amountDue=" + amountDue + "]";
 	}
 	
-	
 }

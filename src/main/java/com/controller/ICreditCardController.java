@@ -16,7 +16,7 @@ import com.entity.CreditCard;
 import com.service.ICreditCardServiceImpl;
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("home")
 public class ICreditCardController {
 	
 	@Autowired
@@ -31,7 +31,6 @@ public class ICreditCardController {
 	
 	@DeleteMapping("/removecreditcard/{cardId}")
 	public CreditCard removeCreditCard(@PathVariable long cardId) {
-		
 		CreditCard c1 = creditcardservice.removeCreditCard(cardId);
 		
 		return c1;

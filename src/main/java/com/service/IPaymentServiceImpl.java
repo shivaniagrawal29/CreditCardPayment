@@ -40,5 +40,4 @@ public class IPaymentServiceImpl implements IPaymentService{
 		return p1;
 	}
 	
-	
 }

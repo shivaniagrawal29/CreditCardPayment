@@ -14,7 +14,7 @@ import com.entity.Payment;
 import com.service.IPaymentService;
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("home")
 public class IPaymentController {
 	
 	@Autowired
