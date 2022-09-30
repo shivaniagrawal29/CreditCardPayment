@@ -6,18 +6,28 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Customer extends User{
 
+	
 	@Id
-	private long userId;
+	private long customerId;
     private String name;
     private String email;
     private String contactNo;
     private LocalDate dob;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="fk_address")
     private Address address;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="fk_userId")
+    User user;
     
 	public String getName() {
 		return name;

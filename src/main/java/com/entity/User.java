@@ -2,16 +2,18 @@ package com.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
+import javax.persistence.OneToOne;
 
 @Entity
-//@Inheritance(strategy = InheritanceType.JOINED)
+
 public class User{
     
 	@Id
     private long userId;
     private String password;
     
+    @OneToOne(mappedBy = "user")
+    Customer customer;
     
     public long getUserId() {
         return userId;
