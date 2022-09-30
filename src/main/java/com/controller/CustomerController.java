@@ -23,31 +23,31 @@ public class CustomerController {
 	CustomerServiceImpl csi;
 	
 	@PostMapping("/addcustomer")
-	public Customer addCustomer(@RequestBody Customer cust)
+	public Customer addCustomer(@RequestBody Customer customer)
 	{
-		Customer cust1 = csi.addCustomer(cust);
-		return cust1;
+		Customer customer1 = csi.addCustomer(customer);
+		return customer1;
 	}
 	
-	@DeleteMapping("/removecustomer/{custid}")
-	public Customer removeCustomer(@PathVariable Long custid)
+	@DeleteMapping("/removecustomer/{customerid}")
+	public Customer removeCustomer(@PathVariable long customerid)
 	{
-		Customer cust2 = csi.removeCustomer(custid);
-		return cust2;
+		Customer customer2 = csi.removeCustomer(customerid);
+		return customer2;
 	}
 	
-	@PutMapping("/updatecustomer/{custid}")
-	public Customer updateCustomer(@PathVariable Long custid, @RequestBody Customer cust)
+	@PutMapping("/updatecustomer/{customerid}")
+	public Customer updateCustomer(@PathVariable long customerid, @RequestBody Customer customer)
 	{
-		Customer cust3 = csi.updateCustomer(custid, cust);
-		return cust3;
+		Customer customer3 = csi.updateCustomer(customerid, customer);
+		return customer3;
 	}
 	
 	@GetMapping("/getcustomer/{custid}")
-	public Customer getCustomer(@PathVariable Long custid) 
+	public Customer getCustomer(@PathVariable long customerid) 
 	{
-		Customer cust4 = csi.getCustomer(custid);
-		return cust4;
+		Customer customer4 = csi.getCustomer(customerid);
+		return customer4;
 	}
 	
 	@GetMapping("/getallcustomers")

@@ -11,13 +11,13 @@ import com.repository.ICustomerRepository;
 public class CustomerServiceImpl implements ICustomerService{
 	
 	@Autowired
-	ICustomerRepository custRepo;
+	ICustomerRepository customerRepo;
 
 	
 	@Override
 	public Customer addCustomer(Customer customer) {
 		
-		custRepo.save(customer);
+		customerRepo.save(customer);
 		
 		return customer;
 	}
@@ -26,8 +26,8 @@ public class CustomerServiceImpl implements ICustomerService{
 	@Override
 	public Customer removeCustomer(long custId) {
 		
-		Customer removedCust = custRepo.findById(custId).orElseThrow();
-		custRepo.deleteById(custId);
+		Customer removedCust = customerRepo.findById(custId).orElseThrow();
+		customerRepo.deleteById(custId);
 		
 		return removedCust;
 	}
@@ -36,7 +36,7 @@ public class CustomerServiceImpl implements ICustomerService{
 	@Override
 	public Customer updateCustomer(long custId, Customer customer) {
 		
-		Customer updateCust = custRepo.findById(custId).orElseThrow();
+		Customer updateCust = customerRepo.findById(custId).orElseThrow();
 		
 		updateCust.setAddress(customer.getAddress());
 		updateCust.setContactNo(customer.getContactNo());
@@ -45,7 +45,7 @@ public class CustomerServiceImpl implements ICustomerService{
 		updateCust.setName(customer.getName());
 		updateCust.setPassword(customer.getPassword());
 		
-		custRepo.save(updateCust);
+		customerRepo.save(updateCust);
 		
 		return updateCust;
 	}
@@ -54,7 +54,7 @@ public class CustomerServiceImpl implements ICustomerService{
 	@Override
 	public Customer getCustomer(long custId) {
 		
-		return custRepo.findById(custId).orElseThrow();
+		return customerRepo.findById(custId).orElseThrow();
 		
 	}
 
@@ -62,7 +62,7 @@ public class CustomerServiceImpl implements ICustomerService{
 	@Override
 	public List<Customer> getAllCustomers() {
 
-		List<Customer> listCust = custRepo.findAll();
+		List<Customer> listCust = customerRepo.findAll();
 		return listCust;
 		
 	}

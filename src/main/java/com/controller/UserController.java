@@ -31,8 +31,8 @@ public class UserController {
 	@RequestMapping("/changepassword/{userid3}")
 	public User changePassword(@PathVariable Long userid3, @RequestBody User user1 )
 	{
-		User user = usi.changePassword(userid3, user1);
-		return user;
+		User user3 = usi.changePassword(userid3, user1);
+		return user3;
 	}
 	
 }

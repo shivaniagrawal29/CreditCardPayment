@@ -1,6 +1,7 @@
 package com.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -21,13 +22,15 @@ public class Customer extends User{
     private String contactNo;
     private LocalDate dob;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="fk_address")
-    private Address address;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    private List<Address> address;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="fk_userId")
-    User user;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    private List<Account> accounts;
+    
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name="fk_userId",referencedColumnName = "userId")
+//    User user;
     
 	public String getName() {
 		return name;
@@ -59,10 +62,11 @@ public class Customer extends User{
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	
 	@Override
 	public String toString() {
-		return "Customer [userId=" + userId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
-				+ ", dob=" + dob + "]";
+		return "Customer [customerId=" + customerId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
+				+ ", dob=" + dob + ", address=" + address + "]";
 	}
+	
+	
 }

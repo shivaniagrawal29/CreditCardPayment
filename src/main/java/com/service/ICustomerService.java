@@ -11,11 +11,11 @@ public interface ICustomerService {
 	
 	Customer addCustomer(Customer customer);
 	
-	Customer removeCustomer(long custId);
+	Customer removeCustomer(long customerId);
 	
-	Customer updateCustomer(long custId, Customer customer);
+	Customer updateCustomer(long customerId, Customer customer);
 	
-	Customer getCustomer(long custId);
+	Customer getCustomer(long customerId);
 	
 	List<Customer> getAllCustomers();
 
