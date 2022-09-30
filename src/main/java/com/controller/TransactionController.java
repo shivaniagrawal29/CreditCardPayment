@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,16 +25,16 @@ public class TransactionController {
 	@Autowired
     ITransactionServiceImpl transcontrol;
 	
-	@PostMapping ("addTransaction")
+	@PostMapping ("addtransaction")
 	public ResponseEntity<String> addTransaction( @RequestBody Transaction transaction) {
 		
 		Transaction transaction1=transcontrol.addTransaction(transaction);
 		ResponseEntity re=new ResponseEntity<String>("Added Transaction Sucessfully !",HttpStatus.OK);
-		return re;
+		return re ;
 	//	return transaction1;
 	}
 
-	@DeleteMapping("deleteTransaction/{id}")
+	@DeleteMapping("deletetransaction/{id}")
 	public ResponseEntity<String> removeTransaction(@PathVariable long id) {
 	     
         Transaction transaction =transcontrol.removeTransaction(id);
@@ -42,7 +43,7 @@ public class TransactionController {
 		//return transaction;
 	}
 
-    @PostMapping("updateTransaction/{id}")
+    @PutMapping("updatetransaction/{id}")
 	public ResponseEntity<String> updateTransaction(@PathVariable long id,@RequestBody Transaction transaction) {
 	
 	 Transaction transaction1=transcontrol.updateTransaction(id, transaction);
@@ -53,7 +54,7 @@ public class TransactionController {
 	}
 
 
-	@GetMapping("getTransactions")
+	@GetMapping("getalltransactions")
 	public List<Transaction> getAllTransaction() {
 		List<Transaction>transactions=transcontrol.getAllTransaction();
 		return transactions;
