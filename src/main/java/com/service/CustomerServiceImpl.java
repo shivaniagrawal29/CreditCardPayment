@@ -38,7 +38,7 @@ public class CustomerServiceImpl implements ICustomerService{
 		
 		Customer updateCust = customerRepo.findById(custId).orElseThrow();
 		
-		updateCust.setAddress(customer.getAddress());
+		updateCust.setAddresses(customer.getAddresses());
 		updateCust.setContactNo(customer.getContactNo());
 		updateCust.setDob(customer.getDob());
 		updateCust.setEmail(customer.getEmail());
