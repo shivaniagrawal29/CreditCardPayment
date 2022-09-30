@@ -3,10 +3,12 @@ package com.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.entity.Statement;
 import com.repository.IStatementRepository;
 
+@Service
 public class StatementService implements IStatementService {
 
 	@Autowired
@@ -32,8 +34,9 @@ public class StatementService implements IStatementService {
 		originalStmt.setDueAmount(statement.getDueAmount());
 		originalStmt.setBillingDate(statement.getBillingDate());
 		originalStmt.setDueDate(statement.getDueDate());
-		originalStmt.setCustomer(statement.getCustomer());
+//		originalStmt.setCustomer(statement.getCustomer());
 		
+		statementRepo.save(originalStmt);
 		return originalStmt;
 	}
 

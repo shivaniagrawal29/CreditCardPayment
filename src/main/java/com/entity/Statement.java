@@ -15,14 +15,12 @@ public class Statement {
 	private double dueAmount;
 	private LocalDate billingDate;
 	private LocalDate dueDate;
-	private Customer customer;
+//	private Customer customer;
 	
 	public long getStatementId() {
 		return statementId;
 	}
-	public void setStatementId(long statementId) {
-		this.statementId = statementId;
-	}
+	
 	public double getDueAmount() {
 		return dueAmount;
 	}
@@ -41,16 +39,16 @@ public class Statement {
 	public void setDueDate(LocalDate dueDate) {
 		this.dueDate = dueDate;
 	}
-	public Customer getCustomer() {
-		return customer;
-	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+//	public Customer getCustomer() {
+//		return customer;
+//	}
+//	public void setCustomer(Customer customer) {
+//		this.customer = customer;
+//	}
 	
 	@Override
 	public String toString() {
 		return "Statement [statementId=" + statementId + ", dueAmount=" + dueAmount + ", billingDate=" + billingDate
-				+ ", dueDate=" + dueDate + ", customer=" + customer + "]";
+				+ ", dueDate=" + dueDate + "]";
 	}
 }

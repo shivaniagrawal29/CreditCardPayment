@@ -3,10 +3,12 @@ package com.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.entity.Account;
 import com.repository.IAccountRepository;
 
+@Service
 public class AccountService implements IAccountService {
 
 	@Autowired
@@ -33,6 +35,7 @@ public class AccountService implements IAccountService {
 		originalAccount.setAccountType(account.getAccountType());
 		originalAccount.setBalance(account.getBalance());
 		
+		accountRepo.save(originalAccount);
 		return originalAccount;
 	}
 
