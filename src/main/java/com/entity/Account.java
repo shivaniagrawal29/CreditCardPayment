@@ -19,8 +19,8 @@ public class Account {
 	@GeneratedValue
 	private long accountId;
 	
-	@NotBlank
-	@Size(min = 2, message = "Account name should be atleast")
+	//@NotBlank
+	//@Size(min = 2, message = "Account name should be atleast")
 	private String accountName;
 	private double balance;
 	private String accountType;
