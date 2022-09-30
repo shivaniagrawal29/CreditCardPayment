@@ -23,10 +23,13 @@ public class Customer extends User{
     private LocalDate dob;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-    private List<Address> address;
+    private List<Address> addresses;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private List<Account> accounts;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    List<CreditCard> creditcards;
     
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name="fk_userId",referencedColumnName = "userId")
@@ -56,16 +59,39 @@ public class Customer extends User{
 	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
-	public Address getAddress() {
-		return address;
+	
+	public long getCustomerId() {
+		return customerId;
 	}
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setCustomerId(long customerId) {
+		this.customerId = customerId;
 	}
+	
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
+	
+	public List<Account> getAccounts() {
+		return accounts;
+	}
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
+	}
+	
+	public List<CreditCard> getCreditcards() {
+		return creditcards;
+	}
+	public void setCreditcards(List<CreditCard> creditcards) {
+		this.creditcards = creditcards;
+	}
+	
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
-				+ ", dob=" + dob + ", address=" + address + "]";
+				+ ", dob=" + dob + ", addresses=" + addresses + ", accounts=" + accounts + ", creditcards=" + creditcards + "]";
 	}
 	
 	
