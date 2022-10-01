@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,27 +50,31 @@ public class StatementService implements IStatementService {
 	public List<Statement> getAllStatements() {
 		return statementRepo.findAll();
 	}
-
+	
 	@Override
-	public List<Statement> getBilledStatements() {
-		List<Statement> stmtList = statementRepo.findAll();
-		for(Statement s : stmtList) {
-			if(s.getDueAmount() != 0)
-				stmtList.remove(s);
-		}
-		
-		return stmtList;
-	}
+    public List<Statement> getBilledStatements() {
+        List<Statement> stmtList = statementRepo.findAll();
+        List<Statement> billedstmts = new ArrayList<>();
+        for(Statement s : stmtList) {
+            if(s.getDueAmount() == 0)
+                billedstmts.add(s);
+        }
+        
+        return billedstmts;
+    }
 
-	@Override
-	public List<Statement> getUnbilledStatements() {
-		List<Statement> stmtList = statementRepo.findAll();
-		for(Statement s : stmtList) {
-			if(s.getDueAmount() == 0) 
-				stmtList.remove(s);
-		}
-		
-		return stmtList;
-	}
+
+
+   @Override
+    public List<Statement> getUnbilledStatements() {
+        List<Statement> stmtList = statementRepo.findAll();
+        List<Statement> unbilledstmts = new ArrayList<>();
+        for(Statement s : stmtList) {
+            if(s.getDueAmount() > 0)
+                unbilledstmts.add(s);
+        }
+        
+        return unbilledstmts;
+    }
 	
 }
