@@ -20,7 +20,9 @@ public class Statement {
 	public long getStatementId() {
 		return statementId;
 	}
-	
+	public void setStatementId(long statementId) {
+		this.statementId = statementId;
+	}
 	public double getDueAmount() {
 		return dueAmount;
 	}
