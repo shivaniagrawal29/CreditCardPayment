@@ -43,12 +43,7 @@ public class Transaction {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	public long getTranld() {
-		return tranId;
-	}
-	public void setTranld(long tranld) {
-		this.tranId = tranld;
-	}
+	
 	public String getCardNumber() {
 		return cardNumber;
 	}
