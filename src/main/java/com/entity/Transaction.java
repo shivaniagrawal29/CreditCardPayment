@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
@@ -20,13 +18,13 @@ public class Transaction {
 	private long tranId;
 	private String cardNumber ;
 	private LocalDate tranDate;
-	private String Status ;
+	private String status ;
 	private double amount ;
 	private String paymentMethod ;
 	private String description ;
 	
 	@ManyToOne
-	@JoinColumn(name="Tid")//,referencedColumnName = "userId"
+	@JoinColumn(name="fk_customerid")//,referencedColumnName = "userId"
 	@JsonBackReference
 	
 	Customer customer;
@@ -57,10 +55,10 @@ public class Transaction {
 		this.tranDate = tranDate;
 	}
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
 	public double getAmount() {
 		return amount;
@@ -83,7 +81,7 @@ public class Transaction {
 	@Override
 	public String toString() {
 		return "Transaction [tranId=" + tranId + ", cardNumber=" + cardNumber + ", tranDate=" + tranDate + ", Status="
-				+ Status + ", amount=" + amount + ", paymentMethod=" + paymentMethod + ", description=" + description
+				+ status + ", amount=" + amount + ", paymentMethod=" + paymentMethod + ", description=" + description
 				+ ", customer=" + customer + "]";
 	}
 

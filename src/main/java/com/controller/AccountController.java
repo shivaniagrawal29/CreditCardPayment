@@ -40,7 +40,7 @@ public class AccountController {
 		return a;
 	}
 
-	@PutMapping("/updatecoder/{id}")
+	@PutMapping("/updateaccount/{id}")
 	public Account updateAccount(@PathVariable long id, @RequestBody Account account) {
 		Account a = accountService.updateAccount(id, account);
 //		logger.info("updateAccount sucessful.");

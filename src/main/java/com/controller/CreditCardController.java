@@ -17,7 +17,7 @@ import com.service.CreditCardService;
 
 @RestController
 @RequestMapping("home")
-public class ICreditCardController {
+public class CreditCardController {
 	
 	@Autowired
 	CreditCardService creditcardservice;

@@ -11,14 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entity.Payment;
-import com.service.IPaymentService;
+
+import com.service.PaymentService;
 
 @RestController
 @RequestMapping("home")
-public class IPaymentController {
+public class PaymentController {
 	
 	@Autowired
-	IPaymentService paymentservice;
+	PaymentService paymentservice;
 	
 	@PostMapping("/addpayment")
 	public Payment addPayment(@RequestBody Payment payment)
