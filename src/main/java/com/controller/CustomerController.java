@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entity.Customer;
-import com.service.CustomerServiceImpl;
+import com.service.CustomerService;
 
 @RestController
 @RequestMapping("/home")
 public class CustomerController {
 
 	@Autowired
-	CustomerServiceImpl csi;
+	CustomerService csi;
 	
 	@PostMapping("/addcustomer")
 	public Customer addCustomer(@RequestBody Customer customer)

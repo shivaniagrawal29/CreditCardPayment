@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entity.CreditCard;
-import com.service.ICreditCardServiceImpl;
+import com.service.CreditCardService;
 
 @RestController
 @RequestMapping("home")
 public class ICreditCardController {
 	
 	@Autowired
-	ICreditCardServiceImpl creditcardservice;
+	CreditCardService creditcardservice;
 	
 	@PostMapping("/addcreditcard")
 	public CreditCard addCreditCard(@RequestBody CreditCard creditcard)

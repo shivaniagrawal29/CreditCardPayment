@@ -12,7 +12,7 @@ import com.repository.ICreditCardRepository;
 
 
 @Service
-public class ICreditCardServiceImpl implements ICreditCardService {
+public class CreditCardService implements ICreditCardService {
 	@Autowired
 	ICreditCardRepository creditcardrepo;
 	

@@ -15,10 +15,10 @@ import com.entity.Payment;
 import com.repository.IPaymentRepository;
 
 @SpringBootTest
-class IPaymentServiceImplTest {
+class PaymentServiceTest {
 	
 	@Autowired
-	IPaymentServiceImpl paymentservice;
+	PaymentService paymentservice;
 	
 	@MockBean
 	IPaymentRepository paymentrepo;

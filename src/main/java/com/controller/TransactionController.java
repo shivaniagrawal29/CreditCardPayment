@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entity.Transaction;
-import com.service.ITransactionServiceImpl;
+import com.service.TransactionService;
 
 @RestController
 @RequestMapping(path="/home")
 public class TransactionController {
 	
 	@Autowired
-    ITransactionServiceImpl transcontrol;
+    TransactionService transcontrol;
 	
 	@PostMapping ("addtransaction")
 	public ResponseEntity<String> addTransaction( @RequestBody Transaction transaction) {

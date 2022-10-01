@@ -7,7 +7,7 @@ import com.entity.User;
 import com.repository.IUserRepository;
 
 @Service
-public class UserServiceImpl implements IUserService{
+public class UserService implements IUserService{
 	
 	@Autowired
 	IUserRepository userRepo;

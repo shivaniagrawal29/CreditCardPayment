@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entity.User;
-import com.service.UserServiceImpl;
+import com.service.UserService;
 
 @RestController
 @RequestMapping(path = "/home")
 public class UserController {
 	
 	@Autowired
-	UserServiceImpl usi;
+	UserService usi;
 	
 	@RequestMapping("/signin/{user1}")
 	public User signIn(@RequestBody User user1) 

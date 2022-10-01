@@ -2,11 +2,8 @@ package com.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.entity.Customer;
 
-@Service
 public interface ICustomerService {
 	
 	Customer addCustomer(Customer customer);

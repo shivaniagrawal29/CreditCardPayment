@@ -18,10 +18,10 @@ import com.entity.CreditCard;
 import com.repository.ICreditCardRepository;
 
 @SpringBootTest
-class ICreditCardServiceImplTest {
+class CreditCardServiceTest {
 	
 	@Autowired
-	ICreditCardServiceImpl creditcardservice;
+	CreditCardService creditcardservice;
 	
 	@MockBean
 	ICreditCardRepository creditcardrepo;

@@ -19,7 +19,7 @@ public class Address {
 	private int pincode;
 	
 	@ManyToOne
-	@JoinColumn(name = "customerid", referencedColumnName = "customerId")
+	@JoinColumn(name = "customerid")//, referencedColumnName = "customerId"
 	@JsonBackReference
 	Customer customer;
 

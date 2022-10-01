@@ -7,7 +7,7 @@ import com.entity.Payment;
 import com.repository.IPaymentRepository;
 
 @Service
-public class IPaymentServiceImpl implements IPaymentService{
+public class PaymentService implements IPaymentService{
 	
 	@Autowired
 	IPaymentRepository paymentrepo;

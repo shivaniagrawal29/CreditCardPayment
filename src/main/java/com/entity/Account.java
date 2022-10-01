@@ -26,7 +26,7 @@ public class Account {
 	private String accountType;
 	
 	@ManyToOne
-	@JoinColumn(name = "fk_customerId", referencedColumnName = "userId")
+	@JoinColumn(name = "fk_customerId")//, referencedColumnName = "userId"
 	@JsonBackReference
 	Customer customer;
 	

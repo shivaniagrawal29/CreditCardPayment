@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Customer extends User{
+public class Customer{ //extends User
 
 	
 	@Id
@@ -31,9 +31,12 @@ public class Customer extends User{
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     List<CreditCard> creditcards;
     
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name="fk_userId",referencedColumnName = "userId")
-//    User user;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    List<Transaction> transactions;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="fk_userId")//,referencedColumnName = "userId"
+    User users;
     
 	public String getName() {
 		return name;

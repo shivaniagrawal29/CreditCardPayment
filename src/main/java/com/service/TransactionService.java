@@ -10,7 +10,7 @@ import com.entity.Transaction;
 import com.repository.ITransactionRepository;
 
 @Service
-public class ITransactionServiceImpl implements ITransactionService{
+public class TransactionService implements ITransactionService{
 
 	@Autowired
 	ITransactionRepository transrepoo; 

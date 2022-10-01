@@ -26,7 +26,7 @@ public class Transaction {
 	private String description ;
 	
 	@ManyToOne
-	@JoinColumn(name="Tid",referencedColumnName = "userId")
+	@JoinColumn(name="Tid")//,referencedColumnName = "userId"
 	@JsonBackReference
 	
 	Customer customer;

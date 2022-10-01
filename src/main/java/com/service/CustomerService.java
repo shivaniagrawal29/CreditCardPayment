@@ -3,12 +3,13 @@ package com.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.entity.Customer;
 import com.repository.ICustomerRepository;
 
-
-public class CustomerServiceImpl implements ICustomerService{
+@Service
+public class CustomerService implements ICustomerService{
 	
 	@Autowired
 	ICustomerRepository customerRepo;
@@ -43,7 +44,7 @@ public class CustomerServiceImpl implements ICustomerService{
 		updateCust.setDob(customer.getDob());
 		updateCust.setEmail(customer.getEmail());
 		updateCust.setName(customer.getName());
-		updateCust.setPassword(customer.getPassword());
+//		updateCust.setPassword(customer.getPassword());
 		
 		customerRepo.save(updateCust);
 		
