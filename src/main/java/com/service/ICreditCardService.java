@@ -9,8 +9,8 @@ import com.entity.CreditCard;
 public interface ICreditCardService {
 	
 	public CreditCard addCreditCard(CreditCard creditcard);
-	public CreditCard removeCreditCard(long cardId);
-	public CreditCard updateCreditCard(long cardId, CreditCard creditcard);
-	public CreditCard getCreditCard(long cardId);
+	public CreditCard removeCreditCard(long cardId) throws Throwable;
+	public CreditCard updateCreditCard(long cardId, CreditCard creditcard)throws Throwable;
+	public CreditCard getCreditCard(long cardId) throws Throwable;
 	public List<CreditCard> getAllCreditCards();
 }

@@ -1,7 +1,7 @@
 package com.service;
 
 import java.util.List;
-
+import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,15 +24,18 @@ public class CreditCardService implements ICreditCardService {
 	}
 
 	@Override
-	public CreditCard removeCreditCard(long cardId) {	
-		CreditCard c1 = creditcardrepo.findById(cardId).orElseThrow();
+	public CreditCard removeCreditCard(long cardId) throws Throwable {	
+		Supplier s = ()-> new ResourceNotFoundException("Account doesn't exist in the database.");
+		CreditCard c1 = creditcardrepo.findById(cardId).orElseThrow(s);
 		creditcardrepo.deleteById(cardId);
 		return c1;
 	}
 
 	@Override
-	public CreditCard updateCreditCard(long cardId, CreditCard creditcard) {
-		CreditCard c1 = creditcardrepo.findById(cardId).orElseThrow();
+	public CreditCard updateCreditCard(long cardId, CreditCard creditcard) throws Throwable{
+		
+		Supplier s = ()-> new ResourceNotFoundException("Creditcard doesn't exist in the database.");	
+		CreditCard c1 = creditcardrepo.findById(cardId).orElseThrow(s);
 		c1.setBankName(creditcard.getBankName());
 		c1.setCardName(creditcard.getCardName());
 		c1.setCardNumber(creditcard.getCardNumber());
@@ -44,8 +47,9 @@ public class CreditCardService implements ICreditCardService {
 	}
 
 	@Override
-	public CreditCard getCreditCard(long cardId) {
-		CreditCard c1 = creditcardrepo.findById(cardId).orElseThrow();
+	public CreditCard getCreditCard(long cardId) throws Throwable {
+		Supplier s = ()-> new ResourceNotFoundException("Account doesn't exist in the database.");
+		CreditCard c1 = creditcardrepo.findById(cardId).orElseThrow(s);
 		return c1;
 	}
 
