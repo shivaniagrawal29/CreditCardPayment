@@ -8,11 +8,11 @@ public interface ICustomerService {
 	
 	Customer addCustomer(Customer customer);
 	
-	Customer removeCustomer(long customerId);
+	Customer removeCustomer(long customerId) throws Throwable;
 	
-	Customer updateCustomer(long customerId, Customer customer);
+	Customer updateCustomer(long customerId, Customer customer) throws Throwable;
 	
-	Customer getCustomer(long customerId);
+	Customer getCustomer(long customerId) throws Throwable;
 	
 	List<Customer> getAllCustomers();
 

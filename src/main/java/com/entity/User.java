@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "Users")
@@ -13,7 +15,10 @@ public class User{
     
 	@Id
 	@GeneratedValue
+	@NotEmpty
     private long userId;
+	
+	 @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$")
     private String password;
     
 //    @OneToOne(mappedBy = "user")

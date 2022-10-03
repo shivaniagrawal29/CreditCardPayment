@@ -10,16 +10,31 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Customer{ //extends User
 
 	
 	@Id
+	@NotEmpty
 	private long customerId;
+	
+	@Size(min = 3, message = "The name is invalid")
     private String name;
+	
+	@Email
     private String email;
+	
+	@Pattern(regexp = "^[789]\\d{9}$")
     private String contactNo;
+	
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
     private LocalDate dob;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")

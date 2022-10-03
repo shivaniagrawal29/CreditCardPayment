@@ -55,7 +55,7 @@ class CustomerServiceTest {
 	}
 
 	@Test
-	void testUpdateCustomer() {
+	void testUpdateCustomer() throws Throwable {
 		Customer c1 = new Customer();
 		c1.setCustomerId(1);
 		c1.setName("Varun");
@@ -76,7 +76,7 @@ class CustomerServiceTest {
 	}
 
 	@Test
-	void testGetCustomer() {
+	void testGetCustomer() throws Throwable {
 		Customer c1 = new Customer();
 		c1.setCustomerId(1);
 		c1.setName("Varun");
