@@ -8,6 +8,6 @@ public interface IUserService {
 	
 	User signOut(User user);
 	
-	User changePassword(long id, User user);
+	User changePassword(long id, User user) throws Throwable;
 
 }

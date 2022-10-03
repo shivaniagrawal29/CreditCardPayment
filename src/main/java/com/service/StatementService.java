@@ -2,10 +2,12 @@ package com.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.advices.ResourceNotFoundException;
 import com.entity.Statement;
 import com.repository.IStatementRepository;
 
@@ -22,15 +24,17 @@ public class StatementService implements IStatementService {
 	}
 
 	@Override
-	public Statement removeStatement(long id) {
-		Statement removedStmt = statementRepo.findById(id).orElseThrow();
+	public Statement removeStatement(long id) throws Throwable {
+		Supplier s = ()-> new ResourceNotFoundException("Statement doesn't exist in the database.");
+		Statement removedStmt = statementRepo.findById(id).orElseThrow(s);
 		statementRepo.deleteById(id);
 		return removedStmt;
 	}
 
 	@Override
-	public Statement updateStatement(long id, Statement statement) {
-		Statement originalStmt = statementRepo.findById(id).orElseThrow();
+	public Statement updateStatement(long id, Statement statement) throws Throwable {
+		Supplier s = ()-> new ResourceNotFoundException("Statement doesn't exist in the database.");
+		Statement originalStmt = statementRepo.findById(id).orElseThrow(s);
 		
 		originalStmt.setDueAmount(statement.getDueAmount());
 		originalStmt.setBillingDate(statement.getBillingDate());
@@ -42,8 +46,9 @@ public class StatementService implements IStatementService {
 	}
 
 	@Override
-	public Statement getStatement(long id) {
-		return statementRepo.findById(id).orElseThrow();
+	public Statement getStatement(long id) throws Throwable {
+		Supplier s = ()-> new ResourceNotFoundException("Statement doesn't exist in the database.");
+		return statementRepo.findById(id).orElseThrow(s);
 	}
 
 	@Override
@@ -59,7 +64,6 @@ public class StatementService implements IStatementService {
             if(s.getDueAmount() == 0)
                 billedstmts.add(s);
         }
-        
         return billedstmts;
     }
 
@@ -72,8 +76,7 @@ public class StatementService implements IStatementService {
         for(Statement s : stmtList) {
             if(s.getDueAmount() > 0)
                 unbilledstmts.add(s);
-        }
-        
+        }        
         return unbilledstmts;
     }
 	

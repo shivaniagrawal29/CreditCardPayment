@@ -53,7 +53,7 @@ class StatementServiceTest {
 		assertFalse(statementrepo.existsById(c1.getStatementId()));	}
 
 	@Test
-	void testUpdateStatement() {
+	void testUpdateStatement() throws Throwable {
 		Statement c1 = new Statement();
 		c1.setStatementId(1);
 		c1.setDueAmount(2000);
@@ -73,7 +73,7 @@ class StatementServiceTest {
 	}
 
 	@Test
-	void testGetStatement() {
+	void testGetStatement() throws Throwable {
 		Statement c1 = new Statement();
 		c1.setStatementId(1);
 		c1.setDueAmount(2000);

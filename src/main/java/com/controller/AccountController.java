@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,43 +23,48 @@ import com.service.AccountService;
 @RequestMapping("/home")
 public class AccountController {
 	
-//	Log logger = LogFactory.getLog(AccountController.class);
+	Log logger = LogFactory.getLog(AccountController.class);
 
 	@Autowired
 	AccountService accountService;
 	
 	@PostMapping("/addaccount")
-	public Account addAccount(@RequestBody Account account) {
+	public ResponseEntity<String> addAccount(@RequestBody Account account) {//, BindingResult bindingResult
 		Account a = accountService.addAccount(account);
-//		logger.info("addAccount successful.");
-		return a;
+		logger.info("addAccount successful.");
+		return ResponseEntity.ok("Account is valid."
+				+ "Added successfully in the database!");// + bindingResult
+//		return a;
 	}
 
 	@DeleteMapping("/removeaccount/{id}")
-	public Account removeAccount(@PathVariable long id) {
+	public ResponseEntity<String> removeAccount(@PathVariable long id) throws Throwable {
 		Account a = accountService.removeAccount(id);
-//		logger.info("removeAccount successful.");
-		return a;
+		logger.info("removeAccount successful.");
+		return ResponseEntity.ok("Account removed successfully from the database!");
+//		return a;
 	}
 
 	@PutMapping("/updateaccount/{id}")
-	public Account updateAccount(@PathVariable long id, @RequestBody Account account) {
+	public ResponseEntity<String> updateAccount(@PathVariable long id, @RequestBody Account account) throws Throwable {
 		Account a = accountService.updateAccount(id, account);
-//		logger.info("updateAccount sucessful.");
-		return a;
+		logger.info("updateAccount successful.");
+		return ResponseEntity.ok("Account is valid."
+				+ "Updated successfully in the database!");
+//		return a;
 	}
 
 	@GetMapping("/getaccount/{id}")
-	public Account getAccount(@PathVariable long id) {
+	public Account getAccount(@PathVariable long id) throws Throwable {
 		Account a = accountService.getAccount(id);
-//		logger.info("getAccount successful.");
+		logger.info("getAccount successful.");
 		return a;
 	}
 
 	@GetMapping("/getallaccounts")
 	public List<Account> getAllAccounts() {
 		List<Account> la = accountService.getAllAccounts();
-//		logger.info("getAllAccounts successful.");
+		logger.info("getAllAccounts successful.");
 		return la;
 	}
 	

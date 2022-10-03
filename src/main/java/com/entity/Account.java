@@ -7,8 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-//import javax.validation.constraints.NotBlank;
-//import javax.validation.constraints.Size;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -19,10 +21,15 @@ public class Account {
 	@GeneratedValue
 	private long accountId;
 	
-	//@NotBlank
-	//@Size(min = 2, message = "Account name should be atleast")
+	@NotBlank(message = "Account name cannot be blank")
+	@Size(min = 2, max = 20, message = "Account name should be at least 2 characters long")
 	private String accountName;
+	
+	@NotNull
+	@Min(value = 0, message = "Due amount cannot be negative.")
 	private double balance;
+	
+	@NotBlank(message = "Account type cannot be blank")
 	private String accountType;
 	
 	@ManyToOne
@@ -75,12 +82,10 @@ public class Account {
 		this.statement = statement;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "Account [accountId=" + accountId + ", accountName=" + accountName + ", balance=" + balance
-				+ ", accountType=" + accountType + "]";
+				+ ", accountType=" + accountType + ", customer=" + customer + ", statement=" + statement + "]";
 	}
 	
 }

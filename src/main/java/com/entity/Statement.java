@@ -5,6 +5,13 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Statement {
@@ -12,8 +19,14 @@ public class Statement {
 	@Id
 	@GeneratedValue
 	private long statementId;
+	
+	@Min(value = 0, message = "Due amount cannot be negative.")
 	private double dueAmount;
+	
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private LocalDate billingDate;
+	
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private LocalDate dueDate;
 //	private Customer customer;
 	

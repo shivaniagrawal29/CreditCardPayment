@@ -1,10 +1,12 @@
 package com.service;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.advices.ResourceNotFoundException;
 import com.entity.Account;
 import com.repository.IAccountRepository;
 
@@ -21,15 +23,17 @@ public class AccountService implements IAccountService {
 	}
 
 	@Override
-	public Account removeAccount(long id) {
-		Account removedAccount = accountRepo.findById(id).orElseThrow();
+	public Account removeAccount(long id) throws Throwable {
+		Supplier s = ()-> new ResourceNotFoundException("Account doesn't exist in the database.");
+		Account removedAccount = accountRepo.findById(id).orElseThrow(s);
 		accountRepo.deleteById(id);
 		return removedAccount;
 	}
 
 	@Override
-	public Account updateAccount(long id, Account account) {
-		Account originalAccount = accountRepo.findById(id).orElseThrow();
+	public Account updateAccount(long id, Account account) throws Throwable {
+		Supplier s = ()-> new ResourceNotFoundException("Account doesn't exist in the database.");
+		Account originalAccount = accountRepo.findById(id).orElseThrow(s);
 		
 		originalAccount.setAccountName(account.getAccountName());
 		originalAccount.setAccountType(account.getAccountType());
@@ -40,8 +44,9 @@ public class AccountService implements IAccountService {
 	}
 
 	@Override
-	public Account getAccount(long id) {
-		return accountRepo.findById(id).orElseThrow();
+	public Account getAccount(long id) throws Throwable {
+		Supplier s = ()-> new ResourceNotFoundException("Account doesn't exist in the database.");
+		return accountRepo.findById(id).orElseThrow(s);
 	}
 
 	@Override
