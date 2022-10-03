@@ -27,7 +27,7 @@ import com.service.CreditCardService;
 @RequestMapping("home")
 public class CreditCardController {
 	
-	Log logger = LogFactory.getLog(AccountController.class);
+	Log logger = LogFactory.getLog(CreditCardController.class);
 	
 	@Autowired
 	CreditCardService creditcardservice;
