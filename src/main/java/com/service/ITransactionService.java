@@ -8,9 +8,9 @@ public interface ITransactionService {
 
 public  Transaction addTransaction (Transaction transaction) ;
 	
-	public  Transaction removeTransaction  (long id) ;
+	public  Transaction removeTransaction  (long id)throws Throwable ;
 	
-	public Transaction updateTransaction (long id,Transaction transaction);
+	public Transaction updateTransaction (long id,Transaction transaction)throws Throwable;
 	
 	public List< Transaction>  getAllTransaction ();
 
