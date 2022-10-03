@@ -7,6 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -16,11 +24,26 @@ public class Transaction {
 	@Id
 	@GeneratedValue
 	private long tranId;
+	
+	@NotNull
+	@Size(min=19,max=19)
+	@Pattern(regexp="\"^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$\")")
 	private String cardNumber ;
+	
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate tranDate;
+	
+	@NotNull
 	private String status ;
+	
+	@DecimalMax("40000.0") @DecimalMin("1.0") 
 	private double amount ;
+	
+	@NotNull
 	private String paymentMethod ;
+	
+	@NotNull
 	private String description ;
 	
 	@ManyToOne

@@ -3,6 +3,9 @@ package com.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Payment {
@@ -11,8 +14,12 @@ public class Payment {
 	@GeneratedValue
 	private long paymentId;
 	
+	@NotNull
 	private String method;
+	
+	@DecimalMax("50000.0") @DecimalMin("0.0") 
 	private double amountDue;
+	
 	public long getPaymentId() {
 		return paymentId;
 	}
