@@ -36,7 +36,7 @@ class PaymentServiceTest {
 	}
 
 	@Test
-	void testRemovePayment() {
+	void testRemovePayment() throws Throwable{
 		Payment p1 = new Payment();
 		p1.setPaymentId(1);
 		p1.setMethod("upi");
@@ -49,7 +49,7 @@ class PaymentServiceTest {
 	}
 
 	@Test
-	void testUpdatePayment() {
+	void testUpdatePayment() throws Throwable{
 		Payment p1 = new Payment();
 		p1.setPaymentId(1);
 		p1.setMethod("upi");
@@ -66,7 +66,7 @@ class PaymentServiceTest {
 	}
 
 	@Test
-	void testGetPayment() {
+	void testGetPayment() throws Throwable{
 		Payment p1 = new Payment();
 		p1.setPaymentId(1);
 		p1.setMethod("upi");

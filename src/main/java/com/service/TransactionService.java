@@ -33,7 +33,7 @@ public class TransactionService implements ITransactionService{
 	}
 
 	@Override
-	public Transaction updateTransaction(long id, Transaction transaction)throws Throwable {
+	public Transaction updateTransaction(long id, Transaction transaction) throws Throwable {
 		Supplier s1= ()->new ResourceNotFoundException("Transaction not found !!");
 		Transaction transaction1=transrepoo.findById(id).orElseThrow(s1) ;
 		transaction1.setStatus(transaction.getStatus());
@@ -48,6 +48,14 @@ public class TransactionService implements ITransactionService{
 	public List<Transaction> getAllTransaction() {
 		List<Transaction>transactions=transrepoo.findAll();
 		return transactions;
+	}
+
+	@Override
+	public Transaction getTransactionDetails(long id) throws Throwable {
+		Supplier s = ()-> new ResourceNotFoundException("Account doesn't exist in the database.");
+		
+		Transaction t = transrepoo.findById(id).orElseThrow(s);
+		return t;
 	}
 
 }
