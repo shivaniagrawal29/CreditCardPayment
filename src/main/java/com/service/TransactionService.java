@@ -2,10 +2,12 @@ package com.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.advices.ResourceNotFoundException;
 import com.entity.Transaction;
 import com.repository.ITransactionRepository;
 
@@ -23,17 +25,17 @@ public class TransactionService implements ITransactionService{
 	}
 
 	@Override
-	public Transaction removeTransaction(long id) {
-	     
-	   Transaction transaction= transrepoo.findById(id).orElseThrow();
+	public Transaction removeTransaction(long id) throws Throwable {
+		Supplier s1= ()->new ResourceNotFoundException("Transaction not found !!");
+	   Transaction transaction= transrepoo.findById(id).orElseThrow(s1);
 		transrepoo.deleteById(id);
 		return transaction;
 	}
 
 	@Override
-	public Transaction updateTransaction(long id, Transaction transaction) {
-	
-		Transaction transaction1=transrepoo.findById(id).orElseThrow() ;
+	public Transaction updateTransaction(long id, Transaction transaction)throws Throwable {
+		Supplier s1= ()->new ResourceNotFoundException("Transaction not found !!");
+		Transaction transaction1=transrepoo.findById(id).orElseThrow(s1) ;
 		transaction1.setStatus(transaction.getStatus());
 		transaction1.setTranDate(transaction.getTranDate());
 		transrepoo.save(transaction1);

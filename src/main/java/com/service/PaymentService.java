@@ -1,8 +1,11 @@
 package com.service;
 
+import java.util.function.Supplier;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.advices.ResourceNotFoundException;
 import com.entity.Payment;
 import com.repository.IPaymentRepository;
 
@@ -19,15 +22,17 @@ public class PaymentService implements IPaymentService{
 	}
 
 	@Override
-	public Payment removePayment(long id) {
-		Payment p1 = paymentrepo.findById(id).orElseThrow();
+	public Payment removePayment(long id) throws Throwable{
+		Supplier s1= ()->new ResourceNotFoundException("Payment not found !!");
+		Payment p1 = paymentrepo.findById(id).orElseThrow(s1);
 		paymentrepo.deleteById(id);
 		return p1;
 	}
 
 	@Override
-	public Payment updatePayment(long id, Payment payment) {
-		Payment p1 = paymentrepo.findById(id).orElseThrow();
+	public Payment updatePayment(long id, Payment payment) throws Throwable{
+		Supplier s1= ()->new ResourceNotFoundException("Payment not found !!");
+		Payment p1 = paymentrepo.findById(id).orElseThrow(s1);
 		p1.setAmountDue(payment.getAmountDue());
 		p1.setMethod(payment.getMethod());
 		paymentrepo.save(p1);
@@ -35,8 +40,9 @@ public class PaymentService implements IPaymentService{
 	}
 
 	@Override
-	public Payment getPayment(long id) {
-		Payment p1 = paymentrepo.findById(id).orElseThrow();
+	public Payment getPayment(long id)throws Throwable {
+		Supplier s1= ()->new ResourceNotFoundException("Payment not found !!");
+		Payment p1 = paymentrepo.findById(id).orElseThrow(s1);
 		return p1;
 	}
 	
