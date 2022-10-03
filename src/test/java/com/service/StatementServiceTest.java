@@ -36,7 +36,6 @@ class StatementServiceTest {
 		
 		Mockito.when(statementrepo.save(c1)).thenReturn(c1);
 		assertThat(statementservice.addStatement(c1)).isEqualTo(c1);
-
 	}
 
 	@Test
@@ -50,7 +49,8 @@ class StatementServiceTest {
 		Optional<Statement> c2 = Optional.of(c1);
 		Mockito.when(statementrepo.findById((long) 1)).thenReturn(c2);
 		Mockito.when(statementrepo.existsById(c1.getStatementId())).thenReturn(false);
-		assertFalse(statementrepo.existsById(c1.getStatementId()));	}
+		assertFalse(statementrepo.existsById(c1.getStatementId()));		
+	}
 
 	@Test
 	void testUpdateStatement() throws Throwable {
@@ -104,16 +104,51 @@ class StatementServiceTest {
 		statements.add(c2);
 		
 		Mockito.when(statementrepo.findAll()).thenReturn(statements);
-		assertThat(statementservice.getAllStatements()).isEqualTo(statements);	}
+		assertThat(statementservice.getAllStatements()).isEqualTo(statements);	
+	}
 
 	@Test
 	void testGetBilledStatements() {
-		fail("Not yet implemented");
+		Statement c1 = new Statement();
+		c1.setStatementId(1);
+		c1.setDueAmount(0);
+		c1.setDueDate(LocalDate.of(2016, 8, 23));
+		c1.setBillingDate(LocalDate.of(2016, 9, 23));
+		
+		Statement c2 = new Statement();
+		c2.setStatementId(2);
+		c2.setDueAmount(3000);
+		c2.setDueDate(LocalDate.of(2017, 8, 23));
+		c2.setBillingDate(LocalDate.of(2017, 9, 23));
+		
+		List<Statement> statements = new ArrayList<>();
+		statements.add(c1);
+//		statements.add(c2);
+		
+		Mockito.when(statementrepo.findAll()).thenReturn(statements);
+		assertThat(statementservice.getBilledStatements()).isEqualTo(statements);	
 	}
 
 	@Test
 	void testGetUnbilledStatements() {
-		fail("Not yet implemented");
+		Statement c1 = new Statement();
+		c1.setStatementId(1);
+		c1.setDueAmount(2000);
+		c1.setDueDate(LocalDate.of(2016, 8, 23));
+		c1.setBillingDate(LocalDate.of(2016, 9, 23));
+		
+		Statement c2 = new Statement();
+		c2.setStatementId(2);
+		c2.setDueAmount(3000);
+		c2.setDueDate(LocalDate.of(2017, 8, 23));
+		c2.setBillingDate(LocalDate.of(2017, 9, 23));
+		
+		List<Statement> statements = new ArrayList<>();
+		statements.add(c1);
+		statements.add(c2);
+		
+		Mockito.when(statementrepo.findAll()).thenReturn(statements);
+		assertThat(statementservice.getUnbilledStatements()).isEqualTo(statements);	
 	}
 
 }
