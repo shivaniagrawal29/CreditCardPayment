@@ -18,11 +18,11 @@ import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-public class Customer{ //extends User
+public class Customer{ 
 
 	
 	@Id
-	@NotEmpty
+	@GeneratedValue
 	private long customerId;
 	
 	@Size(min = 3, message = "The name is invalid")
@@ -34,7 +34,7 @@ public class Customer{ //extends User
 	@Pattern(regexp = "^[789]\\d{9}$")
     private String contactNo;
 	
-	@DateTimeFormat(pattern = "yyyy-mm-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")

@@ -59,12 +59,17 @@ public class TransactionController {
 		//return transaction1;
 		
 	}
-
-
-	@GetMapping("getalltransactions")
+    
+    @GetMapping("getalltransactions")
 	public List<Transaction> getAllTransaction() {
 		List<Transaction>transactions=transcontrol.getAllTransaction();
 		return transactions;
+	}
+
+	@GetMapping("gettransaction/{id}")
+	public Transaction getTransactionDetails(@PathVariable long id) throws Throwable {
+		Transaction transaction=transcontrol.getTransactionDetails(id);
+		return transaction;
 	}
 
 	

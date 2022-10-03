@@ -41,7 +41,7 @@ class TransactionServiceTest {
 	}
 
 	@Test
-	void testRemoveTransaction() {
+	void testRemoveTransaction() throws Throwable {
 		Transaction t1 = new Transaction();
 		t1.setTranId(1);
 		t1.setTranDate(LocalDate.of(2016, 9, 23));
@@ -58,7 +58,7 @@ class TransactionServiceTest {
 	}
 
 	@Test
-	void testUpdateTransaction() {
+	void testUpdateTransaction() throws Throwable {
 		Transaction t1 = new Transaction();
 		t1.setTranId(1);
 		t1.setTranDate(LocalDate.of(2016, 9, 23));
@@ -80,6 +80,24 @@ class TransactionServiceTest {
 		t1.setAmount(3499);
 		
 		assertThat(transactionservice.updateTransaction(1, t1)).isEqualTo(t1);
+	}
+	
+	@Test
+	void testGetTransactionDetails() throws Throwable {
+		Transaction t1 = new Transaction();
+		t1.setTranId(1);
+		t1.setTranDate(LocalDate.of(2016, 9, 23));
+		t1.setStatus("Paid");
+		t1.setPaymentMethod("upi");
+		t1.setDescription("Payment successful");
+		t1.setCardNumber("1234565");
+		t1.setAmount(34599);
+		
+		Optional<Transaction> t2 = Optional.of(t1);
+		
+		Mockito.when(transactionrepo.findById((long) 1)).thenReturn(t2);
+		assertThat(transactionservice.getTransactionDetails(1)).isEqualTo(t1);
+		
 	}
 
 	@Test

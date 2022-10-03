@@ -41,7 +41,7 @@ class CreditCardServiceTest {
 	}
 
 	@Test
-	void testRemoveCreditCard() {
+	void testRemoveCreditCard() throws Throwable {
 		CreditCard c1 = new CreditCard();
 		c1.setId(1);
 		c1.setBankName("Axis");
@@ -57,7 +57,7 @@ class CreditCardServiceTest {
 	}
 
 	@Test
-	void testUpdateCreditCard() {
+	void testUpdateCreditCard() throws Throwable{
 		CreditCard c1 = new CreditCard();
 		c1.setId(1);
 		c1.setBankName("Axis");
@@ -80,7 +80,7 @@ class CreditCardServiceTest {
 	}
 
 	@Test
-	void testGetCreditCard() {
+	void testGetCreditCard() throws Throwable {
 		CreditCard c1 = new CreditCard();
 		c1.setId(1);
 		c1.setBankName("Axis");
