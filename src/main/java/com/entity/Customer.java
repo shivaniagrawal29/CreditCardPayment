@@ -39,22 +39,28 @@ public class Customer{
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+	@OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_custId", referencedColumnName = "customerId")
     private List<Address> addresses;
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-//    @JoinColumn(name = "fk_accountId")
-//    @JsonBackReference
+
+    @OneToMany(targetEntity = Account.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_custId", referencedColumnName = "customerId")
     private List<Account> accounts;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    @OneToMany(targetEntity = CreditCard.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_custId", referencedColumnName = "customerId")
     List<CreditCard> creditcards;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    @OneToMany(targetEntity = Transaction.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_custId", referencedColumnName = "customerId")
     List<Transaction> transactions;
     
+    @OneToMany(targetEntity = Statement.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_custId", referencedColumnName = "customerId")
+    private List<Statement> statements;
+    
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="fk_userId")//,referencedColumnName = "userId"
+    @JoinColumn(name="fk_userId")
     User users;
     
 	public String getName() {
@@ -110,10 +116,30 @@ public class Customer{
 		this.creditcards = creditcards;
 	}
 	
+	public List<Transaction> getTransactions() {
+		return transactions;
+	}
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
+	}
+	public List<Statement> getStatements() {
+		return statements;
+	}
+	public void setStatements(List<Statement> statements) {
+		this.statements = statements;
+	}
+//	public User getUsers() {
+//		return users;
+//	}
+//	public void setUsers(User users) {
+//		this.users = users;
+//	}
+	
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
-				+ ", dob=" + dob + ", addresses=" + addresses + ", accounts=" + accounts + ", creditcards=" + creditcards + "]";
+				+ ", dob=" + dob + ", addresses=" + addresses + ", accounts=" + accounts + ", creditcards="
+				+ creditcards + ", transactions=" + transactions + ", statements=" + statements + "]";
 	}
 	
 	

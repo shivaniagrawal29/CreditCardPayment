@@ -1,5 +1,6 @@
 package com.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -18,10 +19,10 @@ public class Address {
 	private String state;
 	private int pincode;
 	
-	@ManyToOne
-	@JoinColumn(name = "customerid")//, referencedColumnName = "customerId"
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_custId")
 	@JsonBackReference
-	Customer customer;
+	private Customer customer;
 
 	public String getDoorNo() {
 		return doorNo;
@@ -82,7 +83,7 @@ public class Address {
 	@Override
 	public String toString() {
 		return "Address [doorNo=" + doorNo + ", street=" + street + ", area=" + area + ", city=" + city + ", state="
-				+ state + ", pincode=" + pincode + "]";
+				+ state + ", pincode=" + pincode + ", customer=" + customer + "]";
 	}
 
 	
