@@ -24,7 +24,7 @@ import com.service.StatementService;
 @RequestMapping("/home")
 public class StatementController {
 
-	Log logger = LogFactory.getLog(AccountController.class);
+	Log logger = LogFactory.getLog(StatementController.class);
 	
 	@Autowired
 	StatementService statementService;

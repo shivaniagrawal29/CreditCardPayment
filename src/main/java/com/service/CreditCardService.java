@@ -24,7 +24,7 @@ public class CreditCardService implements ICreditCardService {
 
 	@Override
 	public CreditCard removeCreditCard(long cardId) throws Throwable {	
-		Supplier s = ()-> new ResourceNotFoundException("Account doesn't exist in the database.");
+		Supplier s = ()-> new ResourceNotFoundException("Creditcard doesn't exist in the database.");
 		CreditCard c1 = creditcardrepo.findById(cardId).orElseThrow(s);
 		creditcardrepo.deleteById(cardId);
 		return c1;
@@ -47,7 +47,7 @@ public class CreditCardService implements ICreditCardService {
 
 	@Override
 	public CreditCard getCreditCard(long cardId) throws Throwable {
-		Supplier s = ()-> new ResourceNotFoundException("Account doesn't exist in the database.");
+		Supplier s = ()-> new ResourceNotFoundException("Creditcard doesn't exist in the database.");
 		CreditCard c1 = creditcardrepo.findById(cardId).orElseThrow(s);
 		return c1;
 	}

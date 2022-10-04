@@ -2,6 +2,7 @@ package com.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -46,7 +47,7 @@ public class Transaction {
 	@NotNull
 	private String description ;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="fk_customerid")//,referencedColumnName = "userId"
 	@JsonBackReference
 	
