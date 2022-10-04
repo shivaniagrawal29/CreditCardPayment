@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class CreditCard {
 	
 	@Id
-	@GeneratedValue
+//	@GeneratedValue
 	private long id;
 	
 	@NotNull
@@ -43,7 +43,7 @@ public class CreditCard {
 	private String bankName;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "customerid")//, referencedColumnName = "customerId"
+	@JoinColumn(name = "fk_custId")//, referencedColumnName = "customerId"
 	@JsonBackReference
 	Customer customer;
 	
@@ -92,6 +92,7 @@ public class CreditCard {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+	
 	@Override
 	public String toString() {
 		return "CreditCard [id=" + id + ", cardName=" + cardName + ", cardType=" + cardType + ", cardNumber="

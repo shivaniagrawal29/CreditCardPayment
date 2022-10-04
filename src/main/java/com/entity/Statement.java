@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
@@ -14,13 +15,14 @@ import javax.validation.constraints.Pattern;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Statement {
 
 	@Id
-	@GeneratedValue
+//	@GeneratedValue
 	private long statementId;
 	
 	@Min(value = 0, message = "Due amount cannot be negative.")
@@ -32,11 +34,10 @@ public class Statement {
 	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private LocalDate dueDate;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_accountId")
-	Account account;
-	
-//	private Customer customer;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_custId")
+	@JsonBackReference
+	private Customer customer;
 	
 	public long getStatementId() {
 		return statementId;
@@ -63,23 +64,18 @@ public class Statement {
 		this.dueDate = dueDate;
 	}
 	
-//	public Customer getCustomer() {
-//		return customer;
-//	}
-//	public void setCustomer(Customer customer) {
-//		this.customer = customer;
-//	}
-	
-	public Account getAccount() {
-		return account;
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setAccount(Account account) {
-		this.account = account;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 	
 	@Override
 	public String toString() {
 		return "Statement [statementId=" + statementId + ", dueAmount=" + dueAmount + ", billingDate=" + billingDate
-				+ ", dueDate=" + dueDate + ", account=" + account + "]";
+				+ ", dueDate=" + dueDate + ", customer=" + customer + "]";
 	}
+	
+
 }

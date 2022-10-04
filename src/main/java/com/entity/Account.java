@@ -2,6 +2,7 @@ package com.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -18,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Account {
 	
 	@Id
-	@GeneratedValue
+//	@GeneratedValue
 	private long accountId;
 	
 	@NotBlank(message = "Account name cannot be blank")
@@ -32,15 +33,10 @@ public class Account {
 	@NotBlank(message = "Account type cannot be blank")
 	private String accountType;
 	
-	@ManyToOne //(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_customerId")//, referencedColumnName = "userId"
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_custId")
 	@JsonBackReference
 	Customer customer;
-	
-	@OneToOne //(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_stmtId")
-	Statement statement;
-	
 
 	public long getAccountId() {
 		return accountId;
@@ -85,7 +81,7 @@ public class Account {
 	@Override
 	public String toString() {
 		return "Account [accountId=" + accountId + ", accountName=" + accountName + ", balance=" + balance
-				+ ", accountType=" + accountType + ", customer=" + customer + ", statement=" +"]";
+				+ ", accountType=" + accountType + "]";
 	}
 	
 }

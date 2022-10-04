@@ -35,12 +35,12 @@ public class CustomerController {
     CustomerService csi;
     
     @PostMapping("/addcustomer")
-    public ResponseEntity<String> addCustomer(@Valid @RequestBody Customer customer)
+    public Customer addCustomer(@Valid @RequestBody Customer customer)
     {
         Customer customer1 = csi.addCustomer(customer);
         logger.info("addCustomer successful.");
-        ResponseEntity re=new ResponseEntity<String>("Added Customer Sucessfully !",HttpStatus.OK);
-        return re;
+//        ResponseEntity re=new ResponseEntity<String>("Added Customer Sucessfully !",HttpStatus.OK);
+        return customer1;
     }
     
     @DeleteMapping("/removecustomer/{customerid}")
