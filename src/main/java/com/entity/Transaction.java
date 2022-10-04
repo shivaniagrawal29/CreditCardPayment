@@ -18,6 +18,8 @@ import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Entity
 public class Transaction {
@@ -28,7 +30,7 @@ public class Transaction {
 	
 	@NotNull
 	@Size(min=19,max=19)
-	@Pattern(regexp="\"^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$\")")
+	@Pattern(regexp="^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$")
 	private String cardNumber ;
 	
 	@NotNull
