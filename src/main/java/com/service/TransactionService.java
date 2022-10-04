@@ -1,7 +1,6 @@
 package com.service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import com.entity.Transaction;
 import com.repository.ITransactionRepository;
 
 @Service
+@SuppressWarnings(value = { "rawtypes", "unchecked" })
 public class TransactionService implements ITransactionService{
 
 	@Autowired
@@ -44,7 +44,6 @@ public class TransactionService implements ITransactionService{
 	}
 
 	@Override
-	
 	public List<Transaction> getAllTransaction() {
 		List<Transaction>transactions=transrepoo.findAll();
 		return transactions;
@@ -52,8 +51,7 @@ public class TransactionService implements ITransactionService{
 
 	@Override
 	public Transaction getTransactionDetails(long id) throws Throwable {
-		Supplier s = ()-> new ResourceNotFoundException("Account doesn't exist in the database.");
-		
+		Supplier s = ()-> new ResourceNotFoundException("Transaction doesn't exist in the database.");
 		Transaction t = transrepoo.findById(id).orElseThrow(s);
 		return t;
 	}

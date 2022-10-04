@@ -2,7 +2,10 @@ package com.controller;
 
 import javax.validation.Valid;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,34 +23,40 @@ import com.service.PaymentService;
 @RequestMapping("home")
 public class PaymentController {
 	
+	Log logger = LogFactory.getLog(PaymentController.class);
+	
 	@Autowired
 	PaymentService paymentservice;
 	
 	@PostMapping("/addpayment")
-	public Payment addPayment(@Valid@RequestBody Payment payment)
+	public ResponseEntity<String> addPayment(@Valid@RequestBody Payment payment)
 	{
-		Payment p1 = paymentservice.addPayment(payment);
-		return p1;
+		paymentservice.addPayment(payment);
+		logger.info("addPayment successful.");
+		return ResponseEntity.ok("Payment added successfully in the database!");
 	}
 	
 	@DeleteMapping("/removepayment/{id}")
-	public Payment removePayment(@PathVariable long id)throws Throwable
+	public ResponseEntity<String> removePayment(@PathVariable long id)throws Throwable
 	{
-		Payment p1 = paymentservice.removePayment(id);
-		return p1;
+		paymentservice.removePayment(id);
+		logger.info("removePayment successful.");
+		return ResponseEntity.ok("Payment removed successfully in the database!");
 	}
 	
 	@PutMapping("/updatepayment/{id}")
-	public Payment updatePayment(@PathVariable long id,@Valid@RequestBody Payment payment)throws Throwable
+	public ResponseEntity<String> updatePayment(@PathVariable long id,@Valid@RequestBody Payment payment)throws Throwable
 	{
-		Payment p = paymentservice.updatePayment(id, payment);
-		return p;
+		paymentservice.updatePayment(id, payment);
+		logger.info("updatePayment successful.");
+		return ResponseEntity.ok("Payment removed successfully from the database!");
 	}
 	
 	@GetMapping("/getpayment/{id}")
 	public Payment getPayment(@PathVariable long id)throws Throwable
 	{
 		Payment p = paymentservice.getPayment(id);
+		logger.info("getPayment successful.");
 		return p;
 	}
 }

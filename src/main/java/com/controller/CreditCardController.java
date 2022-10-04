@@ -36,7 +36,7 @@ public class CreditCardController {
 	public ResponseEntity<String> addCreditCard(@RequestBody @Valid CreditCard creditcard)
 	{
 		creditcardservice.addCreditCard(creditcard);
-		ResponseEntity<String> re=new ResponseEntity<String>("Added Transaction Sucessfully !",HttpStatus.OK);
+		ResponseEntity<String> re=new ResponseEntity<String>("Added credit card Sucessfully !",HttpStatus.OK);
 		logger.info("addCreditCard successful.");
 		return re;
 	}
@@ -44,7 +44,7 @@ public class CreditCardController {
 	@DeleteMapping("/removecreditcard/{cardId}")
 	public ResponseEntity<String> removeCreditCard(@PathVariable long cardId) throws Throwable {
 		creditcardservice.removeCreditCard(cardId);
-		ResponseEntity<String> re=new ResponseEntity<String>("Deleted Transaction Sucessfully !",HttpStatus.OK);
+		ResponseEntity<String> re=new ResponseEntity<String>("Deleted credit card Sucessfully !",HttpStatus.OK);
 		logger.info("removeCreditCard successful.");
 		return re;
 	}
@@ -52,7 +52,7 @@ public class CreditCardController {
 	@PutMapping("/updatecreditcard/{cardId}")
 	public ResponseEntity<String> updateCreditCard(@PathVariable long cardId,@RequestBody @Valid CreditCard creditcard) throws Throwable{
 		creditcardservice.updateCreditCard(cardId,creditcard);
-		ResponseEntity<String> re=new ResponseEntity<String>("Updated Transaction Sucessfully !",HttpStatus.OK);
+		ResponseEntity<String> re=new ResponseEntity<String>("Updated credit card Sucessfully !",HttpStatus.OK);
 		logger.info("updateCreditCard successful.");
 		return re;
 	}

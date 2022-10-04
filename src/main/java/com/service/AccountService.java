@@ -11,6 +11,7 @@ import com.entity.Account;
 import com.repository.IAccountRepository;
 
 @Service
+@SuppressWarnings(value = { "rawtypes", "unchecked" })
 public class AccountService implements IAccountService {
 
 	@Autowired
@@ -19,7 +20,6 @@ public class AccountService implements IAccountService {
 	@Override
 	public Account addAccount(Account account) {
 		return accountRepo.save(account);
-//		return account;
 	}
 
 	@Override

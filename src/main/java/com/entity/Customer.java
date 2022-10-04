@@ -11,29 +11,25 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 @Entity
 public class Customer{ 
 
-	
 	@Id
 	@GeneratedValue
 	private long customerId;
 	
-	@Size(min = 3, message = "The name is invalid")
+	@Size(min = 2, message = "The name should be at least 2 characters long")
     private String name;
 	
-	@Email
+	@Email(message = "Email should be in the format: 'example@mail.com'")
     private String email;
 	
-	@Pattern(regexp = "^[789]\\d{9}$")
+	@Pattern(regexp = "^[789]\\d{9}$", message = "Phone number is not valid")
     private String contactNo;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -59,9 +55,9 @@ public class Customer{
     @JoinColumn(name = "fk_custId", referencedColumnName = "customerId")
     private List<Statement> statements;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="fk_userId")
-    User users;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name="fk_userId")
+//    User users;
     
 	public String getName() {
 		return name;
@@ -139,7 +135,7 @@ public class Customer{
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
 				+ ", dob=" + dob + ", addresses=" + addresses + ", accounts=" + accounts + ", creditcards="
-				+ creditcards + ", transactions=" + transactions + ", statements=" + statements + "]";
+				+ creditcards + ", transactions=" + transactions + ", statements=" + statements +"]";
 	}
 	
 	

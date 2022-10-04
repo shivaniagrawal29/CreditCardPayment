@@ -35,29 +35,29 @@ public class CustomerController {
     CustomerService csi;
     
     @PostMapping("/addcustomer")
-    public Customer addCustomer(@Valid @RequestBody Customer customer)
+    public ResponseEntity<String> addCustomer(@Valid @RequestBody Customer customer)
     {
-        Customer customer1 = csi.addCustomer(customer);
+        csi.addCustomer(customer);
         logger.info("addCustomer successful.");
-//        ResponseEntity re=new ResponseEntity<String>("Added Customer Sucessfully !",HttpStatus.OK);
-        return customer1;
+        ResponseEntity<String> re=new ResponseEntity<String>("Added Customer Sucessfully !",HttpStatus.OK);
+        return re;
     }
     
     @DeleteMapping("/removecustomer/{customerid}")
     public ResponseEntity<String> removeCustomer(@PathVariable long customerid) throws Throwable
     {
-        Customer customer2 = csi.removeCustomer(customerid);
+        csi.removeCustomer(customerid);
         logger.info("removeCustomer successful.");
-        ResponseEntity re = new ResponseEntity<String>("Removed Customer Sucessfully !",HttpStatus.OK);
+        ResponseEntity<String> re = new ResponseEntity<>("Removed Customer Sucessfully !",HttpStatus.OK);
         return re;
     }
     
     @PutMapping("/updatecustomer/{customerid}")
     public ResponseEntity<String> updateCustomer(@Valid @PathVariable long customerid, @RequestBody Customer customer) throws Throwable
     {
-        Customer customer3 = csi.updateCustomer(customerid, customer);
+        csi.updateCustomer(customerid, customer);
         logger.info("updateCustomer successful.");
-        ResponseEntity re = new ResponseEntity<String>("Updated Customer Successfully !", HttpStatus.OK);
+        ResponseEntity<String> re = new ResponseEntity<String>("Updated Customer Successfully !", HttpStatus.OK);
         return re;
     }
     

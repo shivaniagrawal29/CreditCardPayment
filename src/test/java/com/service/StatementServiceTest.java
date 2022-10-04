@@ -121,19 +121,26 @@ class StatementServiceTest {
 		c2.setDueDate(LocalDate.of(2017, 8, 23));
 		c2.setBillingDate(LocalDate.of(2017, 9, 23));
 		
-		List<Statement> statements = new ArrayList<>();
-		statements.add(c1);
-//		statements.add(c2);
-		
-		Mockito.when(statementrepo.findAll()).thenReturn(statements);
-		assertThat(statementservice.getBilledStatements()).isEqualTo(statements);	
+		List<Statement> billedstmts = new ArrayList<>();
+        List<Statement> statements = new ArrayList<>();
+        statements.add(c1);
+        statements.add(c2);
+        
+        for(Statement s : statements)
+        {
+            if(s.getDueAmount() == 0)
+                billedstmts.add(s);
+        }
+        
+        Mockito.when(statementrepo.findAll()).thenReturn(billedstmts);
+        assertThat(statementservice.getBilledStatements()).isEqualTo(billedstmts); 
 	}
 
 	@Test
 	void testGetUnbilledStatements() {
 		Statement c1 = new Statement();
 		c1.setStatementId(1);
-		c1.setDueAmount(2000);
+		c1.setDueAmount(0);
 		c1.setDueDate(LocalDate.of(2016, 8, 23));
 		c1.setBillingDate(LocalDate.of(2016, 9, 23));
 		
@@ -143,12 +150,21 @@ class StatementServiceTest {
 		c2.setDueDate(LocalDate.of(2017, 8, 23));
 		c2.setBillingDate(LocalDate.of(2017, 9, 23));
 		
-		List<Statement> statements = new ArrayList<>();
-		statements.add(c1);
-		statements.add(c2);
+		List<Statement> unbilledstmts = new ArrayList<>();
+        List<Statement> statements = new ArrayList<>();
+        statements.add(c1);
+        statements.add(c2);
+        
+        for(Statement s : statements)
+        {
+            if(s.getDueAmount() > 0)
+                unbilledstmts.add(s);
+        }
+        
+        Mockito.when(statementrepo.findAll()).thenReturn(unbilledstmts);
+        assertThat(statementservice.getUnbilledStatements()).isEqualTo(unbilledstmts); 
 		
-		Mockito.when(statementrepo.findAll()).thenReturn(statements);
-		assertThat(statementservice.getUnbilledStatements()).isEqualTo(statements);	
+		
 	}
 
 }

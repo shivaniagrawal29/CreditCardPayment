@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
@@ -26,31 +25,29 @@ public class Transaction {
 	@GeneratedValue
 	private long tranId;
 	
-	@NotNull
+	@NotNull(message = "Card number cannot be null.")
 	@Size(min=19,max=19)
-	@Pattern(regexp="\"^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$\")")
+	@Pattern(regexp="^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$")
 	private String cardNumber ;
 	
-	@NotNull
+	@NotNull(message = "Transaction date cannot be null.")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate tranDate;
 	
-	@NotNull
+	@NotNull(message = "Status cannot be null.")
 	private String status ;
 	
 	@DecimalMax("40000.0") @DecimalMin("1.0") 
 	private double amount ;
 	
-	@NotNull
+	@NotNull(message = "Payment method cannot be null.")
 	private String paymentMethod ;
 	
-	@NotNull
 	private String description ;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="fk_customerid")//,referencedColumnName = "userId"
+	@JoinColumn(name="fk_custId")
 	@JsonBackReference
-	
 	Customer customer;
 	
 	public long getTranId() {
@@ -102,9 +99,10 @@ public class Transaction {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	@Override
 	public String toString() {
-		return "Transaction [tranId=" + tranId + ", cardNumber=" + cardNumber + ", tranDate=" + tranDate + ", Status="
+		return "Transaction [tranId=" + tranId + ", cardNumber=" + cardNumber + ", tranDate=" + tranDate + ", status="
 				+ status + ", amount=" + amount + ", paymentMethod=" + paymentMethod + ", description=" + description
 				+ ", customer=" + customer + "]";
 	}

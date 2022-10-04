@@ -1,6 +1,5 @@
 package com.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,10 +14,19 @@ public class User{
     
 	@Id
 	@GeneratedValue
-	@NotEmpty
     private long userId;
 	
-	 @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$")
+	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", 
+			message = "At least 8 chars\r\n"
+					+ "\r\n"
+					+ "Contains at least one digit\r\n"
+					+ "\r\n"
+					+ "Contains at least one lower alpha char and one upper alpha char\r\n"
+					+ "\r\n"
+					+ "Contains at least one char within a set of special chars (@#%$^ etc.)\r\n"
+					+ "\r\n"
+					+ "Does not contain space, tab, etc.\r\n"
+					+ "\r\n")
     private String password;
     
 //    @OneToOne(mappedBy = "user")
