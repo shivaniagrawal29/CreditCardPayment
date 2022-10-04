@@ -275,3 +275,917 @@ List of constraint violations:[
 03-Oct-2022 12:14:39 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 03-Oct-2022 12:14:39 INFO - Starting ProtocolHandler ["http-nio-8080"]
 03-Oct-2022 12:14:39 INFO - Tomcat started on port(s): 8080 (http) with context path ''
+03-Oct-2022 15:16:13 INFO - HV000001: Hibernate Validator 6.2.5.Final
+03-Oct-2022 15:16:15 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 15:16:15 INFO - Finished Spring Data repository scanning in 179 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 15:16:16 INFO - Tomcat initialized with port(s): 8080 (http)
+03-Oct-2022 15:16:16 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 15:16:16 INFO - Starting service [Tomcat]
+03-Oct-2022 15:16:16 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+03-Oct-2022 15:16:16 INFO - Initializing Spring embedded WebApplicationContext
+03-Oct-2022 15:16:16 INFO - Root WebApplicationContext: initialization completed in 2762 ms
+03-Oct-2022 15:16:16 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 15:16:16 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+03-Oct-2022 15:16:17 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+03-Oct-2022 15:16:17 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 15:16:18 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 15:16:18 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 15:16:19 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 15:16:19 INFO - Starting ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 15:16:19 INFO - Tomcat started on port(s): 8080 (http) with context path ''
+03-Oct-2022 15:17:39 INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+03-Oct-2022 15:17:39 INFO - Initializing Servlet 'dispatcherServlet'
+03-Oct-2022 15:17:39 INFO - Completed initialization in 1 ms
+03-Oct-2022 15:17:39 ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.entity.Account.customer -> com.entity.Customer; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.entity.Account.customer -> com.entity.Customer] with root cause
+org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.entity.Account.customer -> com.entity.Customer
+	at org.hibernate.engine.spi.CascadingActions$8.noCascade(CascadingActions.java:379) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:169) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.cascadeOnFlush(AbstractFlushingEventListener.java:159) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.prepareEntityFlushes(AbstractFlushingEventListener.java:149) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEverythingToExecutions(AbstractFlushingEventListener.java:82) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1407) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:489) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3290) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2425) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:449) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.23.jar:5.3.23]
+	at jdk.proxy2.$Proxy141.save(Unknown Source) ~[?:?]
+	at com.service.AccountService.addAccount(AccountService.java:21) ~[classes/:?]
+	at com.controller.AccountController.addAccount(AccountController.java:33) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+03-Oct-2022 15:21:28 INFO - Application shutdown requested.
+03-Oct-2022 15:21:28 INFO - Pausing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 15:21:28 INFO - Stopping service [Tomcat]
+03-Oct-2022 15:21:28 INFO - Destroying Spring FrameworkServlet 'dispatcherServlet'
+03-Oct-2022 15:21:28 INFO - Stopping ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 15:21:28 INFO - Destroying ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 15:21:28 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 15:21:30 INFO - HV000001: Hibernate Validator 6.2.5.Final
+03-Oct-2022 15:21:32 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 15:21:32 INFO - Finished Spring Data repository scanning in 141 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 15:21:32 INFO - Tomcat initialized with port(s): 8080 (http)
+03-Oct-2022 15:21:32 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 15:21:32 INFO - Starting service [Tomcat]
+03-Oct-2022 15:21:32 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+03-Oct-2022 15:21:32 INFO - Initializing Spring embedded WebApplicationContext
+03-Oct-2022 15:21:32 INFO - Root WebApplicationContext: initialization completed in 1912 ms
+03-Oct-2022 15:21:33 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 15:21:33 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+03-Oct-2022 15:21:33 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+03-Oct-2022 15:21:33 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 15:21:34 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 15:21:34 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 15:21:35 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 15:21:35 INFO - Starting ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 15:21:35 INFO - Tomcat started on port(s): 8080 (http) with context path ''
+03-Oct-2022 15:21:47 INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+03-Oct-2022 15:21:47 INFO - Initializing Servlet 'dispatcherServlet'
+03-Oct-2022 15:21:47 INFO - Completed initialization in 1 ms
+03-Oct-2022 15:21:47 ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.entity.Account.customer -> com.entity.Customer; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.entity.Account.customer -> com.entity.Customer] with root cause
+org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.entity.Account.customer -> com.entity.Customer
+	at org.hibernate.engine.spi.CascadingActions$8.noCascade(CascadingActions.java:379) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:169) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.cascadeOnFlush(AbstractFlushingEventListener.java:159) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.prepareEntityFlushes(AbstractFlushingEventListener.java:149) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEverythingToExecutions(AbstractFlushingEventListener.java:82) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1407) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:489) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3290) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2425) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:449) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.23.jar:5.3.23]
+	at jdk.proxy2.$Proxy141.save(Unknown Source) ~[?:?]
+	at com.service.AccountService.addAccount(AccountService.java:21) ~[classes/:?]
+	at com.controller.AccountController.addAccount(AccountController.java:33) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+03-Oct-2022 15:21:55 ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.entity.Account.customer -> com.entity.Customer; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.entity.Account.customer -> com.entity.Customer] with root cause
+org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.entity.Account.customer -> com.entity.Customer
+	at org.hibernate.engine.spi.CascadingActions$8.noCascade(CascadingActions.java:379) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:169) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.cascadeOnFlush(AbstractFlushingEventListener.java:159) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.prepareEntityFlushes(AbstractFlushingEventListener.java:149) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEverythingToExecutions(AbstractFlushingEventListener.java:82) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1407) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:489) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3290) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2425) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:449) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.23.jar:5.3.23]
+	at jdk.proxy2.$Proxy141.save(Unknown Source) ~[?:?]
+	at com.service.AccountService.addAccount(AccountService.java:21) ~[classes/:?]
+	at com.controller.AccountController.addAccount(AccountController.java:33) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+03-Oct-2022 15:25:23 INFO - Application shutdown requested.
+03-Oct-2022 15:25:23 INFO - Pausing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 15:25:23 INFO - Stopping service [Tomcat]
+03-Oct-2022 15:25:23 INFO - Destroying Spring FrameworkServlet 'dispatcherServlet'
+03-Oct-2022 15:25:23 INFO - Stopping ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 15:25:23 INFO - Destroying ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 15:25:23 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 15:25:25 INFO - HV000001: Hibernate Validator 6.2.5.Final
+03-Oct-2022 15:25:27 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 15:25:27 INFO - Finished Spring Data repository scanning in 127 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 15:25:27 INFO - Tomcat initialized with port(s): 8080 (http)
+03-Oct-2022 15:25:27 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 15:25:27 INFO - Starting service [Tomcat]
+03-Oct-2022 15:25:27 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+03-Oct-2022 15:25:27 INFO - Initializing Spring embedded WebApplicationContext
+03-Oct-2022 15:25:27 INFO - Root WebApplicationContext: initialization completed in 1621 ms
+03-Oct-2022 15:25:27 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 15:25:27 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+03-Oct-2022 15:25:28 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+03-Oct-2022 15:25:28 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 15:25:29 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 15:25:29 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 15:25:29 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 15:25:30 INFO - Starting ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 15:25:30 INFO - Tomcat started on port(s): 8080 (http) with context path ''
+03-Oct-2022 15:25:35 INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+03-Oct-2022 15:25:35 INFO - Initializing Servlet 'dispatcherServlet'
+03-Oct-2022 15:25:35 INFO - Completed initialization in 1 ms
+03-Oct-2022 16:28:47 INFO - Application shutdown requested.
+03-Oct-2022 16:28:47 INFO - Pausing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:28:47 INFO - Stopping service [Tomcat]
+03-Oct-2022 16:28:47 INFO - Destroying Spring FrameworkServlet 'dispatcherServlet'
+03-Oct-2022 16:28:47 INFO - Stopping ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:28:47 INFO - Destroying ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:28:47 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:28:50 INFO - HV000001: Hibernate Validator 6.2.5.Final
+03-Oct-2022 16:28:51 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:28:51 INFO - Finished Spring Data repository scanning in 127 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:28:52 INFO - Tomcat initialized with port(s): 8080 (http)
+03-Oct-2022 16:28:52 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:28:52 INFO - Starting service [Tomcat]
+03-Oct-2022 16:28:52 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+03-Oct-2022 16:28:52 INFO - Initializing Spring embedded WebApplicationContext
+03-Oct-2022 16:28:52 INFO - Root WebApplicationContext: initialization completed in 1663 ms
+03-Oct-2022 16:28:52 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:28:52 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+03-Oct-2022 16:28:52 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+03-Oct-2022 16:28:52 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:28:53 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 16:28:53 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:28:54 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 16:28:54 INFO - Starting ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:28:54 INFO - Tomcat started on port(s): 8080 (http) with context path ''
+03-Oct-2022 16:29:01 INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+03-Oct-2022 16:29:01 INFO - Initializing Servlet 'dispatcherServlet'
+03-Oct-2022 16:29:01 INFO - Completed initialization in 1 ms
+03-Oct-2022 16:29:27 INFO - Application shutdown requested.
+03-Oct-2022 16:29:27 INFO - Pausing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:29:27 INFO - Stopping service [Tomcat]
+03-Oct-2022 16:29:27 INFO - Destroying Spring FrameworkServlet 'dispatcherServlet'
+03-Oct-2022 16:29:28 INFO - Stopping ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:29:28 INFO - Destroying ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:29:28 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:29:30 INFO - HV000001: Hibernate Validator 6.2.5.Final
+03-Oct-2022 16:29:31 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:29:31 INFO - Finished Spring Data repository scanning in 125 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:29:32 INFO - Tomcat initialized with port(s): 8080 (http)
+03-Oct-2022 16:29:32 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:29:32 INFO - Starting service [Tomcat]
+03-Oct-2022 16:29:32 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+03-Oct-2022 16:29:32 INFO - Initializing Spring embedded WebApplicationContext
+03-Oct-2022 16:29:32 INFO - Root WebApplicationContext: initialization completed in 1827 ms
+03-Oct-2022 16:29:32 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:29:32 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+03-Oct-2022 16:29:32 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+03-Oct-2022 16:29:32 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:29:33 WARN - SQL Warning Code: 0, SQLState: 00000
+03-Oct-2022 16:29:33 WARN - constraint "uk_36b47ux5ahmpwkgelxbmmsywn" of relation "customer_accounts" does not exist, skipping
+03-Oct-2022 16:29:33 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 16:29:33 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:29:34 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 16:29:34 INFO - Starting ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:29:34 INFO - Tomcat started on port(s): 8080 (http) with context path ''
+03-Oct-2022 16:29:38 INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+03-Oct-2022 16:29:38 INFO - Initializing Servlet 'dispatcherServlet'
+03-Oct-2022 16:29:38 INFO - Completed initialization in 1 ms
+03-Oct-2022 16:33:09 INFO - Application shutdown requested.
+03-Oct-2022 16:33:09 INFO - Pausing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:33:09 INFO - Stopping service [Tomcat]
+03-Oct-2022 16:33:09 INFO - Destroying Spring FrameworkServlet 'dispatcherServlet'
+03-Oct-2022 16:33:09 INFO - Stopping ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:33:09 INFO - Destroying ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:33:09 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:33:11 INFO - HV000001: Hibernate Validator 6.2.5.Final
+03-Oct-2022 16:33:12 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:33:12 INFO - Finished Spring Data repository scanning in 156 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:33:13 INFO - Tomcat initialized with port(s): 8080 (http)
+03-Oct-2022 16:33:13 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:33:13 INFO - Starting service [Tomcat]
+03-Oct-2022 16:33:13 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+03-Oct-2022 16:33:13 INFO - Initializing Spring embedded WebApplicationContext
+03-Oct-2022 16:33:13 INFO - Root WebApplicationContext: initialization completed in 2114 ms
+03-Oct-2022 16:33:13 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:33:13 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+03-Oct-2022 16:33:14 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+03-Oct-2022 16:33:14 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:33:14 ERROR - Failed to initialize JPA EntityManagerFactory: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: com.entity.Customer.accounts
+03-Oct-2022 16:33:14 WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: com.entity.Customer.accounts
+03-Oct-2022 16:33:14 INFO - Stopping service [Tomcat]
+03-Oct-2022 16:33:14 INFO - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+03-Oct-2022 16:33:14 ERROR - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: com.entity.Customer.accounts
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.4.jar:2.7.4]
+	at com.CreditCardPaymentApplication.main(CreditCardPaymentApplication.java:17) ~[classes/:?]
+Caused by: org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: com.entity.Customer.accounts
+	at org.hibernate.cfg.annotations.CollectionBinder.bind(CollectionBinder.java:544) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:2230) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:968) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:793) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:225) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:239) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:282) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 16 more
+03-Oct-2022 16:36:36 INFO - HV000001: Hibernate Validator 6.2.5.Final
+03-Oct-2022 16:36:38 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:36:38 INFO - Finished Spring Data repository scanning in 125 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:36:38 INFO - Tomcat initialized with port(s): 8080 (http)
+03-Oct-2022 16:36:38 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:36:38 INFO - Starting service [Tomcat]
+03-Oct-2022 16:36:38 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+03-Oct-2022 16:36:38 INFO - Initializing Spring embedded WebApplicationContext
+03-Oct-2022 16:36:38 INFO - Root WebApplicationContext: initialization completed in 1789 ms
+03-Oct-2022 16:36:38 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:36:38 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+03-Oct-2022 16:36:39 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+03-Oct-2022 16:36:39 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:36:40 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 16:36:40 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:36:40 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 16:36:41 INFO - Starting ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:36:41 INFO - Tomcat started on port(s): 8080 (http) with context path ''
+03-Oct-2022 16:36:44 INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+03-Oct-2022 16:36:44 INFO - Initializing Servlet 'dispatcherServlet'
+03-Oct-2022 16:36:44 INFO - Completed initialization in 2 ms
+03-Oct-2022 16:36:44 ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: detached entity passed to persist: com.entity.Customer; nested exception is org.hibernate.PersistentObjectException: detached entity passed to persist: com.entity.Customer] with root cause
+org.hibernate.PersistentObjectException: detached entity passed to persist: com.entity.Customer
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:120) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:118) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:780) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:748) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.spi.CascadingActions$7.cascade(CascadingActions.java:298) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:510) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:434) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:220) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:153) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.cascadeBeforeSave(AbstractSaveEventListener.java:427) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:264) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:135) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:185) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:128) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:55) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:756) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:742) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.23.jar:5.3.23]
+	at jdk.proxy2.$Proxy138.persist(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311) ~[spring-orm-5.3.23.jar:5.3.23]
+	at jdk.proxy2.$Proxy138.persist(Unknown Source) ~[?:?]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:666) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:530) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:286) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:640) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:164) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:139) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:81) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.23.jar:5.3.23]
+	at jdk.proxy2.$Proxy141.save(Unknown Source) ~[?:?]
+	at com.service.AccountService.addAccount(AccountService.java:21) ~[classes/:?]
+	at com.controller.AccountController.addAccount(AccountController.java:33) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+03-Oct-2022 16:50:45 INFO - Application shutdown requested.
+03-Oct-2022 16:50:45 INFO - Pausing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:50:45 INFO - Stopping service [Tomcat]
+03-Oct-2022 16:50:45 INFO - Destroying Spring FrameworkServlet 'dispatcherServlet'
+03-Oct-2022 16:50:45 INFO - Stopping ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:50:45 INFO - Destroying ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:50:45 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:50:47 INFO - HV000001: Hibernate Validator 6.2.5.Final
+03-Oct-2022 16:50:48 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:50:48 INFO - Finished Spring Data repository scanning in 133 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:50:49 INFO - Tomcat initialized with port(s): 8080 (http)
+03-Oct-2022 16:50:49 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:50:49 INFO - Starting service [Tomcat]
+03-Oct-2022 16:50:49 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+03-Oct-2022 16:50:49 INFO - Initializing Spring embedded WebApplicationContext
+03-Oct-2022 16:50:49 INFO - Root WebApplicationContext: initialization completed in 1963 ms
+03-Oct-2022 16:50:49 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:50:49 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+03-Oct-2022 16:50:49 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+03-Oct-2022 16:50:50 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:50:51 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 16:50:51 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:50:51 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 16:50:52 INFO - Starting ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:50:52 INFO - Tomcat started on port(s): 8080 (http) with context path ''
+03-Oct-2022 16:51:20 INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+03-Oct-2022 16:51:20 INFO - Initializing Servlet 'dispatcherServlet'
+03-Oct-2022 16:51:20 INFO - Completed initialization in 1 ms
+03-Oct-2022 16:54:37 INFO - Application shutdown requested.
+03-Oct-2022 16:54:37 INFO - Pausing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:54:37 INFO - Stopping service [Tomcat]
+03-Oct-2022 16:54:37 INFO - Destroying Spring FrameworkServlet 'dispatcherServlet'
+03-Oct-2022 16:54:37 INFO - Stopping ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:54:37 INFO - Destroying ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:54:37 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:54:39 INFO - HV000001: Hibernate Validator 6.2.5.Final
+03-Oct-2022 16:54:40 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:54:40 INFO - Finished Spring Data repository scanning in 120 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:54:41 INFO - Tomcat initialized with port(s): 8080 (http)
+03-Oct-2022 16:54:41 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:54:41 INFO - Starting service [Tomcat]
+03-Oct-2022 16:54:41 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+03-Oct-2022 16:54:41 INFO - Initializing Spring embedded WebApplicationContext
+03-Oct-2022 16:54:41 INFO - Root WebApplicationContext: initialization completed in 1905 ms
+03-Oct-2022 16:54:41 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:54:41 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+03-Oct-2022 16:54:41 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+03-Oct-2022 16:54:42 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:54:43 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 16:54:43 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:54:43 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 16:54:44 INFO - Starting ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 16:54:44 INFO - Tomcat started on port(s): 8080 (http) with context path ''
+03-Oct-2022 16:55:21 INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+03-Oct-2022 16:55:21 INFO - Initializing Servlet 'dispatcherServlet'
+03-Oct-2022 16:55:21 INFO - Completed initialization in 2 ms
+03-Oct-2022 16:58:10 INFO - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.CreditCardPaymentApplicationTests], using SpringBootContextLoader
+03-Oct-2022 16:58:10 INFO - Could not detect default resource locations for test class [com.CreditCardPaymentApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+03-Oct-2022 16:58:10 INFO - Could not detect default configuration classes for test class [com.CreditCardPaymentApplicationTests]: CreditCardPaymentApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-Oct-2022 16:58:10 INFO - Found @SpringBootConfiguration com.CreditCardPaymentApplication for test class com.CreditCardPaymentApplicationTests
+03-Oct-2022 16:58:10 INFO - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+03-Oct-2022 16:58:11 INFO - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@736b21ee, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@60deefed, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@49754e74, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@31881aa2, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1b46392c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@cf01c2e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6f15f52a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1eb9bf60, org.springframework.test.context.event.EventPublishingTestExecutionListener@341c6ac2, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@38811103, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@787d1f9c, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2becfd4c, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7c71c889, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4cc8d70d, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5c59a0f7]
+03-Oct-2022 16:58:11 INFO - HV000001: Hibernate Validator 6.2.5.Final
+03-Oct-2022 16:58:14 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:58:14 INFO - Finished Spring Data repository scanning in 208 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:58:16 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:58:17 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+03-Oct-2022 16:58:17 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+03-Oct-2022 16:58:19 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:58:22 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 16:58:22 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:24 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 16:58:27 INFO - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.service.AccountServiceTest], using SpringBootContextLoader
+03-Oct-2022 16:58:27 INFO - Could not detect default resource locations for test class [com.service.AccountServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+03-Oct-2022 16:58:27 INFO - Could not detect default configuration classes for test class [com.service.AccountServiceTest]: AccountServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-Oct-2022 16:58:27 INFO - Found @SpringBootConfiguration com.CreditCardPaymentApplication for test class com.service.AccountServiceTest
+03-Oct-2022 16:58:27 INFO - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+03-Oct-2022 16:58:27 INFO - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@11f61d19, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1b776aa7, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@64638b8d, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3ceb5831, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1dd49460, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3d56e72f, org.springframework.test.context.transaction.TransactionalTestExecutionListener@45912ceb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@23dddeb8, org.springframework.test.context.event.EventPublishingTestExecutionListener@1a133937, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1076dac5, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5c4c4a54, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@11a9777b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@12703ef8, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@34f67e81, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@ad69ca1]
+03-Oct-2022 16:58:28 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:58:28 INFO - Finished Spring Data repository scanning in 116 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:58:28 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:58:28 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:58:29 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 16:58:29 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:29 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 16:58:30 INFO - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.service.CreditCardServiceTest], using SpringBootContextLoader
+03-Oct-2022 16:58:30 INFO - Could not detect default resource locations for test class [com.service.CreditCardServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+03-Oct-2022 16:58:30 INFO - Could not detect default configuration classes for test class [com.service.CreditCardServiceTest]: CreditCardServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-Oct-2022 16:58:30 INFO - Found @SpringBootConfiguration com.CreditCardPaymentApplication for test class com.service.CreditCardServiceTest
+03-Oct-2022 16:58:30 INFO - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+03-Oct-2022 16:58:30 INFO - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@53390f33, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7b805a3f, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@97459e9, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@44563c09, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5f8df327, org.springframework.test.context.support.DirtiesContextTestExecutionListener@26250b4b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@db5b577, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@787666bc, org.springframework.test.context.event.EventPublishingTestExecutionListener@4852a65e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@46a3934c, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@669d88e2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2d95410b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@70a872b1, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2acbb61b, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@209bf138]
+03-Oct-2022 16:58:31 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:58:31 INFO - Finished Spring Data repository scanning in 82 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:58:31 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:58:31 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:58:32 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 16:58:32 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:32 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 16:58:33 INFO - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.service.CustomerServiceTest], using SpringBootContextLoader
+03-Oct-2022 16:58:33 INFO - Could not detect default resource locations for test class [com.service.CustomerServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+03-Oct-2022 16:58:33 INFO - Could not detect default configuration classes for test class [com.service.CustomerServiceTest]: CustomerServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-Oct-2022 16:58:33 INFO - Found @SpringBootConfiguration com.CreditCardPaymentApplication for test class com.service.CustomerServiceTest
+03-Oct-2022 16:58:33 INFO - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+03-Oct-2022 16:58:33 INFO - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6d7ebba7, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2aa4f53c, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6fc79c82, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@628dae0, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1e93ea01, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1313e1fa, org.springframework.test.context.transaction.TransactionalTestExecutionListener@40634c96, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5c61a0, org.springframework.test.context.event.EventPublishingTestExecutionListener@19e5048, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@d0e6db0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5753977b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3461ad50, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@470ea784, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@39132138, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@7230812e]
+03-Oct-2022 16:58:34 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:58:34 INFO - Finished Spring Data repository scanning in 74 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:58:34 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:58:34 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:58:35 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 16:58:35 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:35 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 16:58:36 INFO - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.service.PaymentServiceTest], using SpringBootContextLoader
+03-Oct-2022 16:58:36 INFO - Could not detect default resource locations for test class [com.service.PaymentServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+03-Oct-2022 16:58:36 INFO - Could not detect default configuration classes for test class [com.service.PaymentServiceTest]: PaymentServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-Oct-2022 16:58:36 INFO - Found @SpringBootConfiguration com.CreditCardPaymentApplication for test class com.service.PaymentServiceTest
+03-Oct-2022 16:58:36 INFO - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+03-Oct-2022 16:58:36 INFO - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@13e8de7, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@47c59590, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@7ea4315, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2ce97541, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@59cd948e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@32cfe332, org.springframework.test.context.transaction.TransactionalTestExecutionListener@67e8fc95, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@ccde54, org.springframework.test.context.event.EventPublishingTestExecutionListener@35904327, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@780bf0d4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@58a7b714, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3e7ffc2a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@9c119b9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2eebd505, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4b91d8db]
+03-Oct-2022 16:58:36 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:58:36 INFO - Finished Spring Data repository scanning in 51 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:58:37 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:58:37 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:58:37 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 16:58:37 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:37 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 16:58:38 INFO - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.service.StatementServiceTest], using SpringBootContextLoader
+03-Oct-2022 16:58:38 INFO - Could not detect default resource locations for test class [com.service.StatementServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+03-Oct-2022 16:58:38 INFO - Could not detect default configuration classes for test class [com.service.StatementServiceTest]: StatementServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-Oct-2022 16:58:38 INFO - Found @SpringBootConfiguration com.CreditCardPaymentApplication for test class com.service.StatementServiceTest
+03-Oct-2022 16:58:38 INFO - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+03-Oct-2022 16:58:38 INFO - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@bbf8415, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@779b69da, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@17814f45, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@205a6550, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@57b2d262, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7bcbb4f7, org.springframework.test.context.transaction.TransactionalTestExecutionListener@662d37ac, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@15aebedc, org.springframework.test.context.event.EventPublishingTestExecutionListener@544e5fc9, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@728425bb, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7d9bec10, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1da3f521, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3bb5414b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@684f127b, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4a96880e]
+03-Oct-2022 16:58:39 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:58:39 INFO - Finished Spring Data repository scanning in 75 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:58:39 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:58:39 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:58:39 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 16:58:39 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:40 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 16:58:41 INFO - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.service.TransactionServiceTest], using SpringBootContextLoader
+03-Oct-2022 16:58:41 INFO - Could not detect default resource locations for test class [com.service.TransactionServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+03-Oct-2022 16:58:41 INFO - Could not detect default configuration classes for test class [com.service.TransactionServiceTest]: TransactionServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-Oct-2022 16:58:41 INFO - Found @SpringBootConfiguration com.CreditCardPaymentApplication for test class com.service.TransactionServiceTest
+03-Oct-2022 16:58:41 INFO - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+03-Oct-2022 16:58:41 INFO - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5ece8ff0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@19a6f2d3, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@fc32468, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@719b2027, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5b0080eb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@759ec132, org.springframework.test.context.transaction.TransactionalTestExecutionListener@63684b8d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@4bdac5df, org.springframework.test.context.event.EventPublishingTestExecutionListener@14021397, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1716c774, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3603d238, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2b6a1d1a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2f703d4b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@efc72b6, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@2646e343]
+03-Oct-2022 16:58:41 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03-Oct-2022 16:58:41 INFO - Finished Spring Data repository scanning in 58 ms. Found 7 JPA repository interfaces.
+03-Oct-2022 16:58:41 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+03-Oct-2022 16:58:41 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03-Oct-2022 16:58:42 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03-Oct-2022 16:58:42 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:42 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03-Oct-2022 16:58:43 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:43 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:43 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:43 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:43 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:43 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 16:58:43 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+03-Oct-2022 17:12:27 INFO - Application shutdown requested.
+03-Oct-2022 17:12:27 INFO - Pausing ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 17:12:27 INFO - Stopping service [Tomcat]
+03-Oct-2022 17:12:27 INFO - Destroying Spring FrameworkServlet 'dispatcherServlet'
+03-Oct-2022 17:12:27 INFO - Stopping ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 17:12:27 INFO - Destroying ProtocolHandler ["http-nio-8080"]
+03-Oct-2022 17:12:27 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+04-Oct-2022 10:03:48 INFO - HV000001: Hibernate Validator 6.2.5.Final
+04-Oct-2022 10:03:49 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+04-Oct-2022 10:03:49 INFO - Finished Spring Data repository scanning in 118 ms. Found 7 JPA repository interfaces.
+04-Oct-2022 10:03:49 INFO - Tomcat initialized with port(s): 8080 (http)
+04-Oct-2022 10:03:49 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+04-Oct-2022 10:03:49 INFO - Starting service [Tomcat]
+04-Oct-2022 10:03:49 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+04-Oct-2022 10:03:49 INFO - Initializing Spring embedded WebApplicationContext
+04-Oct-2022 10:03:49 INFO - Root WebApplicationContext: initialization completed in 1647 ms
+04-Oct-2022 10:03:49 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+04-Oct-2022 10:03:49 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+04-Oct-2022 10:03:50 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+04-Oct-2022 10:03:50 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+04-Oct-2022 10:03:51 ERROR - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: com.entity.Statement, at table: account, for columns: [org.hibernate.mapping.Column(statement)]
+04-Oct-2022 10:03:51 WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: com.entity.Statement, at table: account, for columns: [org.hibernate.mapping.Column(statement)]
+04-Oct-2022 10:03:51 INFO - Stopping service [Tomcat]
+04-Oct-2022 10:03:51 INFO - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+04-Oct-2022 10:03:51 ERROR - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: com.entity.Statement, at table: account, for columns: [org.hibernate.mapping.Column(statement)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.4.jar:2.7.4]
+	at com.CreditCardPaymentApplication.main(CreditCardPaymentApplication.java:17) ~[classes/:?]
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: com.entity.Statement, at table: account, for columns: [org.hibernate.mapping.Column(statement)]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 16 more
+Caused by: org.hibernate.MappingException: Could not determine type for: com.entity.Statement, at table: account, for columns: [org.hibernate.mapping.Column(statement)]
+	at org.hibernate.mapping.SimpleValue.getType(SimpleValue.java:515) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.mapping.SimpleValue.isValid(SimpleValue.java:482) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.mapping.Property.isValid(Property.java:231) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.mapping.PersistentClass.validate(PersistentClass.java:627) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.mapping.RootClass.validate(RootClass.java:267) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.boot.internal.MetadataImpl.validate(MetadataImpl.java:359) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 16 more
+04-Oct-2022 10:05:55 INFO - HV000001: Hibernate Validator 6.2.5.Final
+04-Oct-2022 10:05:56 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+04-Oct-2022 10:05:56 INFO - Finished Spring Data repository scanning in 117 ms. Found 7 JPA repository interfaces.
+04-Oct-2022 10:05:56 INFO - Tomcat initialized with port(s): 8080 (http)
+04-Oct-2022 10:05:56 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+04-Oct-2022 10:05:56 INFO - Starting service [Tomcat]
+04-Oct-2022 10:05:56 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+04-Oct-2022 10:05:57 INFO - Initializing Spring embedded WebApplicationContext
+04-Oct-2022 10:05:57 INFO - Root WebApplicationContext: initialization completed in 1681 ms
+04-Oct-2022 10:05:57 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+04-Oct-2022 10:05:57 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+04-Oct-2022 10:05:57 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+04-Oct-2022 10:05:57 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+04-Oct-2022 10:05:57 ERROR - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: com.entity.Statement, at table: account, for columns: [org.hibernate.mapping.Column(statement)]
+04-Oct-2022 10:05:57 WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: com.entity.Statement, at table: account, for columns: [org.hibernate.mapping.Column(statement)]
+04-Oct-2022 10:05:57 INFO - Stopping service [Tomcat]
+04-Oct-2022 10:05:57 INFO - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+04-Oct-2022 10:05:57 ERROR - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: com.entity.Statement, at table: account, for columns: [org.hibernate.mapping.Column(statement)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.4.jar:2.7.4]
+	at com.CreditCardPaymentApplication.main(CreditCardPaymentApplication.java:17) ~[classes/:?]
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: com.entity.Statement, at table: account, for columns: [org.hibernate.mapping.Column(statement)]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 16 more
+Caused by: org.hibernate.MappingException: Could not determine type for: com.entity.Statement, at table: account, for columns: [org.hibernate.mapping.Column(statement)]
+	at org.hibernate.mapping.SimpleValue.getType(SimpleValue.java:515) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.mapping.SimpleValue.isValid(SimpleValue.java:482) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.mapping.Property.isValid(Property.java:231) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.mapping.PersistentClass.validate(PersistentClass.java:627) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.mapping.RootClass.validate(RootClass.java:267) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.boot.internal.MetadataImpl.validate(MetadataImpl.java:359) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 16 more
+04-Oct-2022 10:07:48 INFO - HV000001: Hibernate Validator 6.2.5.Final
+04-Oct-2022 10:07:49 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+04-Oct-2022 10:07:49 INFO - Finished Spring Data repository scanning in 133 ms. Found 7 JPA repository interfaces.
+04-Oct-2022 10:07:50 INFO - Tomcat initialized with port(s): 8080 (http)
+04-Oct-2022 10:07:50 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+04-Oct-2022 10:07:50 INFO - Starting service [Tomcat]
+04-Oct-2022 10:07:50 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+04-Oct-2022 10:07:50 INFO - Initializing Spring embedded WebApplicationContext
+04-Oct-2022 10:07:50 INFO - Root WebApplicationContext: initialization completed in 2033 ms
+04-Oct-2022 10:07:50 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+04-Oct-2022 10:07:51 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+04-Oct-2022 10:07:51 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+04-Oct-2022 10:07:51 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+04-Oct-2022 10:07:52 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+04-Oct-2022 10:07:52 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+04-Oct-2022 10:07:53 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+04-Oct-2022 10:07:53 INFO - Starting ProtocolHandler ["http-nio-8080"]
+04-Oct-2022 10:07:53 INFO - Tomcat started on port(s): 8080 (http) with context path ''
+04-Oct-2022 10:08:24 INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+04-Oct-2022 10:08:24 INFO - Initializing Servlet 'dispatcherServlet'
+04-Oct-2022 10:08:24 INFO - Completed initialization in 1 ms
+04-Oct-2022 10:11:33 INFO - Application shutdown requested.
+04-Oct-2022 10:11:33 INFO - Pausing ProtocolHandler ["http-nio-8080"]
+04-Oct-2022 10:11:33 INFO - Stopping service [Tomcat]
+04-Oct-2022 10:11:33 INFO - Destroying Spring FrameworkServlet 'dispatcherServlet'
+04-Oct-2022 10:11:33 INFO - Stopping ProtocolHandler ["http-nio-8080"]
+04-Oct-2022 10:11:33 INFO - Destroying ProtocolHandler ["http-nio-8080"]
+04-Oct-2022 10:11:33 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+04-Oct-2022 10:11:35 INFO - HV000001: Hibernate Validator 6.2.5.Final
+04-Oct-2022 10:11:36 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+04-Oct-2022 10:11:36 INFO - Finished Spring Data repository scanning in 131 ms. Found 7 JPA repository interfaces.
+04-Oct-2022 10:11:37 INFO - Tomcat initialized with port(s): 8080 (http)
+04-Oct-2022 10:11:37 INFO - Initializing ProtocolHandler ["http-nio-8080"]
+04-Oct-2022 10:11:37 INFO - Starting service [Tomcat]
+04-Oct-2022 10:11:37 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+04-Oct-2022 10:11:37 INFO - Initializing Spring embedded WebApplicationContext
+04-Oct-2022 10:11:37 INFO - Root WebApplicationContext: initialization completed in 1777 ms
+04-Oct-2022 10:11:37 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+04-Oct-2022 10:11:37 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+04-Oct-2022 10:11:37 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+04-Oct-2022 10:11:37 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+04-Oct-2022 10:11:38 WARN - SQL Warning Code: 0, SQLState: 00000
+04-Oct-2022 10:11:38 WARN - drop cascades to 2 other objects
+04-Oct-2022 10:11:38 WARN - SQL Warning Code: 0, SQLState: 00000
+04-Oct-2022 10:11:38 WARN - drop cascades to constraint fkbngpepdkat4y8ty65faqgjm0b on table customer_accounts
+04-Oct-2022 10:11:38 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+04-Oct-2022 10:11:38 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+04-Oct-2022 10:11:39 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+04-Oct-2022 10:11:39 INFO - Starting ProtocolHandler ["http-nio-8080"]
+04-Oct-2022 10:11:39 INFO - Tomcat started on port(s): 8080 (http) with context path ''

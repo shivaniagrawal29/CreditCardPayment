@@ -17,6 +17,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Customer{ 
 
@@ -41,6 +43,8 @@ public class Customer{
     private List<Address> addresses;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+//    @JoinColumn(name = "fk_accountId")
+//    @JsonBackReference
     private List<Account> accounts;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")

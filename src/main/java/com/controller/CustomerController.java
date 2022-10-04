@@ -29,7 +29,7 @@ import com.service.CustomerService;
 @RequestMapping("/home")
 public class CustomerController {
 
-	Log logger = LogFactory.getLog(AccountController.class);
+	Log logger = LogFactory.getLog(CustomerController.class);
 	
    @Autowired
     CustomerService csi;

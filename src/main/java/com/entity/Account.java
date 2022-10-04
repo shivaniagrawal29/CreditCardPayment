@@ -32,12 +32,12 @@ public class Account {
 	@NotBlank(message = "Account type cannot be blank")
 	private String accountType;
 	
-	@ManyToOne
+	@ManyToOne //(cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_customerId")//, referencedColumnName = "userId"
 	@JsonBackReference
 	Customer customer;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne //(cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_stmtId")
 	Statement statement;
 	
@@ -74,18 +74,18 @@ public class Account {
 		this.customer = customer;
 	}
 	
-	public Statement getStatement() {
-		return statement;
-	}
-
-	public void setStatement(Statement statement) {
-		this.statement = statement;
-	}
+//	public Statement getStatement() {
+//		return statement;
+//	}
+//
+//	public void setStatement(Statement statement) {
+//		this.statement = statement;
+//	}
 
 	@Override
 	public String toString() {
 		return "Account [accountId=" + accountId + ", accountName=" + accountName + ", balance=" + balance
-				+ ", accountType=" + accountType + ", customer=" + customer + ", statement=" + statement + "]";
+				+ ", accountType=" + accountType + ", customer=" + customer + ", statement=" +"]";
 	}
 	
 }

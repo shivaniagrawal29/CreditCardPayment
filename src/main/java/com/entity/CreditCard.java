@@ -32,7 +32,7 @@ public class CreditCard {
 	
 	@NotNull
 	@Size(min=19,max=19,message="format of card number is xxxx xxxx xxxx")
-	@Pattern(regexp = "^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$")
+	@Pattern(regexp = "^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$", message="format of card number is xxxx xxxx xxxx")
 	private String cardNumber;
 	
 	@NotNull

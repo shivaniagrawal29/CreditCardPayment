@@ -19,7 +19,7 @@ import com.service.UserService;
 @RequestMapping(path = "/home")
 public class UserController {
     
-	Log logger = LogFactory.getLog(AccountController.class);
+	Log logger = LogFactory.getLog(UserController.class);
 	
     @Autowired
     UserService usi;
