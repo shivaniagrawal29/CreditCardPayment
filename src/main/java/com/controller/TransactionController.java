@@ -6,6 +6,8 @@ import java.util.function.Supplier;
 
 import javax.validation.Valid;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +29,7 @@ import com.service.TransactionService;
 @RestController
 @RequestMapping(path="/home")
 public class TransactionController {
-	
+	Log logger = LogFactory.getLog(AccountController.class);
 	@Autowired
     TransactionService transcontrol;
 	
@@ -35,7 +37,8 @@ public class TransactionController {
 	public ResponseEntity<String> addTransaction( @Valid @RequestBody Transaction transaction) {
 		
 		Transaction transaction1=transcontrol.addTransaction(transaction);
-		ResponseEntity re=new ResponseEntity<String>("Added Transaction Sucessfully !",HttpStatus.OK);
+		ResponseEntity re=new ResponseEntity<String>("Added Transaction Successfully !",HttpStatus.OK);
+		logger.info("addTransaction Successful !!");
 		return re ;
 	//	return transaction1;
 	}
@@ -45,8 +48,9 @@ public class TransactionController {
 	 {
 	     
         Transaction transaction =transcontrol.removeTransaction(id);
-    	ResponseEntity re=new ResponseEntity<String>("Deleted Transaction Sucessfully !",HttpStatus.OK);
-		return re;
+    	ResponseEntity re=new ResponseEntity<String>("Deleted Transaction Successfully !",HttpStatus.OK);
+    	logger.info("deleteTransaction Successfully !!");
+    	return re;
 		//return transaction;
 	}
 
@@ -54,7 +58,8 @@ public class TransactionController {
 	public ResponseEntity<String> updateTransaction(@PathVariable long id,@Valid @RequestBody Transaction transaction) throws Throwable{
 	
 	 Transaction transaction1=transcontrol.updateTransaction(id, transaction);
-		ResponseEntity re=new ResponseEntity<String>("Updated Transaction Sucessfully !",HttpStatus.OK);
+		ResponseEntity re=new ResponseEntity<String>("Updated Transaction Successfully !",HttpStatus.OK);
+		logger.info("updateTransaction Successful !!");
 		return re;
 		//return transaction1;
 		
@@ -63,12 +68,14 @@ public class TransactionController {
     @GetMapping("getalltransactions")
 	public List<Transaction> getAllTransaction() {
 		List<Transaction>transactions=transcontrol.getAllTransaction();
+		logger.info("getAllTransactions Successful !!");
 		return transactions;
 	}
 
 	@GetMapping("gettransaction/{id}")
 	public Transaction getTransactionDetails(@PathVariable long id) throws Throwable {
 		Transaction transaction=transcontrol.getTransactionDetails(id);
+		logger.info("getTransaction Successful !!");
 		return transaction;
 	}
 
