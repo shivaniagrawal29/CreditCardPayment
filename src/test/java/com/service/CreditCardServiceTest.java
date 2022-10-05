@@ -27,7 +27,7 @@ class CreditCardServiceTest {
 	ICreditCardRepository creditcardrepo;
 	
 	@Test
-	void testAddCreditCard() {
+	void testAddCreditCard() throws Throwable{
 		CreditCard c1 = new CreditCard();
 		c1.setId(1);
 		c1.setBankName("Axis");
@@ -96,7 +96,7 @@ class CreditCardServiceTest {
 	}
 
 	@Test
-	void testGetAllCreditCards() {
+	void testGetAllCreditCards() throws Throwable{
 		CreditCard c1 = new CreditCard();
 		c1.setId(1);
 		c1.setBankName("Axis");

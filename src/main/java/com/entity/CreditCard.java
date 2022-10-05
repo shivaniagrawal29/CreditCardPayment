@@ -3,6 +3,7 @@ package com.entity;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -30,6 +31,7 @@ public class CreditCard {
 	@NotNull
 	private String cardType;
 	
+	@Column(unique = true)
 	@NotNull
 	@Size(min=19,max=19,message="format of card number is xxxx xxxx xxxx xxxx")
 	@Pattern(regexp = "^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$", message="format of card number is xxxx xxxx xxxx xxxx")

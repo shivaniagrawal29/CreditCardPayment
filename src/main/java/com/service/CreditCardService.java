@@ -6,7 +6,10 @@ import java.util.function.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.advices.IdAlreadyExistsException;
+import com.advices.NoRecordFoundException;
 import com.advices.ResourceNotFoundException;
+import com.entity.Account;
 import com.entity.CreditCard;
 import com.repository.ICreditCardRepository;
 
@@ -17,10 +20,14 @@ public class CreditCardService implements ICreditCardService {
 	ICreditCardRepository creditcardrepo;
 	
 	@Override
-	public CreditCard addCreditCard(CreditCard creditcard)
+	public CreditCard addCreditCard(CreditCard creditcard)throws Throwable
 	{
-		CreditCard c1 = creditcardrepo.save(creditcard);
-		return c1;
+	 	if( !creditcardrepo.findById(creditcard.getId()).isEmpty()  )
+		{
+			throw new IdAlreadyExistsException("CreditCard already exists in database !!");
+		}
+		return creditcardrepo.save(creditcard);	
+	
 	}
 
 	@Override
@@ -54,8 +61,13 @@ public class CreditCardService implements ICreditCardService {
 	}
 
 	@Override
-	public List<CreditCard> getAllCreditCards() {
-		List<CreditCard> c = creditcardrepo.findAll(); 
-		return c;
-	}
+	public List<CreditCard> getAllCreditCards() throws Throwable{
+		List<CreditCard> creditcards = creditcardrepo.findAll(); 
+	
+		if(creditcards.isEmpty())
+		{	throw new NoRecordFoundException("NO Records found in database !!");
+		}
+		return creditcards;
+
+}
 }

@@ -21,4 +21,17 @@ public class GlobalExceptionHandler {
 		ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
 		return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	
+	@ExceptionHandler( NoRecordFoundException.class)
+	public ResponseEntity<?>  noRecordFoundException(NoRecordFoundException ex, WebRequest request){
+		ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorDetails, HttpStatus.CONFLICT);
+	}
+	
+	@ExceptionHandler( IdAlreadyExistsException.class)
+	public ResponseEntity<?>  IdAlreadyExistsExceptio(IdAlreadyExistsException ex, WebRequest request){
+		ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+	}
+	
 }

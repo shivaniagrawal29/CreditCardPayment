@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
+import com.advices.IdAlreadyExistsException;
+import com.advices.NoRecordFoundException;
 import com.entity.Customer;
 import com.service.CustomerService;
 
@@ -35,12 +35,20 @@ public class CustomerController {
     CustomerService csi;
     
     @PostMapping("/addcustomer")
-    public ResponseEntity<String> addCustomer(@Valid @RequestBody Customer customer)
+    public ResponseEntity<String>  addCustomer(@Valid @RequestBody Customer customer)throws Throwable
     {
-        csi.addCustomer(customer);
-        logger.info("addCustomer successful.");
-        ResponseEntity<String> re=new ResponseEntity<String>("Added Customer Sucessfully !",HttpStatus.OK);
-        return re;
+    	
+       try{
+    	   csi.addCustomer(customer);
+           logger.info("addCustomer successful.");
+           ResponseEntity<String>re=new ResponseEntity<>("Added Customer Sucessfully !",HttpStatus.OK);
+           return re;
+       
+       }
+       catch(IdAlreadyExistsException e)
+       {
+    	   throw new IdAlreadyExistsException("Customer already exists in database !!");
+       }
     }
     
     @DeleteMapping("/removecustomer/{customerid}")
@@ -70,9 +78,12 @@ public class CustomerController {
     }
     
     @GetMapping("/getallcustomers")
-    public List<Customer> getCustomer(){
-        List<Customer> custLst= csi.getAllCustomers();
+    public List<Customer> getCustomer()throws Throwable{
+        List<Customer> creditcards= csi.getAllCustomers();
+        if(creditcards.isEmpty()) {
+			   throw new NoRecordFoundException("NO Records found in database !!");
+		}
         logger.info("getallcustomers successful.");
-        return custLst;
+        return creditcards;
     }
 }

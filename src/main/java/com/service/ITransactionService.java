@@ -2,6 +2,7 @@ package com.service;
 
 import java.util.List;
 
+import com.advices.NoRecordFoundException;
 import com.entity.Transaction;
 
 public interface ITransactionService {
@@ -12,7 +13,7 @@ public interface ITransactionService {
 	
 	public Transaction updateTransaction (long id,Transaction transaction)throws Throwable;
 	
-	public List< Transaction>  getAllTransaction ();
+	public List< Transaction>  getAllTransaction () throws  Throwable;
 	
 	public Transaction getTransactionDetails(long id) throws Throwable ; 
 

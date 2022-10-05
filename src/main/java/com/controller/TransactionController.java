@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.advices.NoRecordFoundException;
 import com.entity.Transaction;
 import com.service.TransactionService;
 
@@ -57,10 +58,14 @@ public class TransactionController {
 	}
 
 	@GetMapping("getalltransactions")
-	public List<Transaction> getAllTransaction() {
+	public List<Transaction> getAllTransaction()  throws Throwable{
 		List<Transaction>transactions=transcontrol.getAllTransaction();
+		if(transactions.isEmpty()) {
+			   throw new NoRecordFoundException("NO Records found in database !!!!");
+		}
 		logger.info("getalltransactions successful.");
 		return transactions;
+		
 	}
 
 	@GetMapping("gettransaction/{id}")
@@ -70,4 +75,5 @@ public class TransactionController {
 		return transaction;
 	}
 
+    
 }
