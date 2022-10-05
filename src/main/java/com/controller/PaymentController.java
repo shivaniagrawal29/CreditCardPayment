@@ -54,7 +54,7 @@ public class PaymentController {
 	}
 	
 	@GetMapping("/getpayment/{id}")
-	public ResponseEntity<String> getPayment(@PathVariable long id)throws Throwable
+	public Payment getPayment(@PathVariable long id)throws Throwable
 	{
 		Payment p = paymentservice.getPayment(id);
 		logger.info("getPayment successful.");
