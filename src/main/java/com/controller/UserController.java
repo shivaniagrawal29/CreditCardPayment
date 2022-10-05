@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,23 +26,25 @@ public class UserController {
     @Autowired
     UserService usi;
     
-    @RequestMapping("/signin/{user1}")
+    @PostMapping("/signin")
     public ResponseEntity<String> signIn(@RequestBody User user1)
     {
+    	usi.signIn(user1);
     	logger.info("signIn successful.");
         ResponseEntity<String> re = new ResponseEntity<String>("Sign In Successful !",HttpStatus.OK);
         return re;
     }
     
-    @RequestMapping("/signout/{user2}")
+    @PostMapping("/signout")
     public ResponseEntity<String> signOut(@RequestBody User user2)
     {
+    	usi.signOut(user2);
     	logger.info("signOut successful.");
         ResponseEntity<String> re = new ResponseEntity<String>("Sign Out Successful !",HttpStatus.OK);
         return re;
     }
     
-    @RequestMapping("/changepassword/{userid3}")
+    @PutMapping("/changepassword/{userid3}")
     public ResponseEntity<String> changePassword(@PathVariable Long userid3, @RequestBody User user1) throws Throwable
     {
         usi.changePassword(userid3, user1);
