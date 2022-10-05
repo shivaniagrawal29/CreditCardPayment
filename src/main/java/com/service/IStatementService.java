@@ -14,7 +14,7 @@ public interface IStatementService {
 	
 	Statement getStatement(long id) throws Throwable;
 	
-	List<Statement> getAllStatements();
+	List<Statement> getAllStatements()throws Throwable;
 	
 	List<Statement> getBilledStatements();
 	

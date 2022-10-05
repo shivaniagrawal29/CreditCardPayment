@@ -6,6 +6,8 @@ import java.util.function.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.advices.IdAlreadyExistsException;
+import com.advices.NoRecordFoundException;
 import com.advices.ResourceNotFoundException;
 import com.entity.Customer;
 import com.repository.ICustomerRepository;
@@ -18,8 +20,12 @@ public class CustomerService implements ICustomerService{
 	ICustomerRepository customerRepo;
 
 	@Override
-	public Customer addCustomer(Customer customer) {
-
+	public Customer addCustomer(Customer customer)throws Throwable {
+	
+		if( !customerRepo.findById(customer.getCustomerId()).isEmpty()  )
+		{
+			throw new IdAlreadyExistsException("Customer already exists in database !!");
+		}
 		customerRepo.save(customer);		
 		return customer;
 	}
@@ -59,8 +65,12 @@ public class CustomerService implements ICustomerService{
 
 	
 	@Override
-	public List<Customer> getAllCustomers() {
-		List<Customer> listCust = customerRepo.findAll();
-		return listCust;
+	public List<Customer> getAllCustomers()throws Throwable {
+		List<Customer> customers = customerRepo.findAll();
+		
+		if(customers.isEmpty())
+		{	throw new NoRecordFoundException("NO Records found in database !!");
+		}
+		return customers;
 	}
 }

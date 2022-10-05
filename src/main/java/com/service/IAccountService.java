@@ -6,7 +6,7 @@ import com.entity.Account;
 
 public interface IAccountService {
 
-	Account addAccount(Account account);
+	Account addAccount(Account account)throws Throwable;
 	
 	Account removeAccount(long id) throws Throwable;
 	
@@ -14,5 +14,5 @@ public interface IAccountService {
 	
 	Account getAccount(long id) throws Throwable;
 	
-	List<Account> getAllAccounts();
+	List<Account> getAllAccounts()throws Throwable;
 }

@@ -58,6 +58,8 @@ public class PaymentController {
 	{
 		Payment p = paymentservice.getPayment(id);
 		logger.info("getPayment successful.");
+		//return ResponseEntity.ok("Payment removed successfully from the database!");
+
 		return p;
 	}
 }

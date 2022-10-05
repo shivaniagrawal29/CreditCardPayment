@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.advices.IdAlreadyExistsException;
+import com.advices.NoRecordFoundException;
 import com.entity.Account;
 import com.service.AccountService;
 
@@ -28,11 +30,16 @@ public class AccountController {
 	AccountService accountService;
 	
 	@PostMapping("/addaccount")
-	public ResponseEntity<String> addAccount(@RequestBody Account account) {
+	public ResponseEntity<String> addAccount(@RequestBody Account account)throws Throwable {
+	try {
 		accountService.addAccount(account);
 		logger.info("addAccount successful.");
-		return ResponseEntity.ok("Account is valid. "
-				+ "\nAdded successfully in the database!");
+		return ResponseEntity.ok("Account is valid. "+ "\nAdded successfully in the database!");
+	}
+	catch(IdAlreadyExistsException e)
+    {
+ 	   throw new IdAlreadyExistsException("Account already exists in database !!");
+    }
 	}
 
 	@DeleteMapping("/removeaccount/{id}")
@@ -58,10 +65,13 @@ public class AccountController {
 	}
 
 	@GetMapping("/getallaccounts")
-	public List<Account> getAllAccounts() {
-		List<Account> la = accountService.getAllAccounts();
+	public List<Account> getAllAccounts()throws Throwable {
+		List<Account> accounts = accountService.getAllAccounts();
+		if(accounts.isEmpty()) {
+			   throw new NoRecordFoundException("NO Records found in database !!");
+		}
 		logger.info("getAllAccounts successful.");
-		return la;
+		return accounts;
 	}
 	
 }

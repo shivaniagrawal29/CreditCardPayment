@@ -6,6 +6,7 @@ import java.util.function.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.advices.NoRecordFoundException;
 import com.advices.ResourceNotFoundException;
 import com.entity.Transaction;
 import com.repository.ITransactionRepository;
@@ -44,8 +45,12 @@ public class TransactionService implements ITransactionService{
 	}
 
 	@Override
-	public List<Transaction> getAllTransaction() {
+	public List<Transaction> getAllTransaction() throws Throwable  {
 		List<Transaction>transactions=transrepoo.findAll();
+		if(transactions.isEmpty())
+		{	throw new NoRecordFoundException("NO Records found in database !!");
+		}
+		 
 		return transactions;
 	}
 
