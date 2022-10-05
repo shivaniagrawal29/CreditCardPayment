@@ -13,7 +13,6 @@ import javax.validation.constraints.Pattern;
 public class User{
     
 	@Id
-	@GeneratedValue
     private long userId;
 	
 	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", 

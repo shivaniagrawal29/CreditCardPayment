@@ -40,7 +40,7 @@ class CustomerServiceTest {
 	}
 
 	@Test
-	void testRemoveCustomer() throws Throwable{
+	void testRemoveCustomer() {
 		Customer c1 = new Customer();
 		c1.setCustomerId(1);
 		c1.setName("Varun");

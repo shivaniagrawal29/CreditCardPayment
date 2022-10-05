@@ -36,7 +36,7 @@ class PaymentServiceTest {
 	}
 
 	@Test
-	void testRemovePayment() throws Throwable{
+	void testRemovePayment() {
 		Payment p1 = new Payment();
 		p1.setPaymentId(1);
 		p1.setMethod("upi");

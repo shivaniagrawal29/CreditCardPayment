@@ -40,7 +40,7 @@ class AccountServiceTest {
 	}
 
 	@Test
-	void testRemoveAccount() throws Throwable{
+	void testRemoveAccount() {
 		Account a1 = new Account();
 		a1.setAccountId(12345);
 		a1.setAccountName("abcd");

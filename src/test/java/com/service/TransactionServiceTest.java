@@ -26,7 +26,7 @@ class TransactionServiceTest {
 	ITransactionRepository transactionrepo;
 	
 	@Test
-	void testAddTransaction() throws Throwable{
+	void testAddTransaction() {
 		Transaction t1 = new Transaction();
 		t1.setTranId(1);
 		t1.setTranDate(LocalDate.of(2016, 9, 23));
@@ -41,7 +41,7 @@ class TransactionServiceTest {
 	}
 
 	@Test
-	void testRemoveTransaction() throws Throwable {
+	void testRemoveTransaction() {
 		Transaction t1 = new Transaction();
 		t1.setTranId(1);
 		t1.setTranDate(LocalDate.of(2016, 9, 23));

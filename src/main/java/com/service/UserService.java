@@ -18,12 +18,15 @@ public class UserService implements IUserService{
 
 	@Override
 	public User signIn(User user) {
+		userRepo.save(user);
 		return user;
 	}
 
 	@Override
 	public User signOut(User user) {
-		return user;
+		User user1 = user;
+		userRepo.deleteById(user.getUserId());
+		return user1;
 	}
 
 	@Override
