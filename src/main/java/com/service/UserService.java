@@ -18,13 +18,11 @@ public class UserService implements IUserService{
 
 	@Override
 	public User signIn(User user) {
-		// TODO Auto-generated method stub
 		return user;
 	}
 
 	@Override
 	public User signOut(User user) {
-		// TODO Auto-generated method stub
 		return user;
 	}
 
