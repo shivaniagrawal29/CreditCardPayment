@@ -17,7 +17,7 @@ public class Payment {
 	@NotNull
 	private String method;
 	
-	@DecimalMax("50000.0") @DecimalMin("0.0") 
+	@DecimalMax("100000.0") @DecimalMin("0.0") 
 	private double amountDue;
 	
 	public long getPaymentId() {
@@ -38,6 +38,7 @@ public class Payment {
 	public void setAmountDue(double amountDue) {
 		this.amountDue = amountDue;
 	}
+	
 	@Override
 	public String toString() {
 		return "Payment [paymentId=" + paymentId + ", method=" + method + ", amountDue=" + amountDue + "]";

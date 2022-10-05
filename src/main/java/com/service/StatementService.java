@@ -12,6 +12,7 @@ import com.entity.Statement;
 import com.repository.IStatementRepository;
 
 @Service
+@SuppressWarnings(value = { "rawtypes", "unchecked" })
 public class StatementService implements IStatementService {
 
 	@Autowired
@@ -39,7 +40,6 @@ public class StatementService implements IStatementService {
 		originalStmt.setDueAmount(statement.getDueAmount());
 		originalStmt.setBillingDate(statement.getBillingDate());
 		originalStmt.setDueDate(statement.getDueDate());
-//		originalStmt.setCustomer(statement.getCustomer());
 		
 		statementRepo.save(originalStmt);
 		return originalStmt;

@@ -6,7 +6,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,29 +28,26 @@ public class AccountController {
 	AccountService accountService;
 	
 	@PostMapping("/addaccount")
-	public ResponseEntity<String> addAccount(@RequestBody Account account) {//, BindingResult bindingResult
-		Account a = accountService.addAccount(account);
+	public ResponseEntity<String> addAccount(@RequestBody Account account) {
+		accountService.addAccount(account);
 		logger.info("addAccount successful.");
-		return ResponseEntity.ok("Account is valid."
-				+ "Added successfully in the database!");// + bindingResult
-//		return a;
+		return ResponseEntity.ok("Account is valid. "
+				+ "\nAdded successfully in the database!");
 	}
 
 	@DeleteMapping("/removeaccount/{id}")
 	public ResponseEntity<String> removeAccount(@PathVariable long id) throws Throwable {
-		Account a = accountService.removeAccount(id);
+		accountService.removeAccount(id);
 		logger.info("removeAccount successful.");
 		return ResponseEntity.ok("Account removed successfully from the database!");
-//		return a;
 	}
 
 	@PutMapping("/updateaccount/{id}")
 	public ResponseEntity<String> updateAccount(@PathVariable long id, @RequestBody Account account) throws Throwable {
-		Account a = accountService.updateAccount(id, account);
+		accountService.updateAccount(id, account);
 		logger.info("updateAccount successful.");
 		return ResponseEntity.ok("Account is valid."
 				+ "Updated successfully in the database!");
-//		return a;
 	}
 
 	@GetMapping("/getaccount/{id}")

@@ -11,6 +11,7 @@ import com.entity.Customer;
 import com.repository.ICustomerRepository;
 
 @Service
+@SuppressWarnings(value = { "rawtypes", "unchecked" })
 public class CustomerService implements ICustomerService{
 	
 	@Autowired
@@ -44,10 +45,8 @@ public class CustomerService implements ICustomerService{
 		updateCust.setDob(customer.getDob());
 		updateCust.setEmail(customer.getEmail());
 		updateCust.setName(customer.getName());
-//		updateCust.setPassword(customer.getPassword());
 		
 		customerRepo.save(updateCust);
-		
 		return updateCust;
 	}
 
@@ -61,7 +60,6 @@ public class CustomerService implements ICustomerService{
 	
 	@Override
 	public List<Customer> getAllCustomers() {
-
 		List<Customer> listCust = customerRepo.findAll();
 		return listCust;
 	}

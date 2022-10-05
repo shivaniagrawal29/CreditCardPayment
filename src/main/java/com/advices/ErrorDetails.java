@@ -41,5 +41,4 @@ public class ErrorDetails {
 		this.details = details;
 	}
 	
-	
 }

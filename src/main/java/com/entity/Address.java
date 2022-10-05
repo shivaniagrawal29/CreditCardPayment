@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -15,8 +17,13 @@ public class Address {
 	private String doorNo;
 	private String street;
 	private String area;
+	
+	@NotBlank(message = "Please add city")
 	private String city;
+	
+	@NotBlank(message = "Please add state")
 	private String state;
+
 	private int pincode;
 	
 	@ManyToOne(cascade = CascadeType.ALL)

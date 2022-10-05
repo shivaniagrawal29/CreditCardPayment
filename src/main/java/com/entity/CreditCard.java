@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class CreditCard {
 	
 	@Id
-//	@GeneratedValue
+	@GeneratedValue
 	private long id;
 	
 	@NotNull
@@ -31,8 +31,8 @@ public class CreditCard {
 	private String cardType;
 	
 	@NotNull
-	@Size(min=19,max=19,message="format of card number is xxxx xxxx xxxx")
-	@Pattern(regexp = "^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$", message="format of card number is xxxx xxxx xxxx")
+	@Size(min=19,max=19,message="format of card number is xxxx xxxx xxxx xxxx")
+	@Pattern(regexp = "^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$", message="format of card number is xxxx xxxx xxxx xxxx")
 	private String cardNumber;
 	
 	@NotNull
@@ -43,7 +43,7 @@ public class CreditCard {
 	private String bankName;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_custId")//, referencedColumnName = "customerId"
+	@JoinColumn(name = "fk_custId")
 	@JsonBackReference
 	Customer customer;
 	

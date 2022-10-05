@@ -2,15 +2,13 @@ package com.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -19,14 +17,13 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Account {
 	
 	@Id
-//	@GeneratedValue
 	private long accountId;
 	
-	@NotBlank(message = "Account name cannot be blank")
-	@Size(min = 2, max = 20, message = "Account name should be at least 2 characters long")
+	@NotNull(message = "Account name cannot be null")
+	@Size(min = 2, max = 20, message = "Account name should be at least 2 characters long.")
 	private String accountName;
 	
-	@NotNull
+	@NotNull(message = "Balance cannot be null")
 	@Min(value = 0, message = "Due amount cannot be negative.")
 	private double balance;
 	
@@ -69,19 +66,11 @@ public class Account {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	
-//	public Statement getStatement() {
-//		return statement;
-//	}
-//
-//	public void setStatement(Statement statement) {
-//		this.statement = statement;
-//	}
 
 	@Override
 	public String toString() {
 		return "Account [accountId=" + accountId + ", accountName=" + accountName + ", balance=" + balance
-				+ ", accountType=" + accountType + "]";
+				+ ", accountType=" + accountType + ", customer=" + customer + "]";
 	}
 	
 }

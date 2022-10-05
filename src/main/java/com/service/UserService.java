@@ -10,6 +10,7 @@ import com.entity.User;
 import com.repository.IUserRepository;
 
 @Service
+@SuppressWarnings(value = { "rawtypes", "unchecked" })
 public class UserService implements IUserService{
 	
 	@Autowired

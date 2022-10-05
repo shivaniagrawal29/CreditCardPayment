@@ -5,7 +5,7 @@ import javax.validation.Valid;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,48 +24,40 @@ import com.service.PaymentService;
 @RequestMapping("home")
 public class PaymentController {
 	
-	Log logger = LogFactory.getLog(AccountController.class);
-	
+	Log logger = LogFactory.getLog(PaymentController.class);
+
 	@Autowired
 	PaymentService paymentservice;
 	
 	@PostMapping("/addpayment")
 	public ResponseEntity<String> addPayment(@Valid@RequestBody Payment payment)
 	{
-		Payment payment1 = paymentservice.addPayment(payment);
-		ResponseEntity re=new ResponseEntity<String>("Payment details added Successfully !!",HttpStatus.OK);
-		logger.info("addPayment Successful !!");
-		return re;
-		//return payment1;
+		paymentservice.addPayment(payment);
+		logger.info("addPayment successful.");
+		return ResponseEntity.ok("Payment added successfully in the database!");
 	}
 	
 	@DeleteMapping("/removepayment/{id}")
 	public ResponseEntity<String> removePayment(@PathVariable long id)throws Throwable
 	{
-		Payment payment = paymentservice.removePayment(id);
-		ResponseEntity re=new ResponseEntity<String>("Payment details added Successfully !!",HttpStatus.OK);
-		logger.info("removePayment Successful !!");
-		return re;
-		//return payment;
+		paymentservice.removePayment(id);
+		logger.info("removePayment successful.");
+		return ResponseEntity.ok("Payment removed successfully in the database!");
 	}
 	
 	@PutMapping("/updatepayment/{id}")
 	public ResponseEntity<String> updatePayment(@PathVariable long id,@Valid@RequestBody Payment payment)throws Throwable
 	{
-		Payment payment1 = paymentservice.updatePayment(id, payment);
-		ResponseEntity re=new ResponseEntity<String>("Payment details added Successfully !!",HttpStatus.OK);
-		logger.info("updatePayment Successful !!");
-		return re;
-		//return payment;
+		paymentservice.updatePayment(id, payment);
+		logger.info("updatePayment successful.");
+		return ResponseEntity.ok("Payment removed successfully from the database!");
 	}
 	
 	@GetMapping("/getpayment/{id}")
 	public ResponseEntity<String> getPayment(@PathVariable long id)throws Throwable
 	{
-		Payment payment = paymentservice.getPayment(id);
-		ResponseEntity re=new ResponseEntity<String>("Payment details added Successfully !!",HttpStatus.OK);
-		logger.info("getPayment Successful !!");
-		return re;
-		//return payment;
+		Payment p = paymentservice.getPayment(id);
+		logger.info("getPayment successful.");
+		return p;
 	}
 }

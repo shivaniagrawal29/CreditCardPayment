@@ -11,6 +11,7 @@ import com.entity.CreditCard;
 import com.repository.ICreditCardRepository;
 
 @Service
+@SuppressWarnings(value = { "rawtypes", "unchecked" })
 public class CreditCardService implements ICreditCardService {
 	@Autowired
 	ICreditCardRepository creditcardrepo;

@@ -10,6 +10,7 @@ import com.entity.Payment;
 import com.repository.IPaymentRepository;
 
 @Service
+@SuppressWarnings(value = { "rawtypes", "unchecked" })
 public class PaymentService implements IPaymentService{
 	
 	@Autowired

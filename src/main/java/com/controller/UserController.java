@@ -28,7 +28,7 @@ public class UserController {
     public ResponseEntity<String> signIn(@RequestBody User user1)
     {
     	logger.info("signIn successful.");
-        ResponseEntity re = new ResponseEntity<String>("Sign In Successful !",HttpStatus.OK);
+        ResponseEntity<String> re = new ResponseEntity<String>("Sign In Successful !",HttpStatus.OK);
         return re;
     }
     
@@ -36,16 +36,16 @@ public class UserController {
     public ResponseEntity<String> signOut(@RequestBody User user2)
     {
     	logger.info("signOut successful.");
-        ResponseEntity re = new ResponseEntity<String>("Sign Out Successful !",HttpStatus.OK);
+        ResponseEntity<String> re = new ResponseEntity<String>("Sign Out Successful !",HttpStatus.OK);
         return re;
     }
     
     @RequestMapping("/changepassword/{userid3}")
     public ResponseEntity<String> changePassword(@PathVariable Long userid3, @RequestBody User user1) throws Throwable
     {
-        User user3 = usi.changePassword(userid3, user1);
+        usi.changePassword(userid3, user1);
         logger.info("changePassword successful.");
-        ResponseEntity re = new ResponseEntity<String>("Password Changed Successfully",HttpStatus.OK);
+        ResponseEntity<String> re = new ResponseEntity<String>("Password Changed Successfully",HttpStatus.OK);
         return re;
     }
     
