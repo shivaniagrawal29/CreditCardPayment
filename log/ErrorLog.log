@@ -7168,3 +7168,169 @@ java.lang.NullPointerException: null
 05-Oct-2022 14:28:53 INFO - Stopping ProtocolHandler ["http-nio-8090"]
 05-Oct-2022 14:28:53 INFO - Destroying ProtocolHandler ["http-nio-8090"]
 05-Oct-2022 14:28:53 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+05-Oct-2022 14:56:43 INFO - HV000001: Hibernate Validator 6.2.5.Final
+05-Oct-2022 14:56:43 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+05-Oct-2022 14:56:44 INFO - Finished Spring Data repository scanning in 90 ms. Found 7 JPA repository interfaces.
+05-Oct-2022 14:56:44 INFO - Tomcat initialized with port(s): 8090 (http)
+05-Oct-2022 14:56:44 INFO - Initializing ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 14:56:44 INFO - Starting service [Tomcat]
+05-Oct-2022 14:56:44 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+05-Oct-2022 14:56:44 INFO - Initializing Spring embedded WebApplicationContext
+05-Oct-2022 14:56:44 INFO - Root WebApplicationContext: initialization completed in 1394 ms
+05-Oct-2022 14:56:44 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+05-Oct-2022 14:56:44 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+05-Oct-2022 14:56:44 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+05-Oct-2022 14:56:45 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+05-Oct-2022 14:56:45 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+05-Oct-2022 14:56:45 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+05-Oct-2022 14:56:45 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+05-Oct-2022 14:56:46 INFO - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6232cde5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b75d640, org.springframework.security.web.context.SecurityContextPersistenceFilter@3b6b9981, org.springframework.security.web.header.HeaderWriterFilter@6bab65b6, org.springframework.security.web.authentication.logout.LogoutFilter@1c74eeb7, com.config.JwtRequestFilter@2520010e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@43b1fdb7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6d5376b7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e9b66ab, org.springframework.security.web.session.SessionManagementFilter@1f315f3d, org.springframework.security.web.access.ExceptionTranslationFilter@7e864a8c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@e934485]
+05-Oct-2022 14:56:46 INFO - Starting ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 14:56:46 INFO - Tomcat started on port(s): 8090 (http) with context path ''
+05-Oct-2022 14:56:54 INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+05-Oct-2022 14:56:54 INFO - Initializing Servlet 'dispatcherServlet'
+05-Oct-2022 14:56:54 INFO - Completed initialization in 0 ms
+05-Oct-2022 15:06:10 INFO - Application shutdown requested.
+05-Oct-2022 15:06:10 INFO - Pausing ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:06:10 INFO - Stopping service [Tomcat]
+05-Oct-2022 15:06:10 INFO - Destroying Spring FrameworkServlet 'dispatcherServlet'
+05-Oct-2022 15:06:10 INFO - Stopping ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:06:10 INFO - Destroying ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:06:10 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+05-Oct-2022 15:07:13 INFO - HV000001: Hibernate Validator 6.2.5.Final
+05-Oct-2022 15:07:14 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+05-Oct-2022 15:07:14 INFO - Finished Spring Data repository scanning in 124 ms. Found 7 JPA repository interfaces.
+05-Oct-2022 15:07:15 INFO - Tomcat initialized with port(s): 8090 (http)
+05-Oct-2022 15:07:15 INFO - Initializing ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:07:15 INFO - Starting service [Tomcat]
+05-Oct-2022 15:07:15 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+05-Oct-2022 15:07:15 INFO - Initializing Spring embedded WebApplicationContext
+05-Oct-2022 15:07:15 INFO - Root WebApplicationContext: initialization completed in 1832 ms
+05-Oct-2022 15:07:15 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+05-Oct-2022 15:07:15 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+05-Oct-2022 15:07:15 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+05-Oct-2022 15:07:16 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+05-Oct-2022 15:07:16 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+05-Oct-2022 15:07:16 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+05-Oct-2022 15:07:16 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+05-Oct-2022 15:07:17 INFO - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6a9e88f1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22edca96, org.springframework.security.web.context.SecurityContextPersistenceFilter@509e4bc4, org.springframework.security.web.header.HeaderWriterFilter@5c14c284, org.springframework.security.web.authentication.logout.LogoutFilter@357f0cc9, com.config.JwtRequestFilter@62f7d7bd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a35a792, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@41843b88, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@591bff1d, org.springframework.security.web.session.SessionManagementFilter@7ef6a063, org.springframework.security.web.access.ExceptionTranslationFilter@15c48119, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4daa53e0]
+05-Oct-2022 15:07:18 INFO - Starting ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:07:18 INFO - Tomcat started on port(s): 8090 (http) with context path ''
+05-Oct-2022 15:08:08 INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+05-Oct-2022 15:08:08 INFO - Initializing Servlet 'dispatcherServlet'
+05-Oct-2022 15:08:08 INFO - Completed initialization in 2 ms
+05-Oct-2022 15:08:08 ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.SignatureException: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:354) ~[jjwt-0.9.0.jar:0.9.0]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481) ~[jjwt-0.9.0.jar:0.9.0]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541) ~[jjwt-0.9.0.jar:0.9.0]
+	at com.config.JwtTokenUtil.getAllClaimsFromToken(JwtTokenUtil.java:45) ~[classes/:?]
+	at com.config.JwtTokenUtil.getClaimFromToken(JwtTokenUtil.java:40) ~[classes/:?]
+	at com.config.JwtTokenUtil.getUsernameFromToken(JwtTokenUtil.java:28) ~[classes/:?]
+	at com.config.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:43) ~[classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+05-Oct-2022 15:17:59 INFO - Application shutdown requested.
+05-Oct-2022 15:17:59 INFO - Pausing ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:17:59 INFO - Stopping service [Tomcat]
+05-Oct-2022 15:17:59 INFO - Destroying Spring FrameworkServlet 'dispatcherServlet'
+05-Oct-2022 15:17:59 INFO - Stopping ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:17:59 INFO - Destroying ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:17:59 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+05-Oct-2022 15:18:07 INFO - HV000001: Hibernate Validator 6.2.5.Final
+05-Oct-2022 15:18:08 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+05-Oct-2022 15:18:08 INFO - Finished Spring Data repository scanning in 105 ms. Found 7 JPA repository interfaces.
+05-Oct-2022 15:18:09 INFO - Tomcat initialized with port(s): 8090 (http)
+05-Oct-2022 15:18:09 INFO - Initializing ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:18:09 INFO - Starting service [Tomcat]
+05-Oct-2022 15:18:09 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+05-Oct-2022 15:18:09 INFO - Initializing Spring embedded WebApplicationContext
+05-Oct-2022 15:18:09 INFO - Root WebApplicationContext: initialization completed in 1510 ms
+05-Oct-2022 15:18:09 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+05-Oct-2022 15:18:09 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+05-Oct-2022 15:18:09 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+05-Oct-2022 15:18:09 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+05-Oct-2022 15:18:10 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+05-Oct-2022 15:18:10 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+05-Oct-2022 15:18:10 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+05-Oct-2022 15:18:10 INFO - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7585531b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7fbe0f64, org.springframework.security.web.context.SecurityContextPersistenceFilter@6bab65b6, org.springframework.security.web.header.HeaderWriterFilter@27e0906f, org.springframework.security.web.authentication.logout.LogoutFilter@11885841, com.config.JwtRequestFilter@163fbbc9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33f5d807, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66a5cbe5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d0971cd, org.springframework.security.web.session.SessionManagementFilter@5748638c, org.springframework.security.web.access.ExceptionTranslationFilter@331b0bfd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@65f1bf2c]
+05-Oct-2022 15:18:11 INFO - Starting ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:18:11 INFO - Tomcat started on port(s): 8090 (http) with context path ''
+05-Oct-2022 15:25:41 INFO - Application shutdown requested.
+05-Oct-2022 15:25:41 INFO - Pausing ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:25:41 INFO - Stopping service [Tomcat]
+05-Oct-2022 15:25:41 INFO - Stopping ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:25:41 INFO - Destroying ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:25:41 INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+05-Oct-2022 15:25:47 INFO - HV000001: Hibernate Validator 6.2.5.Final
+05-Oct-2022 15:25:48 INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+05-Oct-2022 15:25:48 INFO - Finished Spring Data repository scanning in 109 ms. Found 7 JPA repository interfaces.
+05-Oct-2022 15:25:48 INFO - Tomcat initialized with port(s): 8090 (http)
+05-Oct-2022 15:25:48 INFO - Initializing ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:25:48 INFO - Starting service [Tomcat]
+05-Oct-2022 15:25:48 INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+05-Oct-2022 15:25:49 INFO - Initializing Spring embedded WebApplicationContext
+05-Oct-2022 15:25:49 INFO - Root WebApplicationContext: initialization completed in 1545 ms
+05-Oct-2022 15:25:49 INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+05-Oct-2022 15:25:49 INFO - HHH000412: Hibernate ORM core version 5.6.11.Final
+05-Oct-2022 15:25:49 INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+05-Oct-2022 15:25:49 INFO - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+05-Oct-2022 15:25:50 INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+05-Oct-2022 15:25:50 INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+05-Oct-2022 15:25:50 WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+05-Oct-2022 15:25:51 INFO - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@fcdeb50, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f7a2a79, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c9ed40, org.springframework.security.web.header.HeaderWriterFilter@7dfbdcfe, org.springframework.security.web.authentication.logout.LogoutFilter@57b4fc1e, com.config.JwtRequestFilter@654db80b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23c3f787, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7e864a8c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65f1bf2c, org.springframework.security.web.session.SessionManagementFilter@319c77de, org.springframework.security.web.access.ExceptionTranslationFilter@3c739a9b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@430abcad]
+05-Oct-2022 15:25:51 INFO - Starting ProtocolHandler ["http-nio-8090"]
+05-Oct-2022 15:25:51 INFO - Tomcat started on port(s): 8090 (http) with context path ''
+05-Oct-2022 15:26:46 INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+05-Oct-2022 15:26:46 INFO - Initializing Servlet 'dispatcherServlet'
+05-Oct-2022 15:26:46 INFO - Completed initialization in 1 ms
