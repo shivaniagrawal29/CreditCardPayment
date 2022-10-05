@@ -6,7 +6,7 @@ import com.entity.Customer;
 
 public interface ICustomerService {
 	
-	Customer addCustomer(Customer customer);
+	Customer addCustomer(Customer customer)throws Throwable;
 	
 	Customer removeCustomer(long customerId) throws Throwable;
 	
@@ -14,6 +14,6 @@ public interface ICustomerService {
 	
 	Customer getCustomer(long customerId) throws Throwable;
 	
-	List<Customer> getAllCustomers();
+	List<Customer> getAllCustomers()throws Throwable;
 
 }

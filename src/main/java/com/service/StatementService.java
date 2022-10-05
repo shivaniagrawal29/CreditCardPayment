@@ -7,6 +7,7 @@ import java.util.function.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.advices.NoRecordFoundException;
 import com.advices.ResourceNotFoundException;
 import com.entity.Statement;
 import com.repository.IStatementRepository;
@@ -52,8 +53,12 @@ public class StatementService implements IStatementService {
 	}
 
 	@Override
-	public List<Statement> getAllStatements() {
-		return statementRepo.findAll();
+	public List<Statement> getAllStatements() throws Throwable{
+		List<Statement>statements=statementRepo.findAll();
+		if(statements.isEmpty())
+		{	throw new NoRecordFoundException("NO Records found in database !!");
+		}
+		return statements;
 	}
 	
 	@Override

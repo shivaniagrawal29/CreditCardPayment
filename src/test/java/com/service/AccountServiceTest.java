@@ -27,7 +27,7 @@ class AccountServiceTest {
 	
 	
 	@Test
-	void testAddAccount() {
+	void testAddAccount()throws Throwable {
 		Account a1 = new Account();
 		a1.setAccountId(12345);
 		a1.setAccountName("abcd");
@@ -87,7 +87,7 @@ class AccountServiceTest {
 	}
 
 	@Test
-	void testGetAllAccounts() {
+	void testGetAllAccounts()throws Throwable {
 		Account a1 = new Account();
 		a1.setAccountId(12345);
 		a1.setAccountName("abcd");

@@ -27,7 +27,7 @@ class CustomerServiceTest {
 	ICustomerRepository customerrepo;
 	
 	@Test
-	void testAddCustomer() {
+	void testAddCustomer() throws Throwable{
 		Customer c1 = new Customer();
 		c1.setCustomerId(1);
 		c1.setName("Varun");
@@ -90,7 +90,7 @@ class CustomerServiceTest {
 	}
 
 	@Test
-	void testGetAllCustomers() {
+	void testGetAllCustomers()throws Throwable {
 		Customer c1 = new Customer();
 		c1.setCustomerId(1);
 		c1.setName("Varun");

@@ -6,6 +6,8 @@ import java.util.function.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.advices.IdAlreadyExistsException;
+import com.advices.NoRecordFoundException;
 import com.advices.ResourceNotFoundException;
 import com.entity.Account;
 import com.repository.IAccountRepository;
@@ -18,7 +20,12 @@ public class AccountService implements IAccountService {
 	IAccountRepository accountRepo;
 	
 	@Override
-	public Account addAccount(Account account) {
+	public Account addAccount(Account account) throws Throwable {
+		
+		if( !accountRepo.findById(account.getAccountId()).isEmpty()  )
+		{
+			throw new IdAlreadyExistsException("Account already exists in database !!");
+		}
 		return accountRepo.save(account);
 	}
 
@@ -50,8 +57,13 @@ public class AccountService implements IAccountService {
 	}
 
 	@Override
-	public List<Account> getAllAccounts() {
-		return accountRepo.findAll();
+	public List<Account> getAllAccounts() throws Throwable{
+	
+		List<Account>accounts=accountRepo.findAll();
+		if(accounts.isEmpty())
+		{	throw new NoRecordFoundException("NO Records found in database !!");
+		}
+		return accounts;
 	}
 
 }

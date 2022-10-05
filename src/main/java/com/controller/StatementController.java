@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.advices.NoRecordFoundException;
 import com.entity.Statement;
 import com.service.StatementService;
 
@@ -60,10 +61,13 @@ public class StatementController {
 	}
 
 	@GetMapping("/getallstatements")
-	public List<Statement> getAllStatements() {
-		List<Statement> s = statementService.getAllStatements();
+	public List<Statement> getAllStatements() throws Throwable{
+		List<Statement> statements = statementService.getAllStatements();
+		if(statements.isEmpty()) {
+			   throw new NoRecordFoundException("NO Records found in database !!");
+		}
 		logger.info("getAllStatements successful.");
-		return s;
+		return statements;
 	}
 
 	@GetMapping("/getbilledstatements")

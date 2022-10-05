@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.advices.IdAlreadyExistsException;
+import com.advices.NoRecordFoundException;
 import com.entity.CreditCard;
 import com.service.CreditCardService;
 
@@ -33,12 +35,18 @@ public class CreditCardController {
 	CreditCardService creditcardservice;
 	
 	@PostMapping("/addcreditcard")
-	public ResponseEntity<String> addCreditCard(@RequestBody @Valid CreditCard creditcard)
+	public ResponseEntity<String> addCreditCard(@RequestBody @Valid CreditCard creditcard)throws Throwable
 	{
+		try {
 		creditcardservice.addCreditCard(creditcard);
 		ResponseEntity<String> re=new ResponseEntity<String>("Added credit card Sucessfully !",HttpStatus.OK);
 		logger.info("addCreditCard successful.");
 		return re;
+		}
+		   catch(IdAlreadyExistsException e)
+	       {
+	    	   throw new IdAlreadyExistsException("CreditCard already exists in database !!");
+	       }
 	}
 	
 	@DeleteMapping("/removecreditcard/{cardId}")
@@ -65,9 +73,12 @@ public class CreditCardController {
 	}
 	
 	@GetMapping("/getcreditcards")
-	public List<CreditCard> getAllCreditCards() {
-		List<CreditCard> c = creditcardservice.getAllCreditCards();
+	public List<CreditCard> getAllCreditCards() throws Throwable{
+		List<CreditCard> creditcards = creditcardservice.getAllCreditCards();
+		if(creditcards.isEmpty()) {
+			   throw new NoRecordFoundException("NO Records found in database !!");
+		}
 		logger.info("getAllCreditCard successful.");
-		return c;
+		return creditcards;
 	}
 }

@@ -86,7 +86,7 @@ class StatementServiceTest {
 	}
 
 	@Test
-	void testGetAllStatements() {
+	void testGetAllStatements()throws Throwable {
 		Statement c1 = new Statement();
 		c1.setStatementId(1);
 		c1.setDueAmount(2000);

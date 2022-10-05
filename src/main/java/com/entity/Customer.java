@@ -4,12 +4,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -26,9 +29,11 @@ public class Customer{
 	@Size(min = 2, message = "The name should be at least 2 characters long")
     private String name;
 	
+	@Column(unique=true) 
 	@Email(message = "Email should be in the format: 'example@mail.com'")
     private String email;
 	
+	@Column(unique=true) 
 	@Pattern(regexp = "^[789]\\d{9}$", message = "Phone number is not valid")
     private String contactNo;
 	
