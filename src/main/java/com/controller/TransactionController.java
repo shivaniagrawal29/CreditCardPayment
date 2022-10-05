@@ -28,13 +28,12 @@ import com.service.TransactionService;
 public class TransactionController {
 
 	Log logger = LogFactory.getLog(TransactionController.class);
-	
+
 	@Autowired
 	TransactionService transcontrol;
 
 	@PostMapping ("addtransaction")
 	public ResponseEntity<String> addTransaction( @Valid @RequestBody Transaction transaction) {
-
 		transcontrol.addTransaction(transaction);
 		logger.info("addtransaction successful.");
 		ResponseEntity<String> re=new ResponseEntity<>("Added Transaction Sucessfully !",HttpStatus.OK);
@@ -51,7 +50,6 @@ public class TransactionController {
 
 	@PutMapping("updatetransaction/{id}")
 	public ResponseEntity<String> updateTransaction(@PathVariable long id,@Valid @RequestBody Transaction transaction) throws Throwable{
-
 		transcontrol.updateTransaction(id, transaction);
 		logger.info("updatetransaction successful.");
 		ResponseEntity<String> re=new ResponseEntity<>("Updated Transaction Sucessfully !",HttpStatus.OK);
@@ -71,7 +69,5 @@ public class TransactionController {
 		logger.info("getTransactionDetails successful.");
 		return transaction;
 	}
-
-
 
 }

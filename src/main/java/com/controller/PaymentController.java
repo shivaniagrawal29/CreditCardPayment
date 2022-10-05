@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,7 @@ import com.service.PaymentService;
 public class PaymentController {
 	
 	Log logger = LogFactory.getLog(PaymentController.class);
-	
+
 	@Autowired
 	PaymentService paymentservice;
 	
@@ -53,7 +54,7 @@ public class PaymentController {
 	}
 	
 	@GetMapping("/getpayment/{id}")
-	public Payment getPayment(@PathVariable long id)throws Throwable
+	public ResponseEntity<String> getPayment(@PathVariable long id)throws Throwable
 	{
 		Payment p = paymentservice.getPayment(id);
 		logger.info("getPayment successful.");
