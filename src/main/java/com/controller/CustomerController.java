@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.advices.IdAlreadyExistsException;
+import com.advices.EntityAlreadyExistsException;
 import com.advices.NoRecordFoundException;
 import com.entity.Customer;
 import com.service.CustomerService;
@@ -45,34 +45,34 @@ public class CustomerController {
            return re;
        
        }
-       catch(IdAlreadyExistsException e)
+       catch(EntityAlreadyExistsException e)
        {
-    	   throw new IdAlreadyExistsException("Customer already exists in database !!");
+    	   throw new EntityAlreadyExistsException("Customer already exists in database !!");
        }
     }
     
-    @DeleteMapping("/removecustomer/{customerid}")
-    public ResponseEntity<String> removeCustomer(@PathVariable long customerid) throws Throwable
+    @DeleteMapping("/removecustomer/{customerNumber}")
+    public ResponseEntity<String> removeCustomer(@PathVariable String customerNumber) throws Throwable
     {
-        csi.removeCustomer(customerid);
+        csi.removeCustomer(customerNumber);
         logger.info("removeCustomer successful.");
         ResponseEntity<String> re = new ResponseEntity<>("Removed Customer Sucessfully !",HttpStatus.OK);
         return re;
     }
     
-    @PutMapping("/updatecustomer/{customerid}")
-    public ResponseEntity<String> updateCustomer(@Valid @PathVariable long customerid, @RequestBody Customer customer) throws Throwable
+    @PutMapping("/updatecustomer/{customerNumber}")
+    public ResponseEntity<String> updateCustomer(@Valid @PathVariable String customerNumber, @RequestBody Customer customer) throws Throwable
     {
-        csi.updateCustomer(customerid, customer);
+        csi.updateCustomer(customerNumber, customer);
         logger.info("updateCustomer successful.");
         ResponseEntity<String> re = new ResponseEntity<String>("Updated Customer Successfully !", HttpStatus.OK);
         return re;
     }
     
-    @GetMapping("/getcustomer/{custid}")
-    public Customer getCustomer(@PathVariable long customerid) throws Throwable
+    @GetMapping("/getcustomer/{customerNumber}")
+    public Customer getCustomer(@PathVariable String customerNumber) throws Throwable
     {
-        Customer customer4 = csi.getCustomer(customerid);
+        Customer customer4 = csi.getCustomer(customerNumber);
         logger.info("getCustomer successful.");
         return customer4;
     }

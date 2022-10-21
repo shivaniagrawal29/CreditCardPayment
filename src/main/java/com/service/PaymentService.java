@@ -1,7 +1,5 @@
 package com.service;
 
-import java.util.function.Supplier;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +8,6 @@ import com.entity.Payment;
 import com.repository.IPaymentRepository;
 
 @Service
-@SuppressWarnings(value = { "rawtypes", "unchecked" })
 public class PaymentService implements IPaymentService{
 	
 	@Autowired
@@ -23,17 +20,23 @@ public class PaymentService implements IPaymentService{
 	}
 
 	@Override
-	public Payment removePayment(long id) throws Throwable{
-		Supplier s1= ()->new ResourceNotFoundException("Payment not found !!");
-		Payment p1 = paymentrepo.findById(id).orElseThrow(s1);
-		paymentrepo.deleteById(id);
+	public Payment removePayment(String paymentNumber) throws Throwable{
+		Payment p1 = paymentrepo.findByPaymentNumber(paymentNumber);
+		if(p1==null)
+        {
+            throw new ResourceNotFoundException("Payment not found !!");
+        }
+		paymentrepo.delete(paymentrepo.findByPaymentNumber(paymentNumber));
 		return p1;
 	}
 
 	@Override
-	public Payment updatePayment(long id, Payment payment) throws Throwable{
-		Supplier s1= ()->new ResourceNotFoundException("Payment not found !!");
-		Payment p1 = paymentrepo.findById(id).orElseThrow(s1);
+	public Payment updatePayment(String paymentNumber, Payment payment) throws Throwable{
+		Payment p1 = paymentrepo.findByPaymentNumber(paymentNumber);
+		if(p1==null)
+        {
+            throw new ResourceNotFoundException("Payment not found !!");
+        }
 		p1.setAmountDue(payment.getAmountDue());
 		p1.setMethod(payment.getMethod());
 		paymentrepo.save(p1);
@@ -41,9 +44,12 @@ public class PaymentService implements IPaymentService{
 	}
 
 	@Override
-	public Payment getPayment(long id)throws Throwable {
-		Supplier s1= ()->new ResourceNotFoundException("Payment not found !!");
-		Payment p1 = paymentrepo.findById(id).orElseThrow(s1);
+	public Payment getPayment(String paymentNumber)throws Throwable {
+		Payment p1 = paymentrepo.findByPaymentNumber(paymentNumber);
+		if(p1==null)
+        {
+            throw new ResourceNotFoundException("Payment not found !!");
+        }
 		return p1;
 	}
 	

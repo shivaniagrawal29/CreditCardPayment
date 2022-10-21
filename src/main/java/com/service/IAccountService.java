@@ -8,11 +8,11 @@ public interface IAccountService {
 
 	Account addAccount(Account account)throws Throwable;
 	
-	Account removeAccount(long id) throws Throwable;
+	Account removeAccount(String accountNumber) throws Throwable;
 	
-	Account updateAccount(long id, Account account) throws Throwable;
+	Account updateAccount(String accountNumber, Account account) throws Throwable;
 	
-	Account getAccount(long id) throws Throwable;
+	Account getAccount(String accountNumber) throws Throwable;
 	
 	List<Account> getAllAccounts()throws Throwable;
 }

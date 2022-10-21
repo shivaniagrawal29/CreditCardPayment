@@ -8,4 +8,7 @@ import com.entity.Statement;
 @Repository
 public interface IStatementRepository extends JpaRepository<Statement, Long> {
 
+	public Statement findByStatementNumber(String statementNumber);
+	public Statement getStatementByStatementNumber(String statementNumber);
+	public boolean existsByStatementNumber(String statementNumber);
 }

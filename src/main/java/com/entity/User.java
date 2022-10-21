@@ -1,7 +1,6 @@
 package com.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import javax.persistence.Table;
@@ -27,9 +26,6 @@ public class User{
 					+ "Does not contain space, tab, etc.\r\n"
 					+ "\r\n")
     private String password;
-    
-//    @OneToOne(mappedBy = "user")
-//    Customer customer;
     
     public long getUserId() {
         return userId;

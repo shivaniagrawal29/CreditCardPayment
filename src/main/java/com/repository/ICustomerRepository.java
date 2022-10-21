@@ -8,4 +8,7 @@ import com.entity.Customer;
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer,Long>{
 
+	public Customer findByCustomerNumber(String customerNumber);
+	public Customer getCustomerByCustomerNumber(String customerNumber);
+	public boolean existsByCustomerNumber(String customerNumber);
 }

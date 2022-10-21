@@ -1,19 +1,16 @@
 package com.service;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.advices.IdAlreadyExistsException;
 import com.advices.NoRecordFoundException;
 import com.advices.ResourceNotFoundException;
 import com.entity.Customer;
 import com.repository.ICustomerRepository;
 
 @Service
-@SuppressWarnings(value = { "rawtypes", "unchecked" })
 public class CustomerService implements ICustomerService{
 	
 	@Autowired
@@ -21,30 +18,29 @@ public class CustomerService implements ICustomerService{
 
 	@Override
 	public Customer addCustomer(Customer customer)throws Throwable {
-	
-		if( !customerRepo.findById(customer.getCustomerId()).isEmpty()  )
-		{
-			throw new IdAlreadyExistsException("Customer already exists in database !!");
-		}
-		customerRepo.save(customer);		
-		return customer;
+		return customerRepo.save(customer);
 	}
 
 	
 	@Override
-	public Customer removeCustomer(long custId) throws Throwable {
-		Supplier s = ()-> new ResourceNotFoundException("Customer doesn't exist in the database.");
-		Customer removedCust = customerRepo.findById(custId).orElseThrow(s);
-		customerRepo.deleteById(custId);
+	public Customer removeCustomer(String customerNumber) throws Throwable {
+		Customer removedCust = customerRepo.findByCustomerNumber(customerNumber);
+		if(removedCust==null){
+            throw new ResourceNotFoundException("Customer doesn't exist in the database.");
+        }
+		customerRepo.delete(customerRepo.findByCustomerNumber(customerNumber));
 		
 		return removedCust;
 	}
 
 	
 	@Override
-	public Customer updateCustomer(long custId, Customer customer) throws Throwable {
-		Supplier s = ()-> new ResourceNotFoundException("Customer doesn't exist in the database.");
-		Customer updateCust = customerRepo.findById(custId).orElseThrow(s);
+	public Customer updateCustomer(String customerNumber, Customer customer) throws Throwable {
+		Customer updateCust = customerRepo.findByCustomerNumber(customerNumber);
+		
+		if(updateCust==null){
+            throw new ResourceNotFoundException("Customer doesn't exist in the database.");
+        }
 		
 		updateCust.setAddresses(customer.getAddresses());
 		updateCust.setContactNo(customer.getContactNo());
@@ -58,9 +54,12 @@ public class CustomerService implements ICustomerService{
 
 	
 	@Override
-	public Customer getCustomer(long custId) throws Throwable {
-		Supplier s = ()-> new ResourceNotFoundException("Customer doesn't exist in the database.");
-		return customerRepo.findById(custId).orElseThrow(s);
+	public Customer getCustomer(String customerNumber) throws Throwable {
+		Customer c = customerRepo.findByCustomerNumber(customerNumber);
+		if(c==null){
+            throw new ResourceNotFoundException("Customer doesn't exist in the database.");
+        }
+		return c;
 	}
 
 	
@@ -68,8 +67,8 @@ public class CustomerService implements ICustomerService{
 	public List<Customer> getAllCustomers()throws Throwable {
 		List<Customer> customers = customerRepo.findAll();
 		
-		if(customers.isEmpty())
-		{	throw new NoRecordFoundException("NO Records found in database !!");
+		if(customers.isEmpty()){
+			throw new NoRecordFoundException("NO Records found in database !!");
 		}
 		return customers;
 	}

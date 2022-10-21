@@ -2,6 +2,7 @@ package com.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,6 +15,9 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Address {
 	
 	@Id
+	@GeneratedValue
+	private long addressId;
+	
 	private String doorNo;
 	private String street;
 	private String area;

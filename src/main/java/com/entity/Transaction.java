@@ -3,13 +3,12 @@ package com.entity;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -26,6 +25,11 @@ public class Transaction {
 	@GeneratedValue
 	private long tranId;
 	
+	@Column(unique=true) 
+	@Pattern(regexp = "^\\d{8}$", message = "Transaction number should be of 8 digits.")
+	@NotNull
+	private String tranNumber;
+	
 	@NotNull(message = "Card number cannot be null.")
 	@Size(min=19,max=19)
 	@Pattern(regexp="^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$")
@@ -38,12 +42,6 @@ public class Transaction {
 	@NotNull(message = "Status cannot be null.")
 	private String status ;
 	
-	@DecimalMax("40000.0") @DecimalMin("1.0") 
-	private double amount ;
-	
-	@NotNull(message = "Payment method cannot be null.")
-	private String paymentMethod ;
-	
 	private String description ;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -51,11 +49,11 @@ public class Transaction {
 	@JsonBackReference
 	Customer customer;
 	
-	public long getTranId() {
-		return tranId;
+	public String getTranNumber() {
+		return tranNumber;
 	}
-	public void setTranId(long tranId) {
-		this.tranId = tranId;
+	public void setTranNumber(String tranNumber) {
+		this.tranNumber = tranNumber;
 	}
 	public Customer getCustomer() {
 		return customer;
@@ -82,18 +80,6 @@ public class Transaction {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public double getAmount() {
-		return amount;
-	}
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
-	public String getPaymentMethod() {
-		return paymentMethod;
-	}
-	public void setPaymentMethod(String paymentMethod) {
-		this.paymentMethod = paymentMethod;
-	}
 	public String getDescription() {
 		return description;
 	}
@@ -103,9 +89,8 @@ public class Transaction {
 	
 	@Override
 	public String toString() {
-		return "Transaction [tranId=" + tranId + ", cardNumber=" + cardNumber + ", tranDate=" + tranDate + ", status="
-				+ status + ", amount=" + amount + ", paymentMethod=" + paymentMethod + ", description=" + description
-				+ ", customer=" + customer + "]";
+		return "Transaction [tranNumber=" + tranNumber + ", cardNumber=" + cardNumber + ", tranDate=" + tranDate
+				+ ", status=" + status + ", description=" + description + ", customer=" + customer + "]";
 	}
 
 	

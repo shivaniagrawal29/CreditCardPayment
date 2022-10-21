@@ -29,7 +29,7 @@ class CustomerServiceTest {
 	@Test
 	void testAddCustomer() throws Throwable{
 		Customer c1 = new Customer();
-		c1.setCustomerId(1);
+		c1.setCustomerNumber("1234");
 		c1.setName("Varun");
 		c1.setEmail("varun@gmail.com");
 		c1.setContactNo("9826754256");
@@ -42,7 +42,7 @@ class CustomerServiceTest {
 	@Test
 	void testRemoveCustomer() {
 		Customer c1 = new Customer();
-		c1.setCustomerId(1);
+		c1.setCustomerNumber("1234");
 		c1.setName("Varun");
 		c1.setEmail("varun@gmail.com");
 		c1.setContactNo("9826754256");
@@ -50,21 +50,21 @@ class CustomerServiceTest {
 		
 		Optional<Customer> c2 = Optional.of(c1);
 		Mockito.when(customerrepo.findById((long) 1)).thenReturn(c2);
-		Mockito.when(customerrepo.existsById(c1.getCustomerId())).thenReturn(false);
-		assertFalse(customerrepo.existsById(c1.getCustomerId()));
+		Mockito.when(customerrepo.existsByCustomerNumber(c1.getCustomerNumber())).thenReturn(false);
+		assertFalse(customerrepo.existsByCustomerNumber(c1.getCustomerNumber()));
 	}
 
 	@Test
 	void testUpdateCustomer() throws Throwable {
 		Customer c1 = new Customer();
-		c1.setCustomerId(1);
+		c1.setCustomerNumber("1234");
 		c1.setName("Varun");
 		c1.setEmail("varun@gmail.com");
 		c1.setContactNo("9826754256");
 		c1.setDob(LocalDate.of(2000, 12, 23));
 		
-		Optional<Customer> c2 = Optional.of(c1);
-		Mockito.when(customerrepo.findById((long) 1)).thenReturn(c2);
+		Customer c2 = c1;
+		Mockito.when(customerrepo.findByCustomerNumber("1234")).thenReturn(c2);
 		Mockito.when(customerrepo.save(c1)).thenReturn(c1);
 		
 		c1.setName("Vishal");
@@ -72,34 +72,34 @@ class CustomerServiceTest {
 		c1.setContactNo("2898972679");
 		c1.setDob(LocalDate.of(2000, 11, 23));
 		
-		assertThat(customerservice.updateCustomer(1, c1)).isEqualTo(c1);
+		assertThat(customerservice.updateCustomer("1234", c1)).isEqualTo(c1);
 	}
 
 	@Test
 	void testGetCustomer() throws Throwable {
 		Customer c1 = new Customer();
-		c1.setCustomerId(1);
+		c1.setCustomerNumber("1234");
 		c1.setName("Varun");
 		c1.setEmail("varun@gmail.com");
 		c1.setContactNo("9826754256");
 		c1.setDob(LocalDate.of(2000, 12, 23));
 		
-		Optional<Customer> c2 = Optional.of(c1);
-		Mockito.when(customerrepo.findById((long) 1)).thenReturn(c2);
-		assertThat(customerservice.getCustomer(1)).isEqualTo(c1);
+		Customer c2 = c1;
+		Mockito.when(customerrepo.findByCustomerNumber("1234")).thenReturn(c2);
+		assertThat(customerservice.getCustomer("1234")).isEqualTo(c1);
 	}
 
 	@Test
 	void testGetAllCustomers() throws Throwable{
 		Customer c1 = new Customer();
-		c1.setCustomerId(1);
+		c1.setCustomerNumber("1234");
 		c1.setName("Varun");
 		c1.setEmail("varun@gmail.com");
 		c1.setContactNo("9826754256");
 		c1.setDob(LocalDate.of(2000, 12, 23));
 		
 		Customer c2 = new Customer();
-		c2.setCustomerId(2);
+		c2.setCustomerNumber("5678");
 		c2.setName("Arun");
 		c2.setEmail("arun@gmail.com");
 		c2.setContactNo("9827462256");

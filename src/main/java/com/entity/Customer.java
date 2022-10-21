@@ -10,10 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -25,6 +23,11 @@ public class Customer{
 	@Id
 	@GeneratedValue
 	private long customerId;
+	
+	@Column(unique=true) 
+	@Pattern(regexp = "^\\d{8}$", message = "Customer number should be of 8 digits.")
+	@NotNull
+	private String customerNumber;
 	
 	@Size(min = 2, message = "The name should be at least 2 characters long")
     private String name;
@@ -60,10 +63,13 @@ public class Customer{
     @JoinColumn(name = "fk_custId", referencedColumnName = "customerId")
     private List<Statement> statements;
     
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name="fk_userId")
-//    User users;
     
+	public String getCustomerNumber() {
+		return customerNumber;
+	}
+	public void setCustomerNumber(String customerNumber) {
+		this.customerNumber = customerNumber;
+	}
 	public String getName() {
 		return name;
 	}
@@ -87,13 +93,6 @@ public class Customer{
 	}
 	public void setDob(LocalDate dob) {
 		this.dob = dob;
-	}
-	
-	public long getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(long customerId) {
-		this.customerId = customerId;
 	}
 	
 	public List<Address> getAddresses() {
@@ -129,18 +128,12 @@ public class Customer{
 	public void setStatements(List<Statement> statements) {
 		this.statements = statements;
 	}
-//	public User getUsers() {
-//		return users;
-//	}
-//	public void setUsers(User users) {
-//		this.users = users;
-//	}
 	
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
-				+ ", dob=" + dob + ", addresses=" + addresses + ", accounts=" + accounts + ", creditcards="
-				+ creditcards + ", transactions=" + transactions + ", statements=" + statements +"]";
+		return "Customer [customerNumber=" + customerNumber + ", name=" + name + ", email=" + email + ", contactNo="
+				+ contactNo + ", dob=" + dob + ", addresses=" + addresses + ", accounts=" + accounts + ", creditcards="
+				+ creditcards + ", transactions=" + transactions + ", statements=" + statements + "]";
 	}
 	
 	

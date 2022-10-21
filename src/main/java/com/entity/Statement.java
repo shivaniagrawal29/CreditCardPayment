@@ -3,13 +3,15 @@ package com.entity;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
-
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,6 +22,11 @@ public class Statement {
 	@Id
 	@GeneratedValue
 	private long statementId;
+	
+	@Column(unique=true) 
+	@NotNull
+	@Pattern(regexp = "^\\d{8}$", message = "Statement number should be of 8 digits.")
+	private String statementNumber;
 	
 	@Min(value = 0, message = "Due amount cannot be negative.")
 	private double dueAmount;
@@ -34,12 +41,13 @@ public class Statement {
 	@JoinColumn(name = "fk_custId")
 	@JsonBackReference
 	private Customer customer;
+
 	
-	public long getStatementId() {
-		return statementId;
+	public String getStatementNumber() {
+		return statementNumber;
 	}
-	public void setStatementId(long statementId) {
-		this.statementId = statementId;
+	public void setStatementNumber(String statementNumber) {
+		this.statementNumber = statementNumber;
 	}
 	public double getDueAmount() {
 		return dueAmount;
@@ -69,8 +77,8 @@ public class Statement {
 	
 	@Override
 	public String toString() {
-		return "Statement [statementId=" + statementId + ", dueAmount=" + dueAmount + ", billingDate=" + billingDate
-				+ ", dueDate=" + dueDate + ", customer=" + customer + "]";
+		return "Statement [statementNumber=" + statementNumber + ", dueAmount=" + dueAmount + ", billingDate="
+				+ billingDate + ", dueDate=" + dueDate + ", customer=" + customer + "]";
 	}
 	
 

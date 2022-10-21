@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.advices.IdAlreadyExistsException;
+import com.advices.EntityAlreadyExistsException;
 import com.advices.NoRecordFoundException;
 import com.entity.Account;
 import com.service.AccountService;
@@ -34,32 +34,32 @@ public class AccountController {
 	try {
 		accountService.addAccount(account);
 		logger.info("addAccount successful.");
-		return ResponseEntity.ok("Account is valid. "+ "\nAdded successfully in the database!");
+		return ResponseEntity.ok("Account details are valid. "+ "\nAdded successfully in the database!");
 	}
-	catch(IdAlreadyExistsException e)
+	catch(EntityAlreadyExistsException e)
     {
- 	   throw new IdAlreadyExistsException("Account already exists in database !!");
+ 	   throw new EntityAlreadyExistsException("Account already exists in database !!");
     }
 	}
 
-	@DeleteMapping("/removeaccount/{id}")
-	public ResponseEntity<String> removeAccount(@PathVariable long id) throws Throwable {
-		accountService.removeAccount(id);
+	@DeleteMapping("/removeaccount/{accountNumber}")
+	public ResponseEntity<String> removeAccount(@PathVariable String accountNumber) throws Throwable {
+		accountService.removeAccount(accountNumber);
 		logger.info("removeAccount successful.");
 		return ResponseEntity.ok("Account removed successfully from the database!");
 	}
 
-	@PutMapping("/updateaccount/{id}")
-	public ResponseEntity<String> updateAccount(@PathVariable long id, @RequestBody Account account) throws Throwable {
-		accountService.updateAccount(id, account);
+	@PutMapping("/updateaccount/{accountNumber}")
+	public ResponseEntity<String> updateAccount(@PathVariable String accountNumber, @RequestBody Account account) throws Throwable {
+		accountService.updateAccount(accountNumber, account);
 		logger.info("updateAccount successful.");
 		return ResponseEntity.ok("Account is valid."
 				+ "Updated successfully in the database!");
 	}
 
-	@GetMapping("/getaccount/{id}")
-	public Account getAccount(@PathVariable long id) throws Throwable {
-		Account a = accountService.getAccount(id);
+	@GetMapping("/getaccount/{accountNumber}")
+	public Account getAccount(@PathVariable String accountNumber) throws Throwable {
+		Account a = accountService.getAccount(accountNumber);
 		logger.info("getAccount successful.");
 		return a;
 	}

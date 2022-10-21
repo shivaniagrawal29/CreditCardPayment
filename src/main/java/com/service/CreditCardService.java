@@ -1,20 +1,16 @@
 package com.service;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.advices.IdAlreadyExistsException;
 import com.advices.NoRecordFoundException;
 import com.advices.ResourceNotFoundException;
-import com.entity.Account;
 import com.entity.CreditCard;
 import com.repository.ICreditCardRepository;
 
 @Service
-@SuppressWarnings(value = { "rawtypes", "unchecked" })
 public class CreditCardService implements ICreditCardService {
 	@Autowired
 	ICreditCardRepository creditcardrepo;
@@ -22,50 +18,52 @@ public class CreditCardService implements ICreditCardService {
 	@Override
 	public CreditCard addCreditCard(CreditCard creditcard)throws Throwable
 	{
-	 	if( !creditcardrepo.findById(creditcard.getId()).isEmpty()  )
-		{
-			throw new IdAlreadyExistsException("CreditCard already exists in database !!");
-		}
 		return creditcardrepo.save(creditcard);	
-	
 	}
 
 	@Override
-	public CreditCard removeCreditCard(long cardId) throws Throwable {	
-		Supplier s = ()-> new ResourceNotFoundException("Creditcard doesn't exist in the database.");
-		CreditCard c1 = creditcardrepo.findById(cardId).orElseThrow(s);
-		creditcardrepo.deleteById(cardId);
-		return c1;
+	public CreditCard removeCreditCard(String cardNumber) throws Throwable {
+		CreditCard c = creditcardrepo.findByCardNumber(cardNumber);
+		if(c==null){
+            throw new ResourceNotFoundException("Creditcard doesn't exist in the database.");
+        }
+		creditcardrepo.delete(creditcardrepo.findByCardNumber(cardNumber));
+		return c;
 	}
 
 	@Override
-	public CreditCard updateCreditCard(long cardId, CreditCard creditcard) throws Throwable{
+	public CreditCard updateCreditCard(String cardNumber, CreditCard creditcard) throws Throwable{
+		CreditCard c1 = creditcardrepo.findByCardNumber(cardNumber);
 		
-		Supplier s = ()-> new ResourceNotFoundException("Creditcard doesn't exist in the database.");	
-		CreditCard c1 = creditcardrepo.findById(cardId).orElseThrow(s);
+		if(c1==null){
+            throw new ResourceNotFoundException("Creditcard doesn't exist in the database.");
+        }
+		
 		c1.setBankName(creditcard.getBankName());
 		c1.setCardName(creditcard.getCardName());
 		c1.setCardNumber(creditcard.getCardNumber());
 		c1.setCardType(creditcard.getCardType());
 		c1.setExpiryDate(creditcard.getExpiryDate());
 		c1.setCustomer(c1.getCustomer());
+		
 		creditcardrepo.save(c1);
 		return c1;
 	}
 
 	@Override
-	public CreditCard getCreditCard(long cardId) throws Throwable {
-		Supplier s = ()-> new ResourceNotFoundException("Creditcard doesn't exist in the database.");
-		CreditCard c1 = creditcardrepo.findById(cardId).orElseThrow(s);
+	public CreditCard getCreditCard(String cardNumber) throws Throwable {
+		CreditCard c1 = creditcardrepo.findByCardNumber(cardNumber);
+		if(c1==null){
+            throw new ResourceNotFoundException("Creditcard doesn't exist in the database.");
+        }
 		return c1;
 	}
 
 	@Override
 	public List<CreditCard> getAllCreditCards() throws Throwable{
 		List<CreditCard> creditcards = creditcardrepo.findAll(); 
-	
-		if(creditcards.isEmpty())
-		{	throw new NoRecordFoundException("NO Records found in database !!");
+		if(creditcards.isEmpty()){
+			throw new NoRecordFoundException("NO Records found in database !!");
 		}
 		return creditcards;
 

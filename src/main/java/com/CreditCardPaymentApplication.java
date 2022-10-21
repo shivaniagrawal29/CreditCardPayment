@@ -24,4 +24,5 @@ public class CreditCardPaymentApplication {
 				.apis(RequestHandlerSelectors.basePackage("com")).build();
 	}
 	/* http://localhost:8080/swagger-ui/index.html */
+	//sonar:sonar -Dsonar.login=admin -Dsonar.password=admin123
 }

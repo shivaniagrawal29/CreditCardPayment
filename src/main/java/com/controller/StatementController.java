@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.advices.NoRecordFoundException;
+import com.advices.ResourceNotFoundException;
 import com.entity.Statement;
 import com.service.StatementService;
 
@@ -38,24 +39,24 @@ public class StatementController {
 				+ "\nAdded successfully in the database!");
 	}
 
-	@DeleteMapping("/removestatement/{id}")
-	public ResponseEntity<String> removeStatement(@PathVariable long id) throws Throwable {
-		statementService.removeStatement(id);
+	@DeleteMapping("/removestatement/{statementNumber}")
+	public ResponseEntity<String> removeStatement(@PathVariable String statementNumber) throws Throwable {
+		statementService.removeStatement(statementNumber);
 		logger.info("removeStatement successful.");
 		return ResponseEntity.ok("Statement removed successfully from the database!");
 	}
 
-	@PutMapping("/updatestatement/{id}")
-	public ResponseEntity<String> updateStatement(@PathVariable long id, @Valid @RequestBody Statement statement) throws Throwable {
-		statementService.updateStatement(id, statement);
+	@PutMapping("/updatestatement/{statementNumber}")
+	public ResponseEntity<String> updateStatement(@PathVariable String statementNumber, @Valid @RequestBody Statement statement) throws Throwable {
+		statementService.updateStatement(statementNumber, statement);
 		logger.info("updateStatement successful.");
 		return ResponseEntity.ok("Statement is valid."
 				+ "Updated successfully in the database!");
 	}
 
-	@GetMapping("/getstatement/{id}")
-	public Statement getStatement(@PathVariable long id) throws Throwable {
-		Statement s = statementService.getStatement(id);
+	@GetMapping("/getstatement/{statementNumber}")
+	public Statement getStatement(@PathVariable String statementNumber) throws Throwable {
+		Statement s = statementService.getStatement(statementNumber);
 		logger.info("getStatement successful.");
 		return s;
 	}
@@ -71,14 +72,14 @@ public class StatementController {
 	}
 
 	@GetMapping("/getbilledstatements")
-	public List<Statement> getBilledStatements() {
+	public List<Statement> getBilledStatements() throws ResourceNotFoundException {
 		List<Statement> s = statementService.getBilledStatements();
 		logger.info("getBilledStatements successful.");
 		return s;
 	}
 
 	@GetMapping("/getunbilledstatements")
-	public List<Statement> getUnbilledStatements() {
+	public List<Statement> getUnbilledStatements() throws ResourceNotFoundException {
 		List<Statement> s = statementService.getUnbilledStatements();
 		logger.info("getUnbilledStatements successful.");
 		return s;

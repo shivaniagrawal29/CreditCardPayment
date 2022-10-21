@@ -8,4 +8,7 @@ import com.entity.Payment;
 @Repository
 public interface IPaymentRepository extends JpaRepository<Payment, Long> {
 
+	public Payment findByPaymentNumber(String paymentNumber);
+	public Payment getPaymentByPaymentNumber(String paymentNumber);
+	public boolean existsByPaymentNumber(String paymentNumber);
 }

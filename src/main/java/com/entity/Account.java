@@ -1,13 +1,16 @@
 package com.entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -16,7 +19,13 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Account {
 	
 	@Id
+	@GeneratedValue
 	private long accountId;
+
+	@Column(unique=true) 
+	@Pattern(regexp = "^\\d{12}$", message = "Account number should be of 12 digits.")
+	@NotNull
+	private String accountNumber;
 	
 	@NotNull(message = "Account name cannot be null")
 	@Size(min = 2, max = 20, message = "Account name should be at least 2 characters long.")
@@ -33,13 +42,13 @@ public class Account {
 	@JoinColumn(name = "fk_custId")
 	@JsonBackReference
 	Customer customer;
-
-	public long getAccountId() {
-		return accountId;
+	
+	public String getAccountNumber() {
+		return accountNumber;
 	}
-	public void setAccountId(long accountId) {
-		this.accountId = accountId;
-	}	
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
 	public String getAccountName() {
 		return accountName;
 	}
@@ -68,8 +77,8 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [accountId=" + accountId + ", accountName=" + accountName + ", balance=" + balance
-				+ ", accountType=" + accountType + ", customer=" + customer + "]";
+		return "Account [accountNumber=" + accountNumber + ", accountName=" + accountName
+				+ ", balance=" + balance + ", accountType=" + accountType + ", customer=" + customer + "]";
 	}
 	
 }

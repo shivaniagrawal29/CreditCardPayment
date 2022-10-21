@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -14,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import com.advices.ResourceNotFoundException;
 import com.entity.Statement;
 import com.repository.IStatementRepository;
 
@@ -29,7 +29,7 @@ class StatementServiceTest {
 	@Test
 	void testAddStatement() {
 		Statement c1 = new Statement();
-		c1.setStatementId(1);
+		c1.setStatementNumber("1234");
 		c1.setDueAmount(2000);
 		c1.setDueDate(LocalDate.of(2016, 8, 23));
 		c1.setBillingDate(LocalDate.of(2016, 9, 23));
@@ -41,60 +41,60 @@ class StatementServiceTest {
 	@Test
 	void testRemoveStatement() {
 		Statement c1 = new Statement();
-		c1.setStatementId(1);
+		c1.setStatementNumber("1234");
 		c1.setDueAmount(2000);
 		c1.setDueDate(LocalDate.of(2016, 8, 23));
 		c1.setBillingDate(LocalDate.of(2016, 9, 23));
 		
-		Optional<Statement> c2 = Optional.of(c1);
-		Mockito.when(statementrepo.findById((long) 1)).thenReturn(c2);
-		Mockito.when(statementrepo.existsById(c1.getStatementId())).thenReturn(false);
-		assertFalse(statementrepo.existsById(c1.getStatementId()));		
+		Statement c2 = c1;
+		Mockito.when(statementrepo.findByStatementNumber("1234")).thenReturn(c2);
+		Mockito.when(statementrepo.existsByStatementNumber(c1.getStatementNumber())).thenReturn(false);
+		assertFalse(statementrepo.existsByStatementNumber(c1.getStatementNumber()));		
 	}
 
 	@Test
 	void testUpdateStatement() throws Throwable {
 		Statement c1 = new Statement();
-		c1.setStatementId(1);
+		c1.setStatementNumber("1234");
 		c1.setDueAmount(2000);
 		c1.setDueDate(LocalDate.of(2016, 8, 23));
 		c1.setBillingDate(LocalDate.of(2016, 9, 23));
 		
-		Optional<Statement> c2 = Optional.of(c1);
-		Mockito.when(statementrepo.findById((long) 1)).thenReturn(c2);
+		Statement c2 = c1;
+		Mockito.when(statementrepo.findByStatementNumber("1234")).thenReturn(c2);
 		Mockito.when(statementrepo.save(c1)).thenReturn(c1);
 		
-		c1.setStatementId(2);
+		c1.setStatementNumber("1234");
 		c1.setDueAmount(1000);
 		c1.setDueDate(LocalDate.of(2019, 8, 23));
 		c1.setBillingDate(LocalDate.of(2019, 9, 23));
 		
-		assertThat(statementservice.updateStatement(1, c1)).isEqualTo(c1);
+		assertThat(statementservice.updateStatement("1234", c1)).isEqualTo(c1);
 	}
 
 	@Test
 	void testGetStatement() throws Throwable {
 		Statement c1 = new Statement();
-		c1.setStatementId(1);
+		c1.setStatementNumber("1234");
 		c1.setDueAmount(2000);
 		c1.setDueDate(LocalDate.of(2016, 8, 23));
 		c1.setBillingDate(LocalDate.of(2016, 9, 23));
 		
-		Optional<Statement> c2 = Optional.of(c1);
-		Mockito.when(statementrepo.findById((long) 1)).thenReturn(c2);
-		assertThat(statementservice.getStatement(1)).isEqualTo(c1);
+		Statement c2 = c1;
+		Mockito.when(statementrepo.findByStatementNumber("1234")).thenReturn(c2);
+		assertThat(statementservice.getStatement("1234")).isEqualTo(c1);
 	}
 
 	@Test
-	void testGetAllStatements() {
+	void testGetAllStatements() throws ResourceNotFoundException {
 		Statement c1 = new Statement();
-		c1.setStatementId(1);
+		c1.setStatementNumber("1234");
 		c1.setDueAmount(2000);
 		c1.setDueDate(LocalDate.of(2016, 8, 23));
 		c1.setBillingDate(LocalDate.of(2016, 9, 23));
 		
 		Statement c2 = new Statement();
-		c2.setStatementId(2);
+		c2.setStatementNumber("5678");
 		c2.setDueAmount(3000);
 		c2.setDueDate(LocalDate.of(2017, 8, 23));
 		c2.setBillingDate(LocalDate.of(2017, 9, 23));
@@ -108,15 +108,15 @@ class StatementServiceTest {
 	}
 
 	@Test
-	void testGetBilledStatements() {
+	void testGetBilledStatements() throws ResourceNotFoundException {
 		Statement c1 = new Statement();
-		c1.setStatementId(1);
+		c1.setStatementNumber("1234");
 		c1.setDueAmount(0);
 		c1.setDueDate(LocalDate.of(2016, 8, 23));
 		c1.setBillingDate(LocalDate.of(2016, 9, 23));
 		
 		Statement c2 = new Statement();
-		c2.setStatementId(2);
+		c2.setStatementNumber("5678");
 		c2.setDueAmount(3000);
 		c2.setDueDate(LocalDate.of(2017, 8, 23));
 		c2.setBillingDate(LocalDate.of(2017, 9, 23));
@@ -137,15 +137,15 @@ class StatementServiceTest {
 	}
 
 	@Test
-	void testGetUnbilledStatements() {
+	void testGetUnbilledStatements() throws ResourceNotFoundException {
 		Statement c1 = new Statement();
-		c1.setStatementId(1);
+		c1.setStatementNumber("1234");
 		c1.setDueAmount(0);
 		c1.setDueDate(LocalDate.of(2016, 8, 23));
 		c1.setBillingDate(LocalDate.of(2016, 9, 23));
 		
 		Statement c2 = new Statement();
-		c2.setStatementId(2);
+		c2.setStatementNumber("5678");
 		c2.setDueAmount(3000);
 		c2.setDueDate(LocalDate.of(2017, 8, 23));
 		c2.setBillingDate(LocalDate.of(2017, 9, 23));
@@ -163,8 +163,6 @@ class StatementServiceTest {
         
         Mockito.when(statementrepo.findAll()).thenReturn(unbilledstmts);
         assertThat(statementservice.getUnbilledStatements()).isEqualTo(unbilledstmts); 
-		
-		
 	}
 
 }

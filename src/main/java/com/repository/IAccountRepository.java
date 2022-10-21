@@ -8,4 +8,7 @@ import com.entity.Account;
 @Repository
 public interface IAccountRepository extends JpaRepository<Account, Long> {
 	
+	public Account findByAccountNumber(String accountNumber);
+	public Account getAccountByAccountNumber(String accountNumber);
+	public boolean existsByAccountNumber(String accountNumber);
 }

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.advices.IdAlreadyExistsException;
+import com.advices.EntityAlreadyExistsException;
 import com.advices.NoRecordFoundException;
 import com.entity.CreditCard;
 import com.service.CreditCardService;
@@ -43,31 +43,31 @@ public class CreditCardController {
 		logger.info("addCreditCard successful.");
 		return re;
 		}
-		   catch(IdAlreadyExistsException e)
+		   catch(EntityAlreadyExistsException e)
 	       {
-	    	   throw new IdAlreadyExistsException("CreditCard already exists in database !!");
+	    	   throw new EntityAlreadyExistsException("CreditCard already exists in database !!");
 	       }
 	}
 	
-	@DeleteMapping("/removecreditcard/{cardId}")
-	public ResponseEntity<String> removeCreditCard(@PathVariable long cardId) throws Throwable {
-		creditcardservice.removeCreditCard(cardId);
+	@DeleteMapping("/removecreditcard/{cardNumber}")
+	public ResponseEntity<String> removeCreditCard(@PathVariable String cardNumber) throws Throwable {
+		creditcardservice.removeCreditCard(cardNumber);
 		ResponseEntity<String> re=new ResponseEntity<String>("Deleted credit card Sucessfully !",HttpStatus.OK);
 		logger.info("removeCreditCard successful.");
 		return re;
 	}
 	
-	@PutMapping("/updatecreditcard/{cardId}")
-	public ResponseEntity<String> updateCreditCard(@PathVariable long cardId,@RequestBody @Valid CreditCard creditcard) throws Throwable{
-		creditcardservice.updateCreditCard(cardId,creditcard);
+	@PutMapping("/updatecreditcard/{cardNumber}")
+	public ResponseEntity<String> updateCreditCard(@PathVariable String cardNumber,@RequestBody @Valid CreditCard creditcard) throws Throwable{
+		creditcardservice.updateCreditCard(cardNumber,creditcard);
 		ResponseEntity<String> re=new ResponseEntity<String>("Updated credit card Sucessfully !",HttpStatus.OK);
 		logger.info("updateCreditCard successful.");
 		return re;
 	}
 	
-	@GetMapping("/getcreditcard/{cardId}")
-	public CreditCard getCreditCard(@PathVariable long cardId) throws Throwable {
-		CreditCard c1 = creditcardservice.getCreditCard(cardId);
+	@GetMapping("/getcreditcard/{cardNumber}")
+	public CreditCard getCreditCard(@PathVariable String cardNumber) throws Throwable {
+		CreditCard c1 = creditcardservice.getCreditCard(cardNumber);
 		logger.info("getCreditCard successful.");
 		return c1;
 	}

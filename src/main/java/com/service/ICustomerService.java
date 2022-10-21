@@ -8,11 +8,11 @@ public interface ICustomerService {
 	
 	Customer addCustomer(Customer customer)throws Throwable;
 	
-	Customer removeCustomer(long customerId) throws Throwable;
+	Customer removeCustomer(String customerNumber) throws Throwable;
 	
-	Customer updateCustomer(long customerId, Customer customer) throws Throwable;
+	Customer updateCustomer(String customerNumber, Customer customer) throws Throwable;
 	
-	Customer getCustomer(long customerId) throws Throwable;
+	Customer getCustomer(String customerNumber) throws Throwable;
 	
 	List<Customer> getAllCustomers()throws Throwable;
 

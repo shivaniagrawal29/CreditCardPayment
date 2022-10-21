@@ -1,7 +1,6 @@
 package com.service;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +11,6 @@ import com.entity.Transaction;
 import com.repository.ITransactionRepository;
 
 @Service
-@SuppressWarnings(value = { "rawtypes", "unchecked" })
 public class TransactionService implements ITransactionService{
 
 	@Autowired
@@ -26,38 +24,49 @@ public class TransactionService implements ITransactionService{
 	}
 
 	@Override
-	public Transaction removeTransaction(long id) throws Throwable {
-		Supplier s1= ()->new ResourceNotFoundException("Transaction not found !!");
-	   Transaction transaction= transrepoo.findById(id).orElseThrow(s1);
-		transrepoo.deleteById(id);
+	public Transaction removeTransaction(String tranNumber) throws Throwable {
+	   Transaction transaction= transrepoo.findByTranNumber(tranNumber);
+	   
+	   if(transaction==null)
+       {
+           throw new ResourceNotFoundException("Transaction not found !!");
+       }
+	   
+		transrepoo.delete(transrepoo.findByTranNumber(tranNumber));
 		return transaction;
 	}
 
 	@Override
-	public Transaction updateTransaction(long id, Transaction transaction) throws Throwable {
-		Supplier s1= ()->new ResourceNotFoundException("Transaction not found !!");
-		Transaction transaction1=transrepoo.findById(id).orElseThrow(s1) ;
+	public Transaction updateTransaction(String tranNumber, Transaction transaction) throws Throwable {
+		Transaction transaction1=transrepoo.findByTranNumber(tranNumber);
+		if(transaction==null){
+	       throw new ResourceNotFoundException("Transaction not found !!");
+	    }
+		
 		transaction1.setStatus(transaction.getStatus());
 		transaction1.setTranDate(transaction.getTranDate());
-		transrepoo.save(transaction1);
 		
+		transrepoo.save(transaction1);
 		return transaction1;
 	}
 
 	@Override
 	public List<Transaction> getAllTransaction() throws Throwable  {
-		List<Transaction>transactions=transrepoo.findAll();
-		if(transactions.isEmpty())
-		{	throw new NoRecordFoundException("NO Records found in database !!");
+		List<Transaction> transactions=transrepoo.findAll();
+		if(transactions.isEmpty()){	
+			throw new NoRecordFoundException("NO Records found in database !!");
 		}
 		 
 		return transactions;
 	}
 
 	@Override
-	public Transaction getTransactionDetails(long id) throws Throwable {
-		Supplier s = ()-> new ResourceNotFoundException("Transaction doesn't exist in the database.");
-		Transaction t = transrepoo.findById(id).orElseThrow(s);
+	public Transaction getTransactionDetails(String tranNumber) throws Throwable {
+		Transaction t = transrepoo.findByTranNumber(tranNumber);
+		if(t == null){	
+			throw new NoRecordFoundException("Transaction doesn't exist in the database.");
+		}
+		
 		return t;
 	}
 

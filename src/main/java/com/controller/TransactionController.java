@@ -41,17 +41,17 @@ public class TransactionController {
 		return re ;
 	}
 
-	@DeleteMapping("deletetransaction/{id}")
-	public ResponseEntity<String> removeTransaction(@PathVariable long id) throws Throwable {
-		transcontrol.removeTransaction(id);
+	@DeleteMapping("deletetransaction/{tranNumber}")
+	public ResponseEntity<String> removeTransaction(@PathVariable String tranNumber) throws Throwable {
+		transcontrol.removeTransaction(tranNumber);
 		logger.info("deletetransaction successful.");
 		ResponseEntity<String> re=new ResponseEntity<>("Deleted Transaction Sucessfully !",HttpStatus.OK);
 		return re;
 	}
 
-	@PutMapping("updatetransaction/{id}")
-	public ResponseEntity<String> updateTransaction(@PathVariable long id,@Valid @RequestBody Transaction transaction) throws Throwable{
-		transcontrol.updateTransaction(id, transaction);
+	@PutMapping("updatetransaction/{tranNumber}")
+	public ResponseEntity<String> updateTransaction(@PathVariable String tranNumber,@Valid @RequestBody Transaction transaction) throws Throwable{
+		transcontrol.updateTransaction(tranNumber, transaction);
 		logger.info("updatetransaction successful.");
 		ResponseEntity<String> re=new ResponseEntity<>("Updated Transaction Sucessfully !",HttpStatus.OK);
 		return re;
@@ -68,9 +68,9 @@ public class TransactionController {
 		
 	}
 
-	@GetMapping("gettransaction/{id}")
-	public Transaction getTransactionDetails(@PathVariable long id) throws Throwable {
-		Transaction transaction=transcontrol.getTransactionDetails(id);
+	@GetMapping("gettransaction/{tranNumber}")
+	public Transaction getTransactionDetails(@PathVariable String tranNumber) throws Throwable {
+		Transaction transaction=transcontrol.getTransactionDetails(tranNumber);
 		logger.info("getTransactionDetails successful.");
 		return transaction;
 	}

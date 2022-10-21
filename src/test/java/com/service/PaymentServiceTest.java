@@ -3,8 +3,6 @@ package com.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Optional;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +25,7 @@ class PaymentServiceTest {
 	@Test
 	void testAddPayment() {
 		Payment p1 = new Payment();
-		p1.setPaymentId(1);
+		p1.setPaymentNumber("1234");
 		p1.setMethod("upi");
 		p1.setAmountDue(20000);
 		
@@ -38,44 +36,44 @@ class PaymentServiceTest {
 	@Test
 	void testRemovePayment() {
 		Payment p1 = new Payment();
-		p1.setPaymentId(1);
+		p1.setPaymentNumber("1234");
 		p1.setMethod("upi");
 		p1.setAmountDue(20000);
 		
-		Optional<Payment> p2 = Optional.of(p1);
-		Mockito.when(paymentrepo.findById((long) 1)).thenReturn(p2);
-		Mockito.when(paymentrepo.existsById(p1.getPaymentId())).thenReturn(false);
-		assertFalse(paymentrepo.existsById(p1.getPaymentId()));
+		Payment p2 = p1;
+		Mockito.when(paymentrepo.findByPaymentNumber("1234")).thenReturn(p2);
+		Mockito.when(paymentrepo.existsByPaymentNumber(p1.getPaymentNumber())).thenReturn(false);
+		assertFalse(paymentrepo.existsByPaymentNumber(p1.getPaymentNumber()));
 	}
 
 	@Test
 	void testUpdatePayment() throws Throwable{
 		Payment p1 = new Payment();
-		p1.setPaymentId(1);
+		p1.setPaymentNumber("1234");
 		p1.setMethod("upi");
 		p1.setAmountDue(20000);
 		
-		Optional<Payment> p2 = Optional.of(p1);
-		Mockito.when(paymentrepo.findById((long) 1)).thenReturn(p2);
+		Payment p2 = p1;
+		Mockito.when(paymentrepo.findByPaymentNumber("1234")).thenReturn(p2);
 		Mockito.when(paymentrepo.save(p1)).thenReturn(p1);
 		
 		p1.setAmountDue(400000);
 		p1.setMethod("card");
 		
-		assertThat(paymentservice.updatePayment(1, p1)).isEqualTo(p1);
+		assertThat(paymentservice.updatePayment("1234", p1)).isEqualTo(p1);
 	}
 
 	@Test
 	void testGetPayment() throws Throwable{
 		Payment p1 = new Payment();
-		p1.setPaymentId(1);
+		p1.setPaymentNumber("1234");
 		p1.setMethod("upi");
 		p1.setAmountDue(20000);
 		
-		Optional<Payment> p2 = Optional.of(p1);
+		Payment p2 = p1;
 		
-		Mockito.when(paymentrepo.findById((long) 1)).thenReturn(p2);
-		assertThat(paymentservice.getPayment(1)).isEqualTo(p1);
+		Mockito.when(paymentrepo.findByPaymentNumber("1234")).thenReturn(p2);
+		assertThat(paymentservice.getPayment("1234")).isEqualTo(p1);
 	}
 
 }

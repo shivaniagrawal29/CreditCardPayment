@@ -28,8 +28,8 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(errorDetails, HttpStatus.CONFLICT);
 	}
 	
-	@ExceptionHandler( IdAlreadyExistsException.class)
-	public ResponseEntity<?>  IdAlreadyExistsExceptio(IdAlreadyExistsException ex, WebRequest request){
+	@ExceptionHandler( EntityAlreadyExistsException.class)
+	public ResponseEntity<?>  IdAlreadyExistsExceptio(EntityAlreadyExistsException ex, WebRequest request){
 		ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
 		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
 	}

@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -50,10 +49,10 @@ class CreditCardServiceTest {
 		c1.setCardType("Visa");
 		c1.setExpiryDate(LocalDate.of(2016, 9, 23));
 		
-		Optional<CreditCard> c2 = Optional.of(c1);
-		Mockito.when(creditcardrepo.findById((long) 1)).thenReturn(c2);
-		Mockito.when(creditcardrepo.existsById(c1.getId())).thenReturn(false);
-		assertFalse(creditcardrepo.existsById(c1.getId()));
+		CreditCard c2 = c1;
+		Mockito.when(creditcardrepo.findByCardNumber("1234567")).thenReturn(c2);
+		Mockito.when(creditcardrepo.existsByCardNumber(c1.getCardNumber())).thenReturn(false);
+		assertFalse(creditcardrepo.existsByCardNumber(c1.getCardNumber()));
 	}
 
 	@Test
@@ -66,17 +65,17 @@ class CreditCardServiceTest {
 		c1.setCardType("Visa");
 		c1.setExpiryDate(LocalDate.of(2016, 9, 23));
 		
-		Optional<CreditCard> c2 = Optional.of(c1);
-		Mockito.when(creditcardrepo.findById((long) 1)).thenReturn(c2);
-		Mockito.when(creditcardrepo.save(c1)).thenReturn(c1);
+		CreditCard c2 = c1;
+		Mockito.when(creditcardrepo.findByCardNumber("1234567")).thenReturn(c2);
+		Mockito.when(creditcardrepo.existsByCardNumber(c1.getCardNumber())).thenReturn(false);
 		
 		c1.setBankName("ICICI");
 		c1.setCardName("abcdef");
-		c1.setCardNumber("234553");
+		c1.setCardNumber("1234567");
 		c1.setCardType("Debit");
 		c1.setExpiryDate(LocalDate.of(2019, 2, 13));
 		
-		assertThat(creditcardservice.updateCreditCard(1, c1)).isEqualTo(c1);
+		assertThat(creditcardservice.updateCreditCard("1234567", c1)).isEqualTo(c1);
 	}
 
 	@Test
@@ -89,9 +88,9 @@ class CreditCardServiceTest {
 		c1.setCardType("Visa");
 		c1.setExpiryDate(LocalDate.of(2016, 9, 23));
 		
-		Optional<CreditCard> c2 = Optional.of(c1);
-		Mockito.when(creditcardrepo.findById((long) 1)).thenReturn(c2);
-		assertThat(creditcardservice.getCreditCard(1)).isEqualTo(c1);
+		CreditCard c2 = c1;
+		Mockito.when(creditcardrepo.findByCardNumber("1234567")).thenReturn(c2);
+		assertThat(creditcardservice.getCreditCard("1234567")).isEqualTo(c1);
 		
 	}
 
